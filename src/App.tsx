@@ -19,7 +19,7 @@ function App() {
 
   return (
     <Router>
-      {/* On passe le state et la fonction en props à la Navbar */}
+      {/* State and Function in props to Navbar */}
       <Navbar />
 
       <main className="container">
