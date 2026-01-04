@@ -1,0 +1,148 @@
+:root {
+  /* MODE SOMBRE */
+  --color-space: #142030;   /* Bleu nuit (Ciel) */
+  --color-horizon: #732553; /* Rose (Transition) */
+  --color-sun: #E9D8C8;     /* Blanc cassé (Soleil) */
+  --text-main: #ffffff;
+  --nav-bg: rgba(20, 32, 48, 0.8);
+  --color-nav-dark: #1E3442;
+  /* --color-nav-light: rgba(233, 216, 201, 0.9); */
+  --color-nav-light: #a0bde5;
+  --nav-bg: var(--color-nav-dark);
+}
+
+[data-theme='light'] {
+  /* MODE CLAIR */
+  --color-space: #E9D8C8;   /* Blanc cassé (Ciel) */
+  --color-horizon: #b9bdbe; /* Gris bleuté (Transition) */
+  --color-sun: #a2aacd;     /* Blanc pur (Soleil) */
+  --text-main: #142030;     /* Bleu nuit (Texte) */
+  --nav-bg: rgba(233, 216, 201, 0.8);
+  --nav-bg: var(--color-nav-light);
+}
+
+body {
+  margin: 0;
+  background-color: var(--color-space);
+  background-image: radial-gradient(
+    150% 20vh at center 100%, 
+    var(--color-sun) 0%, 
+    var(--color-horizon) 30%, 
+    var(--color-space) 100%
+  );
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  min-height: 100vh;
+  color: var(--text-main);
+  transition: background-color 0.5s ease, color 0.5s ease;
+}
+
+.container {
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+
+.main-content {
+  padding-top: 3rem;
+}
+
+.hero {
+  text-align: center;
+  padding: 4rem 0;
+}
+
+.hero h1 {
+  font-size: 3rem;
+  margin-bottom: 1rem;
+}
+
+.toggle-wrapper {
+  position: fixed;
+  bottom: 30px;
+  right: 30px;
+  z-index: 2000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.toggle-container {
+  position: fixed;
+  bottom: 30px;
+  right: 30px;
+  z-index: 2000;
+  width: 72px;
+  height: 36px;
+  display: flex;
+  align-items: center;
+}
+
+.checkbox {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background: var(--color-nav-dark);
+  appearance: none;
+  border-radius: 40px;
+  cursor: pointer;
+  transition: 0.5s;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  margin: 0;
+}
+
+/* Le rond (Curseur) */
+.checkbox::before {
+  content: "";
+  position: absolute;
+  top: 3px;
+  left: 4px;
+  height: 28px;
+  width: 28px;
+  background: var(--color-sun);
+  border-radius: 50%;
+  transition: 0.4s cubic-bezier(0.18, 0.89, 0.35, 1.15);
+  z-index: 2;
+}
+
+.checkbox:checked::before {
+  transform: translateX(34px);
+  background: var(--color-space);
+}
+
+.checkbox:checked {
+  background: var(--color-nav-light);
+}
+
+/* Conteneur d'icônes par-dessus la checkbox */
+.icons {
+  position: absolute;
+  width: 100%;
+  display: flex;
+  justify-content: space-between; /* Aligne un à gauche, un à droite */
+  padding: 0 10px; /* Marge intérieure pour décoller des bords */
+  box-sizing: border-box;
+  pointer-events: none; /* Laisse le clic passer à la checkbox */
+  z-index: 1;
+}
+
+.icons span {
+  font-size: 14px;
+  transition: 0.5s;
+}
+
+/* LOGIQUE DES COULEURS DU TOGGLE */
+
+.sun {
+  /* Ce filtre transforme le jaune de l'emoji en ton magenta/rose foncé */
+  filter: sepia(1) saturate(5) hue-rotate(285deg) brightness(0.7);
+  opacity: 0.9;
+}
+
+.moon {
+  /* La lune reste en gris neutre et discret */
+  filter: grayscale(1);
+  opacity: 0.4;
+}
+
+/* --- AJUSTEMENTS QUAND LE TOGGLE EST COCHÉ (MODE CLAIR) --- */
