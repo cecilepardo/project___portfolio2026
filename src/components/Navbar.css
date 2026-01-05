@@ -34,7 +34,7 @@
   color: var(--text-main);
   font-weight: 500;
   font-size: 0.95rem;
-  transition: opacity 0.3s;
+  transition: color 0.3s;
 }
 
 .nav-links a:hover {
@@ -61,3 +61,62 @@
   transform: scale(1.2); /* Petit effet de zoom sympa au survol */
 }
 
+.burger {
+  display: none; /* Caché sur desktop */
+  background: none;
+  border: none;
+  cursor: pointer;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.line {
+  width: 25px;
+  height: 2px;
+  background-color: var(--text-main);
+  transition: 0.3s;
+}
+
+/* --- Responsive Mobile --- */
+@media (max-width: 768px) {
+  .burger {
+    display: flex; /* Affiche le burger sur Mobile */
+    flex-direction: column;
+    gap: 5px;
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 10px;
+    z-index: 1002;
+  }
+
+  .nav-links {
+    display: flex;
+    flex-direction: column; /* Liens à la verticale */
+    justify-content: center;
+    align-items: center;
+    position: fixed;
+    top: 0;
+    right: -100%; /* Sorti de l'écran par défaut */
+    width: 100%;
+    height: 100vh;
+    background: var(--color-space); /* Ton fond sombre */
+    transition: 0.5s ease-in-out;
+    z-index: 1001;
+  }
+
+  .nav-links.active {
+    right: 0; /* Entre dans l'écran */
+  }
+}
+
+  /* --- Animation du Burger en "X" quand il est ouvert --- */
+  .navbar.open .line:nth-child(1) {
+    transform: translateY(7px) rotate(45deg);
+  }
+  .navbar.open .line:nth-child(2) {
+    opacity: 0;
+  }
+  .navbar.open .line:nth-child(3) {
+    transform: translateY(-7px) rotate(-45deg);
+  }
