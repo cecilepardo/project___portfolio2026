@@ -73,7 +73,7 @@
     align-items: center;
     gap: 2.5rem;
     padding-top: 100px;
-    padding-bottom: 4rem;
+    padding-bottom: 12rem;
     z-index: 900;
     transition: top 0.5s cubic-bezier(0.4, 0, 0.2, 1);
     
@@ -84,8 +84,8 @@
       var(--menu-fade) 70%, 
       transparent 100%
     );
-    -webkit-backdrop-filter: blur(15px);
-    backdrop-filter: blur(15px);
+    /* -webkit-backdrop-filter: blur(15px); */
+    backdrop-filter: blur(10px);
   }
 
 .nav-links.active {
@@ -102,12 +102,57 @@
 
 }
 
-
-
-
-
-
-
 /* --------------------
       DESKTOP STYLE
 ----------------------- */
+
+@media (min-width: 769px) {
+  /* 1. On cache le bouton burger car on n'en a plus besoin */
+  .burger {
+    display: none;
+  }
+
+  .navbar {
+  display: flex;
+  justify-content: space-between; /* Pousse le nom à gauche et les liens à droite */
+  align-items: center;
+  padding: 0 5%; /* Marge sur les côtés pour ne pas coller aux bords */
+}
+
+  /* 2. On replace le menu horizontalement */
+  .nav-links {
+    position: static;     /* On annule le position: fixed du mobile */
+    display: flex;
+    flex-direction: row;  /* Alignement horizontal */
+    height: auto;
+    width: auto;
+    background: transparent; /* On retire le dégradé mobile */
+    backdrop-filter: none;   /* On retire le flou mobile */
+    top: 0;               /* On force l'affichage (annule le -100vh) */
+    padding: 0;           /* On retire les padding du menu mobile */
+    gap: 2rem;            /* Espacement entre les liens */
+  }
+
+  /* 3. Style des liens au survol (Hover) */
+  .nav-links li a {
+    font-size: 1.1rem;    /* Texte un peu plus petit que sur mobile */
+    position: relative;
+    padding: 0.5rem 0;
+  }
+
+  /* Petit effet de soulignement moderne au survol */
+  .nav-links li a::after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 2px;
+    bottom: 0;
+    left: 0;
+    background-color: var(--text-main);
+    transition: width 0.3s ease;
+  }
+
+  .nav-links li a:hover::after {
+    width: 100%;
+  }
+}

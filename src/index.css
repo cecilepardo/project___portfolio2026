@@ -14,21 +14,25 @@
 
   /* DEFAULT DARK MODE */
   --color-space: #142030;
+  --color-horizon: #732553;
+  --color-sun: #E9D8C8;
   --text-main: #ffffff;
+  
   --color-nav-dark: #1E3442;
+  --color-nav-light: #a0bde5;
+  
+  /* On utilise la version sombre par défaut */
   --nav-bg: var(--color-nav-dark);
-  /* Couleur intermédiaire du dégradé (sombre) */
-  --menu-fade: rgba(20, 32, 48, 0.95); 
 }
 
   /* LIGHT MODE */
 [data-theme='light'] {
   --color-space: #E9D8C8;
+  --color-horizon: #b9bdbe;
+  --color-sun: #a2aacd;
   --text-main: #142030;
-  --color-nav-light: #a0bde5;
+  /* --nav-bg: rgba(233, 216, 201, 0.8); */
   --nav-bg: var(--color-nav-light);
-  /* Couleur intermédiaire du dégradé (claire) */
-  --menu-fade: rgba(160, 189, 229, 0.95);
 }
 
 * {
