@@ -1,29 +1,48 @@
+/* --------------------
+      IMPORTS
+----------------------- */
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&family=Roboto+Slab:wght@100..900&display=swap');
+
+/* --------------------
+      COLORS & FONTS
+----------------------- */
+
 :root {
-  /* MODE SOMBRE */
-  --color-space: #142030;   /* Bleu nuit (Ciel) */
-  --color-horizon: #732553; /* Rose (Transition) */
-  --color-sun: #E9D8C8;     /* Blanc cassé (Soleil) */
+  /* FONTS */
+  --font-title: 'Roboto Slab', serif;
+  --font-body: 'Open Sans', sans-serif;
+
+  /* DEFAULT DARK MODE */
+  --color-space: #142030;
   --text-main: #ffffff;
-  --nav-bg: rgba(20, 32, 48, 0.8);
   --color-nav-dark: #1E3442;
-  /* --color-nav-light: rgba(233, 216, 201, 0.9); */
-  --color-nav-light: #a0bde5;
   --nav-bg: var(--color-nav-dark);
+  /* Couleur intermédiaire du dégradé (sombre) */
+  --menu-fade: rgba(20, 32, 48, 0.95); 
 }
 
+  /* LIGHT MODE */
 [data-theme='light'] {
-  /* MODE CLAIR */
-  --color-space: #E9D8C8;   /* Blanc cassé (Ciel) */
-  --color-horizon: #b9bdbe; /* Gris bleuté (Transition) */
-  --color-sun: #a2aacd;     /* Blanc pur (Soleil) */
-  --text-main: #142030;     /* Bleu nuit (Texte) */
-  --nav-bg: rgba(233, 216, 201, 0.8);
+  --color-space: #E9D8C8;
+  --text-main: #142030;
+  --color-nav-light: #a0bde5;
   --nav-bg: var(--color-nav-light);
+  /* Couleur intermédiaire du dégradé (claire) */
+  --menu-fade: rgba(160, 189, 229, 0.95);
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
 body {
-  margin: 0;
+  font-family: var(--font-body);
+  color: var(--text-main);
   background-color: var(--color-space);
+  
+  /* Background gradient */
   background-image: radial-gradient(
     150% 20vh at center 100%, 
     var(--color-sun) 0%, 
@@ -32,31 +51,62 @@ body {
   );
   background-repeat: no-repeat;
   background-attachment: fixed;
+  
   min-height: 100vh;
-  color: var(--text-main);
-  transition: background-color 0.5s ease, color 0.5s ease;
+  width: 100%;
+  overflow-x: hidden;
+  line-height: 1.6;
 }
 
-.container {
-  max-width: 1000px;
-  margin: 0 auto;
-  padding: 0 20px;
+/* Title fonts */
+h1, h2, h3, h4 {
+  font-family: var(--font-title);
+  
+  font-weight: 500;
+  line-height: 1.2;
+}
+/* Body fonts */
+p {
+  font-family: var(--font-body);
+  font-weight: 400;
+  font-size: 1rem;
+  line-height: 1.6;
+  margin-bottom: 1.5rem; 
 }
 
-
-.main-content {
-  padding-top: 3rem;
+/* --- Global --- */
+.mobile-only {
+  display: none;
 }
 
-.hero {
-  text-align: center;
-  padding: 4rem 0;
+@media (max-width: 768px) {
+  .mobile-only { display: block; }
+  .desktop-only { display: none; }
+  /* Masquer le Hero quand le menu burger est ouvert */
+  body.menu-open .main-content {
+    display: none;
+  }
+
+  .nav-links {
+    position: fixed;
+    top: -100vh; /* Cache le menu au-dessus de l'écran */
+    left: 0;
+    width: 100%;
+    height: 100vh; /* Recouvre toute la hauteur */
+    background-color: var(--color-space);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    transition: top 0.4s ease-in-out; /* L'effet de glisse */
+    z-index: -1; /* Reste derrière la barre principale du nom/burger */
+  }
+
+  .nav-links.active {
+    top: 0; /* Le menu descend et occupe tout l'écran */
+  }
 }
 
-.hero h1 {
-  font-size: 3rem;
-  margin-bottom: 1rem;
-}
 
 .toggle-wrapper {
   position: fixed;

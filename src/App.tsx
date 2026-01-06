@@ -1,10 +1,15 @@
 import { useState, useEffect } from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+
+import './index.css'
+
 import Navbar from './components/Navbar';
 import Home from './pages/Home';
 import Projects from './pages/Projets';
 import CV from './pages/CV';
 import Contact from './pages/Contact';
+
+import './App.css';
 
 function App() {
   const [theme, setTheme] = useState('dark');
@@ -20,7 +25,7 @@ function App() {
   return (
     <Router>
       {/* State and Function in props to Navbar */}
-      <Navbar />
+      <Navbar currentTheme={theme} />
 
       <main className="container">
         <Routes>
