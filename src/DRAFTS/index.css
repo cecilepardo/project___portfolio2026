@@ -1,0 +1,213 @@
+/* SANS TAILWIND */
+
+/* --------------------
+      IMPORTS
+----------------------- */
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&family=Roboto+Slab:wght@100..900&display=swap');
+
+/* --------------------
+      COLORS & FONTS
+----------------------- */
+
+:root {
+  /* FONTS */
+  --font-title: 'Roboto Slab', serif;
+  --font-body: 'Open Sans', sans-serif;
+
+  /* DEFAULT DARK MODE */
+  --color-space: #142030;
+  --color-horizon: #732553;
+  --color-sun: #E9D8C8;
+  --text-main: #ffffff;
+  
+  --color-nav-dark: #1E3442;
+  --color-nav-light: #a0bde5;
+  
+  /* On utilise la version sombre par défaut */
+  --nav-bg: var(--color-nav-dark);
+}
+
+  /* LIGHT MODE */
+[data-theme='light'] {
+  --color-space: #E9D8C8;
+  --color-horizon: #b9bdbe;
+  --color-sun: #a2aacd;
+  --text-main: #142030;
+  /* --nav-bg: rgba(233, 216, 201, 0.8); */
+  --nav-bg: var(--color-nav-light);
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: var(--font-body);
+  color: var(--text-main);
+  background-color: var(--color-space);
+  
+  /* Background gradient */
+  background-image: radial-gradient(
+    150% 20vh at center 100%, 
+    var(--color-sun) 0%, 
+    var(--color-horizon) 30%, 
+    var(--color-space) 100%
+  );
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  
+  min-height: 100vh;
+  width: 100%;
+  overflow-x: hidden;
+  line-height: 1.6;
+}
+
+/* Title fonts */
+h1, h2, h3, h4 {
+  font-family: var(--font-title);
+  
+  font-weight: 500;
+  line-height: 1.2;
+}
+/* Body fonts */
+p {
+  font-family: var(--font-body);
+  font-weight: 400;
+  font-size: 1rem;
+  line-height: 1.6;
+  margin-bottom: 1.5rem; 
+}
+
+/* --- Global --- */
+.mobile-only {
+  display: none;
+}
+
+@media (max-width: 768px) {
+  .mobile-only { display: block; }
+  .desktop-only { display: none; }
+  /* Masquer le Hero quand le menu burger est ouvert */
+  body.menu-open .main-content {
+    display: none;
+  }
+
+  .nav-links {
+    position: fixed;
+    top: -100vh; /* Cache le menu au-dessus de l'écran */
+    left: 0;
+    width: 100%;
+    height: 100vh; /* Recouvre toute la hauteur */
+    background-color: var(--color-space);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    transition: top 0.4s ease-in-out; /* L'effet de glisse */
+    z-index: -1; /* Reste derrière la barre principale du nom/burger */
+  }
+
+  .nav-links.active {
+    top: 0; /* Le menu descend et occupe tout l'écran */
+  }
+}
+
+
+.toggle-wrapper {
+  position: fixed;
+  bottom: 30px;
+  right: 30px;
+  z-index: 2000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.toggle-container {
+  position: fixed;
+  bottom: 30px;
+  right: 30px;
+  z-index: 2000;
+  width: 72px;
+  height: 36px;
+  display: flex;
+  align-items: center;
+}
+
+.checkbox {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background: var(--color-nav-dark);
+  appearance: none;
+  border-radius: 40px;
+  cursor: pointer;
+  transition: 0.5s;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  margin: 0;
+}
+
+/* Le rond (Curseur) */
+.checkbox::before {
+  content: "";
+  position: absolute;
+  top: 3px;
+  left: 4px;
+  height: 28px;
+  width: 28px;
+  background: var(--color-sun);
+  border-radius: 50%;
+  transition: 0.4s cubic-bezier(0.18, 0.89, 0.35, 1.15);
+  z-index: 2;
+}
+
+.checkbox:checked::before {
+  transform: translateX(34px);
+  background: var(--color-space);
+}
+
+.checkbox:checked {
+  background: var(--color-nav-light);
+}
+
+/* Conteneur d'icônes par-dessus la checkbox */
+.icons {
+  position: absolute;
+  width: 100%;
+  display: flex;
+  justify-content: space-between; /* Aligne un à gauche, un à droite */
+  padding: 0 10px; /* Marge intérieure pour décoller des bords */
+  box-sizing: border-box;
+  pointer-events: none; /* Laisse le clic passer à la checkbox */
+  z-index: 1;
+}
+
+.icons span {
+  font-size: 14px;
+  transition: 0.5s;
+}
+
+/* LOGIQUE DES COULEURS DU TOGGLE */
+
+.sun {
+  /* Ce filtre transforme le jaune de l'emoji en ton magenta/rose foncé */
+  filter: sepia(1) saturate(5) hue-rotate(285deg) brightness(0.7);
+  opacity: 0.9;
+}
+
+.moon {
+  /* La lune reste en gris neutre et discret */
+  filter: grayscale(1);
+  opacity: 0.4;
+}
+@media (max-width: 480px) {
+  .toggle-container {
+    bottom: 20px;
+    right: 20px;
+    transform: scale(0.8); /* On réduit légèrement la taille globale du bouton */
+  }
+  
+  .hero-title {
+    font-size: 2.5rem; /* On évite que le nom déborde */
+  }
+}
