@@ -1,14 +1,11 @@
-/* App.css - Structure de base */
-
 .container {
-  max-width: 1000px;
-  margin: 0 auto;
-  padding: 0 20px; /* Sécurité pour que le texte ne colle pas aux bords sur mobile */
-  padding-top: 80px;
+	max-width: 1000px;
+	margin: 0 auto;
+	padding: 0 20px;
 }
 
 .main-content {
-  /* On laisse de l'espace pour la Navbar fixe qui arrivera plus tard */
-  padding-top: 100px; 
-  min-height: calc(100vh - 80px);
+	margin: 0;
+	padding: 0;
+	width: 100%;
 }
