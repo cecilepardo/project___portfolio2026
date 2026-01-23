@@ -14,7 +14,7 @@
   --font-title: 'Roboto Slab', serif;
   --font-body: 'Open Sans', sans-serif;
 
-  /* Couleurs Mode Sombre */
+  /* Darkmode */
   --color-space: #142030;
   --color-horizon: #732553;
   --color-sun: #E9D8C8;
@@ -25,11 +25,11 @@
 
 [data-theme='light'] {
   --color-space: #E9D8C8;
-  --color-horizon: #b9bdbe;
+  --color-horizon: #c9dfe4;
   --color-sun: #a2aacd;
   --text-main: #142030;
   --color-nav: #a0bde5;
-  --color-accent: #732553;
+  --color-accent: #FF5C80;
 }
 
 /* --------------------
