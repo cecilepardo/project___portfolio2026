@@ -11,7 +11,7 @@ const Hero = () => {
     >
       <div className="hero-overlay">
         <div className="hero-content">
-          <h1 className="hero-title">Cécile Pardo</h1>
+          <h1 className="hero-title">Cécile Lavrut - Pardo</h1>
           <h2 className="hero-subtitle">Développeuse Fullstack</h2>
           <p className="hero-description">
             En recherche d’une alternance full-stack, je mets mon œil de

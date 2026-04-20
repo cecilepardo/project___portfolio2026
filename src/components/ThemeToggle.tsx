@@ -1,7 +1,7 @@
 interface ThemeToggleProps {
   theme: string;
   toggleTheme: () => void;
-  className?: string; // On ajoute cette prop pour passer des classes personnalisées
+  className?: string;
 }
 
 const ThemeToggle: React.FC<ThemeToggleProps> = ({ theme, toggleTheme, className }) => {

@@ -13,7 +13,7 @@ const CV = () => {
 					<div className="cv-hero-flex-wrapper">
 						{/* Côté gauche : Titres */}
 						<div className="cv-hero-text">
-							<h1 className="cv-hero-title">Cécile Pardo</h1>
+							<h1 className="cv-hero-title">Cécile  Pardo</h1>
 							<h2 className="cv-hero-subtitle">Développeuse Fullstack</h2>
 						</div>
 
@@ -84,7 +84,7 @@ const CV = () => {
 						<div className="cv-photo-wrapper">
 							<img
 								src="src/assets/pardo_fullstack_photo.jpg"
-								alt="Cécile Pardo"
+								alt=""
 								className="cv-photo"
 							/>
 						</div>
