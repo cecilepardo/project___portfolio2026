@@ -1,136 +1,146 @@
-/* --- 1. Base Mobile (Mobile First) --- */
+/* --- 1. Base Mobile --- */
 .navbar {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 80px;
-  z-index: 1100;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  background-color: var(--color-space);
+	position: fixed;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 80px;
+	z-index: 1100;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	background-color: var(--color-space);
 }
 
 .nav-content {
-  width: 100%;
-  display: flex;
-  /* justify-content: flex-end force le burger à droite 
-     même quand le titre disparaît sur la page Contact */
-  justify-content: flex-end; 
-  align-items: center;
-  padding: 0 20px;
-  position: relative;
+	width: 100%;
+	display: flex;
+	justify-content: flex-end;
+	align-items: center;
+	padding: 0 20px;
+	position: relative;
 }
 
 .nav-brand {
-  /* On positionne le titre de manière absolue pour qu'il 
-     ne gêne pas le bouton burger à droite */
-  position: absolute;
-  left: 20px;
-  font-family: var(--font-title);
-  font-weight: 700;
-  font-size: 1rem;
+	position: absolute;
+	left: 20px;
 }
 
 .nav-brand-link {
-  text-decoration: none;
-  color: var(--text-main);
-  white-space: nowrap;
+	text-decoration: none;
+	color: var(--text-main);
+	font-family: var(--font-title);
+	font-weight: 700;
+	font-size: 1rem;
+	white-space: nowrap;
 }
 
 /* --- 2. Bouton Burger --- */
 .burger {
-  background: none;
-  border: none;
-  cursor: pointer;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  width: 24px;
-  height: 18px;
-  z-index: 1200;
+	background: none;
+	border: none;
+	cursor: pointer;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+	width: 24px;
+	height: 18px;
+	z-index: 1200;
 }
 
 .burger .line {
-  width: 100%;
-  height: 2px;
-  background-color: var(--text-main);
-  transition: all 0.3s ease;
+	width: 100%;
+	height: 2px;
+	background-color: var(--text-main);
+	transition: all 0.3s ease;
 }
 
-/* --- 3. Menu Déroulant Mobile --- */
+/* --- 3. Liens de Navigation (Styles Unifiés) --- */
 .nav-links {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  gap: 2rem;
-  background-color: var(--color-space);
-  list-style: none;
-  z-index: 1050;
-  /* Animation par translation latérale */
-  transform: translateX(100%);
-  transition: transform 0.4s ease-in-out;
+	position: fixed;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100vh;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+	gap: 2rem;
+	background-color: var(--color-space);
+	list-style: none;
+	z-index: 1050;
+	transform: translateX(100%);
+	transition: transform 0.4s ease-in-out;
 }
 
 .nav-links.active {
-  transform: translateX(0);
+	transform: translateX(0);
 }
 
-.nav-links a {
-  text-decoration: none;
-  color: var(--text-main);
-  font-family: var(--font-title);
-  text-transform: uppercase;
-  letter-spacing: 2px;
-  font-size: 1.2rem;
-  transition: color 0.3s;
+/* CLASSE DE BASE POUR CHAQUE LIEN */
+.nav-link {
+	text-decoration: none;
+	color: var(--text-main);
+	font-family: var(--font-title);
+	text-transform: uppercase;
+	letter-spacing: 2px;
+	font-size: 1.2rem;
+	font-weight: 500;
+	transition: all 0.3s ease;
 }
 
-.nav-links a:hover {
-  color: var(--color-accent);
+/* AU SURVOL (Uniquement si pas actif) */
+.nav-link:hover {
+	color: var(--color-accent);
 }
 
-/* --- 4. Version Desktop (Bulle flottante) --- */
+/* CLASSE ACTIVE (Appliquée par NavLink) */
+.nav-active {
+	color: var(--color-accent);
+	font-weight: 800;
+	text-decoration: underline;
+	text-decoration-color: var(--color-accent);
+	text-underline-offset: 4px;
+
+	text-decoration-thickness: 2px;
+}
+
+/* --- 4. Version Desktop --- */
 @media (min-width: 768px) {
-  .navbar {
-    background-color: transparent;
-    top: 20px;
-    height: auto;
-  }
+	.navbar {
+		background-color: transparent;
+		top: 20px;
+		height: auto;
+	}
 
-  .nav-content {
-    width: auto;
-    justify-content: center; /* Centre les liens dans la bulle */
-    background-color: var(--color-nav);
-    border-radius: 12px;
-    backdrop-filter: blur(10px);
-    border: 1px solid rgba(255, 255, 255, 0.1);
-    padding: 10px 30px;
-  }
+	.nav-content {
+		width: auto;
+		justify-content: center;
+		background-color: var(--color-nav);
+		border-radius: 12px;
+		backdrop-filter: blur(10px);
+		border: 1px solid rgba(255, 255, 255, 0.1);
+		padding: 10px 30px;
+	}
 
-  .nav-brand, .burger {
-    display: none;
-  }
+	.nav-brand,
+	.burger {
+		display: none;
+	}
 
-  .nav-links {
-    position: static;
-    height: auto;
-    width: auto;
-    flex-direction: row;
-    background-color: transparent;
-    transform: none;
-    gap: 30px;
-  }
+	.nav-links {
+		position: static;
+		height: auto;
+		width: auto;
+		flex-direction: row;
+		background-color: transparent;
+		transform: none;
+		gap: 30px;
+	}
 
-  .nav-links a {
-    font-size: 0.9rem;
-    letter-spacing: 1px;
-  }
+	.nav-link {
+		font-size: 0.9rem;
+		letter-spacing: 1px;
+	}
 }

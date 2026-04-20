@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import Hero from '../components/Hero';
 import styles from './Contact.module.css';
 
 const Contact: React.FC = () => {
@@ -20,49 +21,60 @@ const Contact: React.FC = () => {
   };
 
   return (
-  <section className={styles.wrapper}>
-    <div className={styles.container}>
-      <h2>Contactez-moi</h2>
-      <form className={styles.form}>
-        <div className={styles.field}>
-          <label htmlFor="name">Nom</label>
-          <input type="text" id="name" name="name" onChange={handleChange} required />
-        </div>
+    /* Conteneur parent relatif pour z-index */
+    <div className={styles.pageContainer}>
+      
+      {/* 1. Le Hero en arrière-plan */}
+      <div className={styles.heroBackground}>
+        <Hero showText={false} />
+      </div>
 
-        <div className={styles.field}>
-          <label htmlFor="email">Email</label>
-          <input type="email" id="email" name="email" onChange={handleChange} required />
-        </div>
+      {/* 2. Le formulaire par-dessus */}
+      <section className={styles.wrapper}>
+        <div className={styles.container}>
+          <h2>Contactez-moi</h2>
+          <form className={styles.form}>
+            <div className={styles.field}>
+              <label htmlFor="name">Nom</label>
+              <input type="text" id="name" name="name" onChange={handleChange} required />
+            </div>
 
-        <div className={styles.field}>
-          <label htmlFor="message">Message</label>
-          <textarea id="message" name="message" rows={4} onChange={handleChange} required />
-        </div>
+            <div className={styles.field}>
+              <label htmlFor="email">Email</label>
+              <input type="email" id="email" name="email" onChange={handleChange} required />
+            </div>
 
-        <div className={styles.checkboxGroup}>
-          <input 
-            type="checkbox" 
-            id="rgpdConsent" 
-            name="rgpdConsent" 
-            checked={formData.rgpdConsent}
-            onChange={handleChange}
-            required 
-          />
-          <label htmlFor="rgpdConsent">
-            En cochant cette case, j'accepte que mes données soient traitées dans le cadre de ma demande de contact.
-          </label>
-        </div>
+            <div className={styles.field}>
+              <label htmlFor="message">Message</label>
+              <textarea id="message" name="message" rows={4} onChange={handleChange} required />
+            </div>
 
-        <button 
-          type="submit" 
-          className={styles.submitBtn} 
-          disabled={!formData.rgpdConsent}
-        >
-          Envoyer
-        </button>
-      </form>
+            <div className={styles.checkboxGroup}>
+              <input 
+                type="checkbox" 
+                id="rgpdConsent" 
+                name="rgpdConsent" 
+                checked={formData.rgpdConsent}
+                onChange={handleChange}
+                required 
+              />
+              <label htmlFor="rgpdConsent">
+                En cochant cette case, j'accepte que mes données soient traitées dans le cadre de ma demande de contact.
+              </label>
+            </div>
+
+            <button 
+              type="submit" 
+              className={styles.submitBtn} 
+              disabled={!formData.rgpdConsent}
+            >
+              Envoyer
+            </button>
+          </form>
+        </div>
+      </section>
     </div>
-  </section>
-);
+  );
 }
+
 export default Contact;
