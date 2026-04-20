@@ -1,10 +1,68 @@
-const Contact = () => {
-  return (
-    <div>
-      <h1>Conctact</h1>
-      <p>Blablabla contact !</p>
-    </div>
-  );
-};
+import { useState } from 'react';
+import styles from './Contact.module.css';
 
+const Contact: React.FC = () => {
+  const [formData, setFormData] = useState({
+    name: '',
+    email: '',
+    message: '',
+    rgpdConsent: false,
+  });
+
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+    const { name, value, type } = e.target;
+    const val = type === 'checkbox' ? (e.target as HTMLInputElement).checked : value;
+
+    setFormData({
+      ...formData,
+      [name]: val,
+    });
+  };
+
+  return (
+  <section className={styles.wrapper}>
+    <div className={styles.container}>
+      <h2>Contactez-moi</h2>
+      <form className={styles.form}>
+        <div className={styles.field}>
+          <label htmlFor="name">Nom</label>
+          <input type="text" id="name" name="name" onChange={handleChange} required />
+        </div>
+
+        <div className={styles.field}>
+          <label htmlFor="email">Email</label>
+          <input type="email" id="email" name="email" onChange={handleChange} required />
+        </div>
+
+        <div className={styles.field}>
+          <label htmlFor="message">Message</label>
+          <textarea id="message" name="message" rows={4} onChange={handleChange} required />
+        </div>
+
+        <div className={styles.checkboxGroup}>
+          <input 
+            type="checkbox" 
+            id="rgpdConsent" 
+            name="rgpdConsent" 
+            checked={formData.rgpdConsent}
+            onChange={handleChange}
+            required 
+          />
+          <label htmlFor="rgpdConsent">
+            En cochant cette case, j'accepte que mes données soient traitées dans le cadre de ma demande de contact.
+          </label>
+        </div>
+
+        <button 
+          type="submit" 
+          className={styles.submitBtn} 
+          disabled={!formData.rgpdConsent}
+        >
+          Envoyer
+        </button>
+      </form>
+    </div>
+  </section>
+);
+}
 export default Contact;

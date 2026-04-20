@@ -1,31 +1,23 @@
 .navbar {
 	position: fixed;
 	top: 1rem;
-	/* On utilise left/right pour définir la largeur, c'est plus stable */
 	left: 5%;
 	right: 5%;
 	height: 70px;
 	z-index: 1000;
-
-	/* Force le calcul correct des dimensions avec le padding */
 	box-sizing: border-box;
-
 	display: flex;
 	justify-content: space-between;
 	align-items: center;
-
-	/* Augmente cette valeur jusqu'à ce que l'écart te plaise */
 	padding: 0 2.5rem;
-
-	/* Design */
 	background: rgba(20, 32, 48, 0.4);
 	backdrop-filter: blur(10px);
 	-webkit-backdrop-filter: blur(10px);
 	border-radius: 12px;
 	border: 1px solid rgba(255, 255, 255, 0.1);
+	box-shadow: 0 8px 20px -5px var(--color-horizon);
 }
 
-/* Style du Logo / Nom */
 .nav-logo {
 	font-weight: 800;
 	font-size: 1.2rem;
@@ -34,7 +26,6 @@
 	letter-spacing: 1px;
 }
 
-/* Conteneur des liens */
 .nav-links {
 	display: flex;
 	gap: 2rem;
@@ -49,12 +40,11 @@
 	transition: color 0.3s ease;
 }
 
-/* État Hover avec ta couleur main */
+
 .nav-links a:hover {
-	color: var(--color-accent); /* Utilise ta variable de couleur */
+	color: var(--color-accent);
 }
 
-/* Optionnel : Changement au scroll (si tu ajoutes du JS plus tard) */
 .navbar.scrolled {
 	background: rgba(0, 0, 0, 0.8); /* Devient plus sombre au scroll */
 	height: 60px;
