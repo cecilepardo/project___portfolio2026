@@ -1,0 +1,41 @@
+.container {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 120px 20px 60px; /* Padding top pour la Navbar */
+  line-height: 1.6;
+  color: var(--text-main);
+  font-family: var(--font-body);
+}
+
+.container h1 {
+  font-family: var(--font-title);
+  color: var(--color-accent);
+  margin-bottom: 2rem;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+}
+
+.section {
+  margin-bottom: 2.5rem;
+}
+
+.section h2 {
+  font-size: 1.2rem;
+  color: var(--color-accent);
+  border-bottom: 1px solid rgba(255, 92, 128, 0.2); /* var(--color-accent) à 20% */
+  padding-bottom: 0.5rem;
+  margin-bottom: 1rem;
+}
+
+.section p {
+  margin-bottom: 0.8rem;
+  opacity: 0.9;
+}
+
+.section ul {
+  padding-left: 20px;
+}
+
+.section li {
+  margin-bottom: 0.5rem;
+}
