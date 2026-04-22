@@ -27,19 +27,17 @@
 }
 
 .cv-hero-title {
-	font-family: var(--font-title);
-	font-size: clamp(2.5rem, 8vw, 4rem);
-	font-weight: 700;
-	margin-bottom: 0.5rem;
-	color: var(--text-main);
-	/* text-shadow: 2px 2px 15px rgba(0, 0, 0, 0.6); */
+  display: none; 
+  font-family: var(--font-title);
+  font-weight: 700;
+  color: #ffffff;
 }
 
 .cv-hero-subtitle {
 	font-family: var(--font-title);
-	font-size: 1.8rem;
+	font-size: 1.5rem;
 	color: var(--color-accent);
-	margin-bottom: 1.5rem;
+	margin-bottom: 1rem;
 	/* text-shadow:
 		2px px 15px rgb(46, 2, 37),
 		1px 1px 2cap rgb(30, 1, 37); */
@@ -109,14 +107,15 @@
 .cv-download-btn {
 	display: flex;
 	align-items: center;
-	gap: 30px;
-	padding: 15px 30px;
-	background-color: var(--color-sun);
-	border: 1px solid rgba(128, 128, 128, 0.2);
-	border-radius: 15px;
+	gap: 2rem;
+	padding: 1rem 2rem;
+	background-color: var(--color-nav);
+	border-radius: 12px;
 	text-decoration: none;
-	transition: all 0.3s ease;
+	transition: all 0.3s ease-in-out;
 	width: fit-content;
+	border: 1px solid rgba(255, 255, 255, 0.1);
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
 }
 
 /* Version spécifique quand le bouton est dans le Hero */
@@ -126,9 +125,8 @@
 }
 
 .cv-download-btn:hover {
-	transform: translateY(-1px);
-	/* border-color: var(--text-main); */
-	background-color: var(--color-horizon);
+	background-color: var(--color-accent);
+	box-shadow: 0 6px 20px rgba(115, 37, 83, 0.4);
 }
 
 .cv-download-text-container {
@@ -183,6 +181,19 @@
 		flex-direction: column-reverse;
 		align-items: center;
 	}
+}
+
+@media (min-width: 769px) {
+  .cv-hero-title {
+    /* Le titre réapparaît sur grand écran */
+    display: block;
+    font-size: 3rem;
+    margin-bottom: 0.5rem;
+  }
+
+  .cv-hero-subtitle {
+    font-size: 1.8rem;
+  }
 }
 
 /* ==========================================================================
