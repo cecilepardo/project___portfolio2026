@@ -167,6 +167,36 @@
 	color: var(--color-space);
 }
 
+.cv-info-item {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 20px;
+  padding: 0 10px;
+}
+
+.cv-info-icon {
+  width: 20px;
+  height: 20px;
+  opacity: 0.8;
+}
+
+.cv-info-label {
+  font-size: 1rem;
+  color: var(--text-main);
+  font-weight: 500;
+}
+
+/* On s'assure que les icônes importées ont une taille cohérente avec GitHub/LinkedIn */
+.cv-social-icon {
+  width: 24px;
+  height: 24px;
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+
 /* ==========================================================================
    4. RESPONSIVE
    ========================================================================== */
