@@ -39,6 +39,18 @@ const MentionsLegales = () => {
 					ou partie des éléments du site est strictement interdite sans
 					l'autorisation écrite préalable de l'éditeur.
 				</p>
+				<p>
+  Les images de background ont été réalisées par{" "}
+    <a
+      href="https://2d.fr"
+      target="_blank"
+      rel="noopener noreferrer"
+			style={{ color: "#ff5c80" }}
+    >
+      Made Art
+    </a>
+  .
+</p>
 			</section>
 
 			<section className={styles.section}>
