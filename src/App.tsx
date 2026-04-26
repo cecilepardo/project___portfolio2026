@@ -32,12 +32,12 @@ function App() {
 			errorElement: <ErrorPage />, // Ajoute cette ligne ici !
 			children: [
 				{ index: true, element: <Home /> },
-				{ path: "portfolio", element: <Portfolio /> },
-				{ path: "projets", element: <Projects /> },
-				{ path: "cv", element: <CV /> },
-				{ path: "contact", element: <Contact /> },
-				{ path: "LegalMentions", element: <LegalMentions /> },
-			],
+  { path: "portfolio", element: <Portfolio /> },
+  { path: "projets", element: <Projects /> },
+  { path: "cv", element: <CV theme={theme} /> },
+  { path: "contact", element: <Contact theme={theme} /> },
+  { path: "LegalMentions", element: <LegalMentions /> },
+],
 		},
 	]);
 

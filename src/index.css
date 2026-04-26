@@ -21,6 +21,7 @@
 	--text-main: #ffffff;
 	--color-nav: #1e3442;
 	--color-accent: #ff5c80;
+	--color-soft-accent: #ff5c80;
 	--hero-bg-image: url("/src/assets/hero-dark.jpg");
 	--icon-github: url("/src/assets/github-dark.png");
 	--icon-linkedin: url("/src/assets/linkedin-dark.png");
@@ -33,6 +34,7 @@
 	--text-main: #142030;
 	--color-nav: #d0e4ff;
 	--color-accent: #ff5c80;
+	--color-soft-accent: #ffc5d3;
 	--hero-bg-image: url("/src/assets/hero-light.jpg");
 	--icon-github: url("/src/assets/github-light.png");
 	--icon-linkedin: url("/src/assets/linkedin-light.png");

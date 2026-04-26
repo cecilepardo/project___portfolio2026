@@ -2,7 +2,11 @@ import { useState } from 'react';
 import Hero from '../components/Hero';
 import styles from './Contact.module.css';
 
-const Contact: React.FC = () => {
+interface ContactProps {
+  theme: string;
+}
+
+const Contact: React.FC<ContactProps> = ({ theme }) => {
   const [formData, setFormData] = useState({
     name: '',
     email: '',
@@ -12,6 +16,7 @@ const Contact: React.FC = () => {
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     const { name, value, type } = e.target;
+    // Note pédagogique : On utilise un cast "as HTMLInputElement" pour accéder à la propriété .checked
     const val = type === 'checkbox' ? (e.target as HTMLInputElement).checked : value;
 
     setFormData({
@@ -22,7 +27,7 @@ const Contact: React.FC = () => {
 
   return (
     /* Conteneur parent relatif pour z-index */
-    <div className={styles.pageContainer}>
+    <div className={`contact-container ${theme === 'dark' ? 'theme-dark' : 'theme-light'}`}>
       
       {/* 1. Le Hero en arrière-plan */}
       <div className={styles.heroBackground}>

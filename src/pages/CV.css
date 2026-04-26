@@ -24,13 +24,14 @@
 	justify-content: space-between;
 	align-items: center;
 	width: 100%;
+	gap: 20px;
 }
 
 .cv-hero-title {
-  display: none; 
-  font-family: var(--font-title);
-  font-weight: 700;
-  color: #ffffff;
+	display: none;
+	font-family: var(--font-title);
+	font-weight: 700;
+	color: #ffffff;
 }
 
 .cv-hero-subtitle {
@@ -38,23 +39,11 @@
 	font-size: 1.5rem;
 	color: var(--color-accent);
 	margin-bottom: 1rem;
-	/* text-shadow:
-		2px px 15px rgb(46, 2, 37),
-		1px 1px 2cap rgb(30, 1, 37); */
-}
-
-.cv-hero-subtitle,
-.hero-subtitle {
-	color: var(--color-accent);
 	text-shadow: 1px 1px 10px rgba(0, 0, 0, 0.3);
 	transition: text-shadow 0.3s ease;
 }
 
-[data-theme="light"] .cv-hero-subtitle,
-[data-theme="light"] .hero-subtitle {
-	/* Ombre 1 : Proche, plus opaque (pour la lisibilité immédiate)
-     Ombre 2 : Large, floue, violette (pour le "glow" et décoller du fond)
-  */
+[data-theme="light"] .cv-hero-subtitle {
 	text-shadow:
 		1px 1px 2px rgba(115, 37, 83, 0.6),
 		0px 0px 15px rgba(115, 37, 83, 0.3);
@@ -74,23 +63,22 @@
 	justify-content: space-between;
 	align-items: flex-start;
 	gap: 40px;
-	padding-top: 20px;
 }
 
 .cv-info-section {
 	flex: 1;
-	display: flex;
-	flex-direction: column;
 }
 
 /* Section Photo */
 .cv-photo-wrapper {
 	width: 200px;
 	height: 250px;
-	margin-top: -50px;
-	border-radius: 20px !important;
+	margin-top: -80px;
+	border-radius: 20px;
 	overflow: hidden;
 	position: relative;
+	box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+	z-index: 10;
 }
 
 .cv-photo {
@@ -98,171 +86,41 @@
 	height: 100%;
 	object-fit: cover;
 	display: block;
-	border-radius: 20px;
 }
 
 /* ==========================================================================
-   3. COMPONENTS (Download Button)
+   3. SOCIAL & INFO LINKS (Boutons)
    ========================================================================== */
-.cv-download-btn {
-	display: flex;
-	align-items: center;
-	gap: 2rem;
-	padding: 1rem 2rem;
-	background-color: var(--color-nav);
-	border-radius: 12px;
-	text-decoration: none;
-	transition: all 0.3s ease-in-out;
-	width: fit-content;
-	border: 1px solid rgba(255, 255, 255, 0.1);
-  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
-}
-
-/* Version spécifique quand le bouton est dans le Hero */
-.cv-hero-content .cv-download-btn {
-	background-color: var(--color-nav);
-	backdrop-filter: blur(8px);
-}
-
-.cv-download-btn:hover {
-	background-color: var(--color-accent);
-	box-shadow: 0 6px 20px rgba(115, 37, 83, 0.4);
-}
-
-.cv-download-text-container {
-	display: flex;
-	flex-direction: column;
-	align-items: flex-start;
-	gap: 0px;
-}
-
-.cv-download-title {
-	font-family: var(--font-title);
-	font-size: 1.1rem;
-	font-weight: 500;
-	color: var(--text-main);
-	line-height: 1.2;
-}
-
-.cv-download-label {
-	font-size: 10px;
-	color: var(--text-main);
-	opacity: 1;
-	margin-top: 2px;
-}
-
-.cv-download-icon {
-	background-color: var(--color-space);
-	color: var(--text-main);
-	padding: 10px;
-	border-radius: 10px;
-	display: flex;
-	align-items: center;
-	justify-content: center;
-	transition: all 0.3s ease;
-}
-
-.cv-download-btn:hover .cv-download-icon {
-	background-color: var(--text-main);
-	color: var(--color-space);
-}
-
-.cv-info-item {
-  display: flex;
-  align-items: center;
-  gap: 12px;
-  margin-bottom: 20px;
-  padding: 0 10px;
-}
-
-.cv-info-icon {
-  width: 20px;
-  height: 20px;
-  opacity: 0.8;
-}
-
-.cv-info-label {
-  font-size: 1rem;
-  color: var(--text-main);
-  font-weight: 500;
-}
-
-/* On s'assure que les icônes importées ont une taille cohérente avec GitHub/LinkedIn */
-.cv-social-icon {
-  width: 24px;
-  height: 24px;
-  background-size: contain;
-  background-repeat: no-repeat;
-  background-position: center;
-}
-
-
-/* ==========================================================================
-   4. RESPONSIVE
-   ========================================================================== */
-@media (max-width: 768px) {
-	.cv-hero-flex-wrapper {
-		flex-direction: column;
-		align-items: flex-start;
-		gap: 20px;
-	}
-
-	.cv-main-grid {
-		flex-direction: column-reverse;
-		align-items: center;
-	}
-}
-
-@media (min-width: 769px) {
-  .cv-hero-title {
-    /* Le titre réapparaît sur grand écran */
-    display: block;
-    font-size: 3rem;
-    margin-bottom: 0.5rem;
-  }
-
-  .cv-hero-subtitle {
-    font-size: 1.8rem;
-  }
-}
-
-/* ==========================================================================
-   5. LIENS GITHUB LINKEDIN
-   ========================================================================== */
-
 .cv-social-links {
 	display: flex;
-	flex-direction: row; /* Côte à côte */
-	justify-content: center; /* Centré horizontalement */
-	gap: 20px;
+	flex-wrap: wrap;
+	gap: 2rem;
 	width: 100%;
-	margin-top: 10px;
 }
 
 .cv-social-card {
-	display: flex;
-	align-items: center;
-	gap: 12px;
-	padding: 10px 18px;
-	background-color: var(--color-nav);
-	border: 1px solid rgba(128, 128, 128, 0.1);
-	border-radius: 12px;
-	text-decoration: none;
-	transition: all 0.3s ease;
-	min-width: 140px; /* Largeur minimale pour l'équilibre */
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 10px 18px;
+  background-color: var(--color-nav);
+  border: 1px solid rgba(128, 128, 128, 0.1);
+  border-radius: 12px;
+  text-decoration: none;
+  transition: all 0.3s ease;
+  width: fit-content;
+  min-width: 160px;
 }
 
-.cv-social-card:hover {
-	transform: translateY(
-		-5px
-	); /* Petit saut vers le haut plutôt que décalage latéral */
-	border-color: var(--color-accent);
-	box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+.cv-social-card:hover:not(.cv-no-click) {
+	background-color: var(--color-soft-accent);
+	transform: scale(1.02);
 }
 
 .cv-social-icon {
-	width: 24px;
-	height: 24px;
+	width: 2rem;
+	height: 2rem;
+	object-fit: contain;
 	background-size: contain;
 	background-repeat: no-repeat;
 	background-position: center;
@@ -270,12 +128,16 @@
 
 .cv-social-label {
 	font-family: var(--font-title);
-	font-size: 0.9rem;
+	font-size: 1rem;
 	font-weight: 500;
 	color: var(--text-main);
 }
 
-/* On garde les liens vers tes variables PNG */
+.cv-no-click {
+	cursor: default;
+}
+
+/* Icons via CSS variables */
 .github-icon {
 	background-image: var(--icon-github);
 }
@@ -283,10 +145,123 @@
 	background-image: var(--icon-linkedin);
 }
 
-/* Ajustement mobile pour éviter que ce soit trop serré */
-@media (max-width: 480px) {
-	.cv-social-links {
+/* ==========================================================================
+   4. DOWNLOAD BUTTON
+   ========================================================================== */
+.cv-download-btn {
+	display: flex;
+	align-items: center;
+	gap: 1.5rem;
+	padding: 0.8rem 1.5rem;
+	background-color: var(--color-nav);
+	border-radius: 12px;
+	text-decoration: none;
+	transition: all 0.3s ease;
+	border: 1px solid rgba(128, 128, 128, 0.2);
+}
+
+.cv-download-title {
+	font-family: var(--font-title);
+	font-size: 1rem;
+	font-weight: 600;
+	color: var(--text-main);
+	line-height: 1.2;
+	transition: color 0.3s ease;
+}
+
+.cv-download-label {
+	font-size: 10px;
+	color: var(--text-main);
+	opacity: 0.7;
+	transition: color 0.3s ease;
+}
+
+.cv-download-icon {
+	background-color: rgba(128, 128, 128, 0.1);
+	padding: 8px;
+	border-radius: 8px;
+	display: flex;
+	color: var(--text-main);
+	transition: all 0.3s ease;
+}
+
+.cv-download-btn:hover {
+	background-color: var(--color-accent);
+	border-color: var(--color-accent);
+	transform: scale(1.02);
+}
+
+.cv-download-btn:hover .cv-download-title,
+.cv-download-btn:hover .cv-download-label,
+.cv-download-btn:hover .cv-download-icon {
+	color: #ffffff;
+}
+
+.cv-download-btn:hover .cv-download-icon {
+	background-color: rgba(255, 255, 255, 0.2);
+}
+
+[data-theme="light"] .cv-download-btn {
+	box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+}
+
+.cv-download-text-container {
+	display: flex;
+	flex-direction: column;
+	align-items: flex-start;
+	gap: 2px;
+}
+
+.cv-download-title {
+	font-family: var(--font-title);
+	font-size: 1rem;
+	font-weight: 600;
+	color: var(--text-main);
+	line-height: 1.2;
+}
+
+.cv-download-label {
+	font-size: 10px;
+	text-transform: uppercase;
+	letter-spacing: 0.5px;
+	color: var(--text-main);
+	opacity: 0.7;
+}
+
+.cv-download-btn:hover .cv-download-title,
+.cv-download-btn:hover .cv-download-label {
+	color: #ffffff;
+	opacity: 1;
+}
+
+/* ==========================================================================
+   5. RESPONSIVE
+   ========================================================================== */
+@media (max-width: 992px) {
+	.cv-hero-flex-wrapper {
 		flex-direction: column;
+		align-items: flex-start;
+	}
+
+	.cv-main-grid {
+		flex-direction: column-reverse;
 		align-items: center;
+		text-align: center;
+	}
+
+	.cv-social-links {
+		justify-content: center;
+	}
+
+	.cv-photo-wrapper {
+		margin-top: -100px;
+		margin-bottom: 20px;
+	}
+}
+
+@media (min-width: 769px) {
+	.cv-hero-title {
+		display: block;
+		font-size: 3rem;
 	}
 }
