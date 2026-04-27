@@ -44,13 +44,16 @@ interface Experience {
 
 /* --- Sous-composants --- */
 
+/**
+ * SkillCard : Affiche une catégorie de compétences avec ses icônes
+ */
 const SkillCard = ({ title, skills }: { title: string; skills: Skill[] }) => (
   <div className="cv-skill-card">
     <h4 className="cv-skill-card-title">{title}</h4>
     <div className="cv-skill-list">
       {skills.map((skill) => (
         <div key={skill.name} className="cv-skill-item">
-          <img src={skill.icon} alt="" className="cv-skill-icon" />
+          <img src={skill.icon} alt={`${skill.name} icon`} className="cv-skill-icon" />
           <span className="cv-skill-name">{skill.name}</span>
         </div>
       ))}
@@ -58,17 +61,40 @@ const SkillCard = ({ title, skills }: { title: string; skills: Skill[] }) => (
   </div>
 );
 
-const TimelineItem = ({ exp }: { exp: Experience }) => (
-  <div className={`timeline-item ${exp.isDev ? "timeline-dev" : ""}`}>
-    <div className="timeline-dot" />
-    <div className="timeline-date">{exp.year}</div>
-    <div className="timeline-content">
-      <h4 className="timeline-role">{exp.role}</h4>
-      <p className="timeline-company">{exp.company}</p>
-      <p className="timeline-details">{exp.details}</p>
+/**
+ * TimelineItem : Affiche une étape du parcours professionnel
+ * Gère le formatage automatique des listes si le texte contient " : "
+ */
+const TimelineItem = ({ exp }: { exp: Experience }) => {
+  const formatDetails = (text: string) => {
+    if (text.includes(" : ")) {
+      const [intro, list] = text.split(" : ");
+      return (
+        <>
+          {intro} :
+          <ul className="timeline-detail-list">
+            {list.split(", ").map((item) => (
+              <li key={item}>{item}</li>
+            ))}
+          </ul>
+        </>
+      );
+    }
+    return text;
+  };
+
+  return (
+    <div className={`timeline-item ${exp.isDev ? "timeline-dev" : ""}`}>
+      <div className="timeline-dot" />
+      <div className="timeline-date">{exp.year}</div>
+      <div className="timeline-content">
+        <h4 className="timeline-role">{exp.role}</h4>
+        <p className="timeline-company">{exp.company}</p>
+        <div className="timeline-details">{formatDetails(exp.details)}</div>
+      </div>
     </div>
-  </div>
-);
+  );
+};
 
 const CV = ({ theme }: CVProps) => {
   const categories = [
@@ -119,34 +145,65 @@ const CV = ({ theme }: CVProps) => {
       company: "Wild Code School",
       role: "UX/UI & Développement Fullstack",
       isDev: true,
-      details: "Développement de 3 applications web (SQL, Express, React, TS). Focus sur l'API REST, l'architecture scalable et l'accessibilité (RGAA). Projets clés : MoveUp | Pickit | Pixowl."
+      details: "Développement de 3 applications web (MoveUp, Pickit, Pixowl) : architecture scalable, API REST, optimisation des performances et conformité RGAA (accessibilité). Stack : SQL, Express, React, TypeScript."
     },
     {
       year: "2020 - 2024",
       company: "Gamestream",
       role: "Directrice Artistique",
-      details: "Production d'assets en environnement produit tech (Cloud Gaming). Mise en place de workflows structurés, gestion de versions et coordination avec les équipes tech/marketing."
+      details: "Coordination entre équipes tech et marketing en environnement Cloud Gaming. Workflows structurés, gestion de versions et optimisation des pipelines de production. Conception de campagnes multi-supports : bannières, visuels événementiels, vidéo, newsletters, kits de communication."
     },
     {
-      year: "2011 - 2020",
-      company: "Freelance & Éditions (Geko, Suntrip, CFSL Ink)",
-      role: "Graphiste Web & UI Senior",
-      details: "Conception de systèmes visuels complexes. Expertise en gestion de projets digitaux, résolution de problèmes et maîtrise des pipelines de production multimédia."
+      year: "2017 - 2020",
+      company: "Freelance",
+      role: "Graphiste Web & UI",
+      details: "Création d'identités visuelles et interfaces : brandings de marques, chartes graphiques, logos, design d'interfaces (UI), photographie et illustration."
+    },
+    {
+      year: "2016 - 2017",
+      company: "Geko Éditions",
+      role: "Graphiste",
+      details: "Édition et communication visuelle : mise en page d'ouvrages, illustration jeunesse, gestion des réseaux sociaux et création de contenu."
+    },
+    {
+      year: "2014 - 2016",
+      company: "Suntrip Records",
+      role: "Graphiste",
+      details: "Identité de marque et digital : campagnes visuelles, UI du site, photographie événementielle et packshots."
+    },
+    {
+      year: "2011 - 2013",
+      company: "Éditions CFSL Ink",
+      role: "Graphiste",
+      details: "Supports marketing et rédaction : création d'assets graphiques, rédaction de contenus et gestion des relations presse."
     },
     {
       year: "2006 - 2011",
       company: "Ministère de l'Éducation Nationale",
       role: "Professeure des Écoles",
-      details: "Pilotage de projets pédagogiques, vulgarisation technique et adaptation continue."
+      details: "Gestion de projets et pédagogie : pilotage de projets pédagogiques, gestion de groupe, coordination de l'autonomie et adaptabilité."
     }
   ];
 
   const formations = [
     { year: "2025-2026", title: "Wild Code School", subtitle: "Titre certifié de Développeur Web et Web Mobile" },
-    { year: "2011-2015", title: "Beaux-Arts de Paris", subtitle: "Techniques de Gravure (Eau-forte, Linogravure, Aquatinte, photogravure..." },
+    { year: "2011-2015", title: "Beaux-Arts de Paris", subtitle: "Techniques de Gravure (Eau-forte, Linogravure, Aquatinte...)" },
     { year: "2006", title: "Concours du CRPE (Bac +5)", subtitle: "Option Anglais et Mathématiques" },
     { year: "2002-2005", title: "DEUG + Licence d'Arts Plastiques", subtitle: "Spécialités Photo, Analyse de l'Image et Sérigraphie" },
-    { year: "2000", title: "Baccalauréat Scientifique", subtitle: "Option SVT & Grec ancien" }
+    { year: "2000", title: "Baccalauréat Scientifique", subtitle: "Option SVT & Grec ancien" },
+  ];
+
+  const expos = [
+    { year: "2025", items: ["Exposition Paysages Pluriels (Brest, France)", "Parution revue Pourtant (série 'Silence')"] },
+    { year: "2024", items: ["Parution Pourtant n°8", "2è prix photo (Impression Panoramique)", "Expo 1984 Metz (Festival Les Photographiques)"] },
+    { year: "2021", items: ["2è prix photo", "2è prix vidéo (Saarbrücken)"] },
+    { year: "2019", items: ["1er prix photo", "4è prix vidéo (Revision Eastern Party)", "Expo photo Haunted à Paris XI"] },
+    { year: "2018", items: ["1er prix photo", "4è prix photo (Evoke)", "Parution revue Corridor Elephant (série 'Ombres')"] },
+    { year: "2017", items: ["2è prix photo (Cologne)", "Expo et démonstrations aux Journées de l'Estampe Contemporaine (Paris XIV)"] },
+    { year: "2016", items: ["Exposition d'aquatintes (Paris VII)"] },
+    { year: "2015", items: ["1er prix vidéo (Revision Eastern Party)", "1er prix du Géant des Beaux-Arts (dotation de 7k€)"] },
+    { year: "2013", items: ["Exposition photo Tchernobyl à l'Hôtel de Ville de Paris"] },
+    { year: "2011", items: ["Livre photo 'Tchernobyl 25 ans après' aux Éditions CFSL Ink"] },
   ];
 
   return (
@@ -156,30 +213,15 @@ const CV = ({ theme }: CVProps) => {
           <div className="cv-hero-flex-wrapper">
             <div className="cv-hero-text">
               <h1 className="cv-hero-title">Cécile Lavrut - Pardo</h1>
-              <h2 className="cv-hero-subtitle">
-                Développeuse Fullstack & Directrice Artistique
-              </h2>
+              <h2 className="cv-hero-subtitle">Développeuse Fullstack & Directrice Artistique</h2>
             </div>
-            <a
-              href="/CV_fullstack_pardo_2026.pdf"
-              download
-              className="cv-download-btn"
-            >
+            <a href="/CV_fullstack_pardo_2026.pdf" download className="cv-download-btn">
               <div className="cv-download-text-container">
                 <span className="cv-download-title">Télécharger le CV</span>
                 <span className="cv-download-label">Document PDF</span>
               </div>
               <div className="cv-download-icon">
-                <svg
-                  width="24"
-                  height="24"
-                  viewBox="0 0 24 24"
-                  fill="none"
-                  stroke="currentColor"
-                  strokeWidth="2"
-                  role="img"
-                  aria-labelledby="dl-title"
-                >
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" role="img" aria-labelledby="dl-title">
                   <title id="dl-title">Télécharger</title>
                   <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4" />
                   <polyline points="7 10 12 15 17 10" />
@@ -197,36 +239,18 @@ const CV = ({ theme }: CVProps) => {
           <div className="cv-info-section">
             <div className="cv-social-links">
               <div className="cv-social-card cv-no-click">
-                <img
-                  src={theme === "dark" ? locDark : locLight}
-                  alt=""
-                  className="cv-social-icon"
-                />
+                <img src={theme === "dark" ? locDark : locLight} alt="" className="cv-social-icon" />
                 <span className="cv-social-label">Paris, France</span>
               </div>
               <Link to="/contact" className="cv-social-card">
-                <img
-                  src={theme === "dark" ? contactDark : contactLight}
-                  alt=""
-                  className="cv-social-icon"
-                />
+                <img src={theme === "dark" ? contactDark : contactLight} alt="" className="cv-social-icon" />
                 <span className="cv-social-label">Contacter</span>
               </Link>
-              <a
-                href="https://github.com/cecilepardo"
-                target="_blank"
-                rel="noreferrer"
-                className="cv-social-card"
-              >
+              <a href="https://github.com/cecilepardo" target="_blank" rel="noreferrer" className="cv-social-card">
                 <div className="cv-social-icon github-icon" />
                 <span className="cv-social-label">GitHub</span>
               </a>
-              <a
-                href="https://www.linkedin.com/in/c%C3%A9cile-lavrut-pardo-77b239b3/"
-                target="_blank"
-                rel="noreferrer"
-                className="cv-social-card"
-              >
+              <a href="https://www.linkedin.com/in/c%C3%A9cile-lavrut-pardo-77b239b3/" target="_blank" rel="noreferrer" className="cv-social-card">
                 <div className="cv-social-icon linkedin-icon" />
                 <span className="cv-social-label">LinkedIn</span>
               </a>
@@ -267,13 +291,58 @@ const CV = ({ theme }: CVProps) => {
 
         {/* 4. EXPÉRIENCES */}
         <section className="cv-section experience-top-margin">
-          <h3 className="cv-section-title">Expériences Professionnelles</h3>
+          <h3 className="cv-section-title">Expérience Professionnelle</h3>
           <div className="timeline-container">
             {experiences.map((exp) => (
               <TimelineItem key={`${exp.year}-${exp.company}`} exp={exp} />
             ))}
           </div>
         </section>
+
+        {/* 5. CONCOURS & EXPOS */}
+        <section className="cv-section">
+          <h3 className="cv-section-title">Concours & Expositions</h3>
+          <div className="formation-unique-block expo-block">
+            <div className="expo-grid">
+              {expos.map((expo) => (
+                <div key={expo.year} className="expo-item">
+                  <span className="formation-year">{expo.year}</span>
+                  <div className="expo-content">
+                    {expo.items.length > 1 ? (
+                      <ul className="expo-list">
+                        {expo.items.map((item) => <li key={item}>{item}</li>)}
+                      </ul>
+                    ) : (
+                      <p className="formation-subtitle">{expo.items[0]}</p>
+                    )}
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+        </section>
+
+        {/* 6. BAS DE PAGE (Soft Skills & Loisirs) */}
+        <div className="cv-footer-grid">
+          <section className="cv-section">
+            <h3 className="cv-section-title">Soft Skills</h3>
+            <div className="soft-skills-container">
+              {["Polyvalence", "Agilité", "Rigueur", "Gestion de projet", "Anglais", "Créativité", "Sens du détail", "Orientation utilisateur", "Pédagogie", "Proactivité", "Autonomie", "Résolution de problèmes"].map((skill) => (
+                <span key={skill} className="soft-skill-tag">{skill}</span>
+              ))}
+            </div>
+          </section>
+
+          <section className="cv-section">
+            <h3 className="cv-section-title">Intérêts</h3>
+            <div className="interests-block">
+              <p><strong>Photographie :</strong> Portrait & urbex, expositions, parutions magazines.</p>
+              <p><strong>Illustration :</strong> Numérique et gravure (linogravure et eau forte).</p>
+              <p><strong>Sports aériens :</strong> Cerceau et pole sports.</p>
+              <p><strong>Tech :</strong> Demoscene.</p>
+            </div>
+          </section>
+        </div>
       </main>
     </div>
   );

@@ -268,60 +268,59 @@
    ========================================================================== */
 
 .cv-skills-grid {
-  display: grid;
-  /* Desktop : Force 4 colonnes de largeur égale */
-  grid-template-columns: repeat(4, 1fr); 
-  gap: 2rem;
+	display: grid;
+	/* Desktop : Force 4 colonnes de largeur égale */
+	grid-template-columns: repeat(4, 1fr);
+	gap: 2rem;
 }
 
 .cv-skill-card {
-  background-color: var(--color-nav);
-  padding: 2rem;
-  border-radius: 12px;
-  backdrop-filter: blur(8px);
-  border: 1px solid rgba(128, 128, 128, 0.1);
-  transition: all 0.3s ease;
+	background-color: var(--color-nav);
+	padding: 2rem;
+	border-radius: 12px;
+	backdrop-filter: blur(8px);
+	border: 1px solid rgba(128, 128, 128, 0.1);
+	transition: all 0.3s ease;
 }
 
 .cv-skill-card:hover {
- 
-  box-shadow: 0 5px 20px -5px var(--color-horizon);
+	box-shadow: 0 5px 20px -5px var(--color-horizon);
 }
 
 .cv-skill-card-title {
-  font-family: var(--font-title);
-  font-size: 1.2rem;
-  color: var(--text-main);
-  margin-bottom: 1.5rem;
-  /* On utilise une bordure subtile qui ne bouge pas au hover */
-  border-bottom: 1px solid var(--color-accent);
-  display: inline-block;
-  padding-bottom: 5px;
+	font-family: var(--font-title);
+	font-size: 1.2rem;
+	color: var(--text-main);
+	margin-bottom: 1.5rem;
+	/* On utilise une bordure subtile qui ne bouge pas au hover */
+	border-bottom: 1px solid var(--color-accent);
+	display: inline-block;
+	padding-bottom: 5px;
 }
 
 .cv-skill-list {
-  display: flex;
-  flex-direction: column;
-  gap: 12px;
+	display: flex;
+	flex-direction: column;
+	gap: 12px;
 }
 
 .cv-skill-item {
-  display: flex;
-  align-items: center;
-  gap: 15px;
+	display: flex;
+	align-items: center;
+	gap: 15px;
 }
 
 .cv-skill-icon {
-  width: 22px;
-  height: 22px;
-  object-fit: contain;
-  flex-shrink: 0;
+	width: 22px;
+	height: 22px;
+	object-fit: contain;
+	flex-shrink: 0;
 }
 
 .cv-skill-name {
-  color: var(--text-main);
-  font-weight: 500;
-  font-size: 0.95rem;
+	color: var(--text-main);
+	font-weight: 500;
+	font-size: 0.95rem;
 }
 
 /* ==========================================================================
@@ -330,74 +329,74 @@
 
 /* Tablette : Passage à 2 colonnes */
 @media (max-width: 1100px) {
-  .cv-skills-grid {
-    grid-template-columns: repeat(2, 1fr);
-    gap: 1.5rem;
-  }
+	.cv-skills-grid {
+		grid-template-columns: repeat(2, 1fr);
+		gap: 1.5rem;
+	}
 }
 
 /* Mobile : Passage à 1 colonne */
 @media (max-width: 650px) {
-  .cv-skills-grid {
-    grid-template-columns: 1fr;
-  }
-  
-  .cv-skill-card {
-    padding: 1.5rem;
-  }
+	.cv-skills-grid {
+		grid-template-columns: 1fr;
+	}
+
+	.cv-skill-card {
+		padding: 1.5rem;
+	}
 }
 /* ==========================================================================
    5. FORMATION (Bloc Unique Condensé)
    ========================================================================== */
 
 .formation-unique-block {
-  /* Même fond que les autres cartes pour la cohérence */
-  background-color: var(--color-nav);
-  padding: 1rem 2.5rem; 
-  border-radius: 12px;
-  backdrop-filter: blur(8px);
-  border: 1px solid rgba(128, 128, 128, 0.1);
-  box-shadow: none;
-  transition: all 0.3s ease;
+	/* Même fond que les autres cartes pour la cohérence */
+	background-color: var(--color-nav);
+	padding: 1rem 2.5rem;
+	border-radius: 12px;
+	backdrop-filter: blur(8px);
+	border: 1px solid rgba(128, 128, 128, 0.1);
+	box-shadow: none;
+	transition: all 0.3s ease;
 }
 
 .formation-unique-block:hover {
-  box-shadow: 0 5px 20px -5px var(--color-horizon);
+	box-shadow: 0 5px 20px -5px var(--color-horizon);
 }
 
 .formation-dense-item {
-  display: flex;
-  align-items: baseline;
-  gap: 30px;
-  padding: 0.6rem 0; 
-  border-bottom: 1px solid rgba(128, 128, 128, 0.05);
+	display: flex;
+	align-items: baseline;
+	gap: 30px;
+	padding: 0.6rem 0;
+	border-bottom: 1px solid rgba(128, 128, 128, 0.05);
 }
 
 .formation-dense-item:last-child {
-  border-bottom: none;
+	border-bottom: none;
 }
 
 .formation-year {
-  font-family: var(--font-title);
-  font-weight: 700;
-  color: var(--color-accent);
-  min-width: 90px;
-  font-size: 0.85rem;
+	font-family: var(--font-title);
+	font-weight: 700;
+	color: var(--color-accent);
+	min-width: 90px;
+	font-size: 0.85rem;
 }
 
 .formation-title {
-  font-size: 1rem;
-  font-weight: 600;
-  color: var(--text-main);
-  display: inline-block;
-  margin-right: 8px;
+	font-size: 1rem;
+	font-weight: 600;
+	color: var(--text-main);
+	display: inline-block;
+	margin-right: 8px;
 }
 
 .formation-subtitle {
-  display: inline-block;
-  font-size: 0.85rem;
-  color: var(--text-main);
-  opacity: 0.6;
+	display: inline-block;
+	font-size: 0.85rem;
+	color: var(--text-main);
+	opacity: 0.6;
 }
 
 /* ==========================================================================
@@ -407,7 +406,6 @@
 .timeline-container {
   position: relative;
   padding-left: 35px;
-  /* Ligne de la timeline discrète */
   border-left: 1px solid rgba(128, 128, 128, 0.2);
   margin-left: 10px;
 }
@@ -419,7 +417,6 @@
 
 .timeline-dot {
   position: absolute;
-  /* Centrage parfait sur la ligne de 1px */
   left: -41.5px;
   top: 8px;
   width: 12px;
@@ -430,7 +427,6 @@
   z-index: 2;
 }
 
-/* Mise en avant de l'expérience actuelle (Bootcamp Dev) */
 .timeline-dev .timeline-dot {
   background-color: var(--color-accent);
   box-shadow: 0 0 10px var(--color-accent);
@@ -450,12 +446,11 @@
   padding: 1.8rem;
   border-radius: 12px;
   border: 1px solid rgba(128, 128, 128, 0.1);
-  transition: all 0.3s ease; /* Transition sur bg-color et shadow */
+  transition: all 0.3s ease;
 }
 
-/* Harmonisation du hover avec les Hard Skills */
 .timeline-content:hover {
-   box-shadow: 0 5px 20px -5px var(--color-horizon);
+  box-shadow: 0 5px 20px -5px var(--color-horizon);
 }
 
 .timeline-role {
@@ -473,6 +468,7 @@
   margin-bottom: 12px;
 }
 
+/* --- 6.1 DÉTAILS DES EXPÉRIENCES (Listes) --- */
 .timeline-details {
   font-size: 0.95rem;
   line-height: 1.6;
@@ -480,19 +476,51 @@
   opacity: 0.85;
 }
 
-/* --- Responsive Timeline --- */
+.timeline-detail-list {
+  margin: 12px 0 0 0;
+  padding-left: 1.2rem;
+  list-style: none;
+}
+
+.timeline-detail-list li {
+  position: relative;
+  margin-bottom: 6px;
+  padding-left: 5px;
+}
+
+.timeline-detail-list li::before {
+  content: "→"; /* Flèche discrète orientée "progrès/tech" */
+  position: absolute;
+  left: -1.2rem;
+  color: var(--color-accent);
+  font-weight: bold;
+  font-size: 0.9rem;
+}
+
+.timeline-detail-list li:last-child {
+  margin-bottom: 0;
+}
+
+/* ==========================================================================
+   AJUSTEMENTS RESPONSIVE TIMELINE
+   ========================================================================== */
+
 @media (max-width: 768px) {
   .timeline-container {
     padding-left: 25px;
     margin-left: 5px;
   }
-  
+
   .timeline-dot {
     left: -31.5px;
   }
-  
+
   .timeline-content {
     padding: 1.2rem;
+  }
+
+  .timeline-role {
+    font-size: 1.1rem;
   }
 }
 
@@ -521,5 +549,138 @@
 	}
 	.formation-year {
 		min-width: auto;
+	}
+}
+
+/* ==========================================================================
+   8. CONCOURS & EXPOSITIONS (Optimisation Listes)
+   ========================================================================== */
+
+.expo-content {
+  flex: 1;
+}
+
+.expo-list {
+  list-style: none; /* On retire les puces par défaut pour les personnaliser */
+  padding: 0;
+  margin: 0;
+}
+
+.expo-list li {
+  position: relative;
+  padding-left: 15px;
+  font-size: 0.85rem;
+  color: var(--text-main);
+  opacity: 0.8;
+  line-height: 1.5;
+  margin-bottom: 4px;
+}
+
+.expo-list li::before {
+  content: "•";
+  position: absolute;
+  left: 0;
+  color: var(--text-main);
+  font-weight: bold;
+}
+
+.expo-list li:last-child {
+  margin-bottom: 0;
+}
+
+/* On s'assure que l'alignement reste propre sur mobile */
+@media (max-width: 768px) {
+  .expo-item {
+    gap: 10px;
+  }
+  
+  .expo-list {
+    margin-top: 5px;
+  }
+}
+
+/* ==========================================================================
+   9. SOFT SKILLS (Système de Tags)
+   ========================================================================== */
+
+.soft-skills-container {
+	display: flex;
+	flex-wrap: wrap;
+	gap: 12px;
+	margin-bottom: 20px;
+}
+
+.soft-skill-tag {
+	background-color: var(--color-nav);
+	color: var(--text-main);
+	padding: 8px 16px;
+	border-radius: 20px;
+	font-size: 0.85rem;
+	font-weight: 500;
+	border: 1px solid rgba(128, 128, 128, 0.1);
+	transition: all 0.3s ease;
+}
+
+.soft-skill-tag:hover {
+	box-shadow: 0 5px 15px -5px var(--color-horizon);
+}
+
+/* ==========================================================================
+   10. CENTRES D'INTÉRÊT (Footer Grid)
+   ========================================================================== */
+
+.cv-footer-grid {
+	display: grid;
+	grid-template-columns: 1.5fr 1fr;
+	gap: 40px;
+	margin-top: 20px;
+}
+
+.interests-block {
+	background-color: var(--color-nav);
+	padding: 1.8rem;
+	border-radius: 12px;
+	border: 1px solid rgba(128, 128, 128, 0.1);
+	font-size: 0.95rem;
+	line-height: 1.6;
+	/* Transition pour l'ombre au hover */
+	transition: box-shadow 0.3s ease;
+}
+
+/* Harmonisation du hover avec les autres blocs */
+.interests-block:hover {
+	box-shadow: 0 5px 20px -5px var(--color-horizon);
+}
+
+.interests-block p {
+	margin-bottom: 12px;
+	color: var(--text-main);
+}
+
+.interests-block p:last-child {
+	margin-bottom: 0;
+}
+
+.interests-block strong {
+	color: var(--color-accent);
+	font-family: var(--font-title);
+	font-weight: 600;
+	margin-right: 5px;
+}
+
+/* ==========================================================================
+   11. RESPONSIVE ADDITIONS
+   ========================================================================== */
+
+@media (max-width: 900px) {
+	.cv-footer-grid {
+		grid-template-columns: 1fr;
+		gap: 30px;
+	}
+
+	.expo-item {
+		flex-direction: column;
+		gap: 5px;
+		padding: 1rem 0;
 	}
 }
