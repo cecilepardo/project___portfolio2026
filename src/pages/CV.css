@@ -1,101 +1,126 @@
 /* ==========================================================================
-   1. HERO SECTION
+   1. STRUCTURE & ESPACEMENTS
    ========================================================================== */
-.cv-hero-container {
-	position: relative;
-	width: 100%;
-	height: 45vh;
-	display: flex;
-	align-items: center;
-	background-size: cover;
-	background-position: center;
-	background-repeat: no-repeat;
+
+.cv-page {
+  min-height: 100vh;
 }
 
-.cv-hero-content {
-	width: 100%;
-	margin: 0 auto;
-	padding: 0 40px;
-	color: #ffffff;
+.cv-body-content {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 60px 40px;
+}
+
+.cv-skills-margin {
+  margin-bottom: 100px; 
+}
+
+.experience-top-margin {
+  margin-top: 100px; 
+}
+
+.cv-section {
+  margin-bottom: 60px;
+}
+
+.cv-section-title {
+  font-family: var(--font-title);
+  font-size: 1.6rem;
+  color: var(--color-accent);
+  margin-bottom: 2rem;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+/* ==========================================================================
+   2. HERO & DOWNLOAD BUTTON
+   ========================================================================== */
+
+.cv-hero-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  width: 100%;
+  padding: 0 40px;
 }
 
 .cv-hero-flex-wrapper {
-	display: flex;
-	justify-content: space-between;
-	align-items: center;
-	width: 100%;
-	gap: 20px;
+  display: flex;
+  justify-content: flex-start; 
+  align-items: center;
+  gap: 4rem; 
 }
 
-.cv-hero-title {
-	display: none;
-	font-family: var(--font-title);
-	font-weight: 700;
-	color: #ffffff;
+.cv-download-btn {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+  padding: 0.8rem 1.5rem;
+  background-color: var(--color-nav);
+  border-radius: 12px;
+  text-decoration: none;
+  transition: all 0.3s ease;
+  border: 1px solid rgba(128, 128, 128, 0.2);
 }
 
-.cv-hero-subtitle {
-	font-family: var(--font-title);
-	font-size: 1.5rem;
-	color: var(--color-accent);
-	margin-bottom: 1rem;
-	text-shadow: 1px 1px 10px rgba(0, 0, 0, 0.3);
-	transition: text-shadow 0.3s ease;
+.cv-download-btn:hover {
+  background-color: var(--color-accent);
+  border-color: var(--color-accent);
+  box-shadow: 0 10px 20px -5px var(--color-horizon);
 }
 
-[data-theme="light"] .cv-hero-subtitle {
-	text-shadow:
-		1px 1px 2px rgba(115, 37, 83, 0.6),
-		0px 0px 15px rgba(115, 37, 83, 0.3);
+.cv-download-text-container {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.cv-download-title {
+  font-family: var(--font-title);
+  font-size: 1rem;
+  font-weight: 600;
+  color: var(--text-main);
+  transition: color 0.3s ease;
+}
+
+.cv-download-label {
+  font-size: 10px;
+  color: var(--text-main);
+  opacity: 0.7;
+  transition: color 0.3s ease;
+}
+
+.cv-download-icon {
+  background-color: rgba(128, 128, 128, 0.1);
+  padding: 8px;
+  border-radius: 8px;
+  display: flex;
+  color: var(--text-main);
+  transition: all 0.3s ease;
+}
+
+.cv-download-btn:hover .cv-download-title,
+.cv-download-btn:hover .cv-download-label,
+.cv-download-btn:hover .cv-download-icon {
+  color: #ffffff;
 }
 
 /* ==========================================================================
-   2. MAIN LAYOUT (Grid & Content)
+   3. PHOTO & SOCIAL LINKS (Grid)
    ========================================================================== */
-.cv-body-content {
-	max-width: 1200px;
-	margin: 0 auto;
-	padding: 60px 40px;
-}
 
 .cv-main-grid {
-	display: flex;
-	justify-content: space-between;
-	align-items: flex-start;
-	gap: 40px;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 40px;
+  margin-bottom: 60px;
 }
 
-.cv-info-section {
-	flex: 1;
-}
-
-/* Section Photo */
-.cv-photo-wrapper {
-	width: 200px;
-	height: 250px;
-	margin-top: -80px;
-	border-radius: 20px;
-	overflow: hidden;
-	position: relative;
-	box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
-	z-index: 10;
-}
-
-.cv-photo {
-	width: 100%;
-	height: 100%;
-	object-fit: cover;
-	display: block;
-}
-
-/* ==========================================================================
-   3. SOCIAL & INFO LINKS (Boutons)
-   ========================================================================== */
 .cv-social-links {
-	display: flex;
-	flex-wrap: wrap;
-	gap: 2rem;
-	width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 15px;
 }
 
 .cv-social-card {
@@ -107,161 +132,166 @@
   border: 1px solid rgba(128, 128, 128, 0.1);
   border-radius: 12px;
   text-decoration: none;
+  color: var(--text-main);
   transition: all 0.3s ease;
-  width: fit-content;
   min-width: 160px;
 }
 
 .cv-social-card:hover:not(.cv-no-click) {
-	background-color: var(--color-soft-accent);
-	transform: scale(1.02);
-}
-
-.cv-social-icon {
-	width: 2rem;
-	height: 2rem;
-	object-fit: contain;
-	background-size: contain;
-	background-repeat: no-repeat;
-	background-position: center;
-}
-
-.cv-social-label {
-	font-family: var(--font-title);
-	font-size: 1rem;
-	font-weight: 500;
-	color: var(--text-main);
+  box-shadow: 0 8px 20px -5px var(--color-horizon);
+  border-color: var(--color-accent);
 }
 
 .cv-no-click {
-	cursor: default;
+  cursor: default;
+  opacity: 0.9;
 }
 
-/* Icons via CSS variables */
-.github-icon {
-	background-image: var(--icon-github);
+.cv-social-icon {
+  width: 22px;
+  height: 22px;
+  object-fit: contain;
 }
-.linkedin-icon {
-	background-image: var(--icon-linkedin);
+
+/* Icons via CSS variables pour GitHub/LinkedIn */
+.github-icon { background-image: var(--icon-github); background-size: contain; background-repeat: no-repeat; width: 22px; height: 22px; }
+.linkedin-icon { background-image: var(--icon-linkedin); background-size: contain; background-repeat: no-repeat; width: 22px; height: 22px; }
+
+.cv-photo-wrapper {
+  width: 200px;
+  height: 250px;
+  margin-top: -80px; 
+  border-radius: 20px;
+  overflow: hidden;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+  z-index: 10;
 }
+
+.cv-photo { width: 100%; height: 100%; object-fit: cover; }
 
 /* ==========================================================================
-   4. DOWNLOAD BUTTON
+   4. HARD SKILLS
    ========================================================================== */
-.cv-download-btn {
-	display: flex;
-	align-items: center;
-	gap: 1.5rem;
-	padding: 0.8rem 1.5rem;
-	background-color: var(--color-nav);
-	border-radius: 12px;
-	text-decoration: none;
-	transition: all 0.3s ease;
-	border: 1px solid rgba(128, 128, 128, 0.2);
+
+.cv-skills-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 2rem;
 }
 
-.cv-download-title {
-	font-family: var(--font-title);
-	font-size: 1rem;
-	font-weight: 600;
-	color: var(--text-main);
-	line-height: 1.2;
-	transition: color 0.3s ease;
+.cv-skill-card {
+  background-color: var(--color-nav);
+  padding: 2rem;
+  border-radius: 12px;
+  backdrop-filter: blur(8px);
+  border: 1px solid rgba(128, 128, 128, 0.1);
+  box-shadow: 0 8px 25px -10px var(--color-horizon);
+  transition: box-shadow 0.3s ease;
 }
 
-.cv-download-label {
-	font-size: 10px;
-	color: var(--text-main);
-	opacity: 0.7;
-	transition: color 0.3s ease;
+.cv-skill-card:hover { box-shadow: 0 15px 35px -5px var(--color-horizon); }
+
+.cv-skill-card-title {
+  font-family: var(--font-title);
+  font-size: 1.2rem;
+  color: var(--text-main);
+  margin-bottom: 1.5rem;
+  border-bottom: 1px solid var(--color-accent);
+  display: inline-block;
+  padding-bottom: 5px;
 }
 
-.cv-download-icon {
-	background-color: rgba(128, 128, 128, 0.1);
-	padding: 8px;
-	border-radius: 8px;
-	display: flex;
-	color: var(--text-main);
-	transition: all 0.3s ease;
-}
-
-.cv-download-btn:hover {
-	background-color: var(--color-accent);
-	border-color: var(--color-accent);
-	transform: scale(1.02);
-}
-
-.cv-download-btn:hover .cv-download-title,
-.cv-download-btn:hover .cv-download-label,
-.cv-download-btn:hover .cv-download-icon {
-	color: #ffffff;
-}
-
-.cv-download-btn:hover .cv-download-icon {
-	background-color: rgba(255, 255, 255, 0.2);
-}
-
-[data-theme="light"] .cv-download-btn {
-	box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
-}
-
-.cv-download-text-container {
-	display: flex;
-	flex-direction: column;
-	align-items: flex-start;
-	gap: 2px;
-}
-
-.cv-download-title {
-	font-family: var(--font-title);
-	font-size: 1rem;
-	font-weight: 600;
-	color: var(--text-main);
-	line-height: 1.2;
-}
-
-.cv-download-label {
-	font-size: 10px;
-	text-transform: uppercase;
-	letter-spacing: 0.5px;
-	color: var(--text-main);
-	opacity: 0.7;
-}
-
-.cv-download-btn:hover .cv-download-title,
-.cv-download-btn:hover .cv-download-label {
-	color: #ffffff;
-	opacity: 1;
-}
+.cv-skill-list { display: flex; flex-direction: column; gap: 12px; }
+.cv-skill-item { display: flex; align-items: center; gap: 15px; }
+.cv-skill-icon { width: 22px; height: 22px; object-fit: contain; }
+.cv-skill-name { color: var(--text-main); font-weight: 500; }
 
 /* ==========================================================================
-   5. RESPONSIVE
+   5. FORMATION (Bloc Unique Condensé)
    ========================================================================== */
-@media (max-width: 992px) {
-	.cv-hero-flex-wrapper {
-		flex-direction: column;
-		align-items: flex-start;
-	}
 
-	.cv-main-grid {
-		flex-direction: column-reverse;
-		align-items: center;
-		text-align: center;
-	}
-
-	.cv-social-links {
-		justify-content: center;
-	}
-
-	.cv-photo-wrapper {
-		margin-top: -100px;
-		margin-bottom: 20px;
-	}
+.formation-unique-block {
+  background-color: var(--color-nav);
+  padding: 1.5rem 2.5rem;
+  border-radius: 12px;
+  backdrop-filter: blur(8px);
+  border: 1px solid rgba(128, 128, 128, 0.1);
+  box-shadow: 0 8px 25px -10px var(--color-horizon);
 }
 
-@media (min-width: 769px) {
-	.cv-hero-title {
-		display: block;
-		font-size: 3rem;
-	}
+.formation-dense-item {
+  display: flex;
+  align-items: baseline;
+  gap: 30px;
+  padding: 0.8rem 0;
+  border-bottom: 1px solid rgba(128, 128, 128, 0.05);
+}
+
+.formation-dense-item:last-child { border-bottom: none; }
+
+.formation-year {
+  font-family: var(--font-title);
+  font-weight: 700;
+  color: var(--color-accent);
+  min-width: 90px;
+  font-size: 0.85rem;
+}
+
+.formation-title { font-size: 1rem; font-weight: 600; color: var(--text-main); display: inline-block; margin-right: 8px; }
+.formation-subtitle { display: inline-block; font-size: 0.85rem; color: var(--text-main); opacity: 0.6; }
+
+/* ==========================================================================
+   6. EXPÉRIENCES (Timeline)
+   ========================================================================== */
+
+.timeline-container {
+  position: relative;
+  padding-left: 35px;
+  border-left: 1px solid rgba(128, 128, 128, 0.2);
+  margin-left: 10px;
+}
+
+.timeline-item { position: relative; margin-bottom: 50px; }
+
+.timeline-dot {
+  position: absolute;
+  left: -41.5px;
+  top: 8px;
+  width: 12px;
+  height: 12px;
+  background-color: var(--text-main);
+  border-radius: 50%;
+  border: 2px solid var(--color-space);
+}
+
+.timeline-dev .timeline-dot {
+  background-color: var(--color-accent);
+  box-shadow: 0 0 10px var(--color-accent);
+}
+
+.timeline-content {
+  background-color: var(--color-nav);
+  padding: 1.8rem;
+  border-radius: 12px;
+  border: 1px solid rgba(128, 128, 128, 0.1);
+  box-shadow: 0 8px 25px -10px var(--color-horizon);
+  transition: box-shadow 0.3s ease;
+}
+
+.timeline-content:hover { box-shadow: 0 15px 35px -5px var(--color-horizon); }
+
+.timeline-role { font-size: 1.2rem; font-weight: 700; color: var(--text-main); }
+.timeline-company { font-size: 1rem; font-weight: 500; color: var(--color-accent); margin-bottom: 12px; }
+.timeline-details { font-size: 0.9rem; line-height: 1.6; color: var(--text-main); opacity: 0.8; }
+
+/* ==========================================================================
+   7. RESPONSIVE
+   ========================================================================== */
+
+@media (max-width: 768px) {
+  .cv-hero-flex-wrapper { flex-direction: column; align-items: flex-start; gap: 1.5rem; }
+  .cv-main-grid { flex-direction: column-reverse; align-items: center; }
+  .cv-photo-wrapper { margin-top: 0; margin-bottom: 20px; }
+  .formation-dense-item { flex-direction: column; gap: 5px; padding: 1.2rem 0; }
+  .formation-year { min-width: auto; }
 }
