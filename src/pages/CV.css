@@ -46,10 +46,10 @@
 
 .cv-hero-flex-wrapper {
 	display: flex;
-	justify-content: flex-start; /* Aligne le bloc texte et le bouton à gauche */
+	justify-content: flex-start;
 	align-items: center;
 	gap: 4rem;
-	padding: 60px 0; /* Ajoute un peu de respiration verticale */
+	padding: 60px 0;
 }
 
 /* --- Typographie du Hero --- */
@@ -74,22 +74,20 @@
 .cv-download-btn {
 	display: flex;
 	align-items: center;
-	gap: 1.5rem;
+	gap: 2rem;
 	padding: 0.8rem 1.5rem;
 	background-color: var(--color-nav);
 	border-radius: 12px;
 	text-decoration: none;
 	transition: all 0.3s ease;
 	border: 1px solid rgba(128, 128, 128, 0.2);
-	flex-shrink: 0; /* Empêche le bouton de s'écraser si le texte est long */
+	flex-shrink: 0;
 }
 
 .cv-download-btn:hover {
 	background-color: var(--color-accent);
 	border-color: var(--color-accent);
-	/* Utilisation de ton ombre favorite pour l'élégance */
 	box-shadow: 0 10px 25px -5px var(--color-horizon);
-	transform: translateY(-2px); /* Très léger pour le feedback */
 }
 
 .cv-download-text-container {
@@ -125,7 +123,6 @@
 	transition: all 0.3s ease;
 }
 
-/* État survol : tout passe en blanc pour le contraste sur la couleur accent */
 .cv-download-btn:hover .cv-download-title,
 .cv-download-btn:hover .cv-download-label,
 .cv-download-btn:hover .cv-download-icon {
@@ -168,14 +165,14 @@
 	grid-template-columns: repeat(4, 1fr);
 	gap: 15px;
 	flex-grow: 1;
-	align-self: flex-end; /* Aligne les boutons vers le bas pour compenser le décalage photo */
+	align-self: flex-end;
 	padding-bottom: 10px;
 }
 
 .cv-social-label {
 	font-size: 0.9rem;
 	font-weight: 500;
-	color: var(--text-main); /* Couleur principale demandée */
+	color: var(--text-main);
 	white-space: nowrap;
 }
 
@@ -196,20 +193,8 @@
 
 .cv-social-card:hover:not(.cv-no-click) {
 	background-color: var(--color-soft-accent);
-
-	/* On supprime visuellement la bordure (en la rendant transparente ou de la même couleur) */
 	border-color: transparent;
-
-	/* On garde l'ombre horizon pour la profondeur */
 	box-shadow: 0 10px 25px -5px var(--color-horizon);
-
-	/* Optionnel : si tu veux que le texte reste bien lisible, 
-     tu peux forcer le text-main ici aussi */
-}
-
-/* Sécurité pour les icônes au hover */
-.cv-social-card:hover .cv-social-icon {
-	filter: brightness(1.1); /* Petit boost visuel sans changer la couleur */
 }
 
 .cv-social-card:hover:not(.cv-no-click) {
@@ -217,10 +202,10 @@
 	border-color: var(--color-accent);
 }
 .cv-social-icon {
-	width: 20px; /* On fixe une largeur commune */
-	height: 20px; /* On fixe une hauteur commune */
-	object-fit: contain; /* Pour les balises <img> (location/contact) */
-	flex-shrink: 0; /* Empêche l'icône de s'écraser */
+	width: 20px;
+	height: 20px;
+	object-fit: contain;
+	flex-shrink: 0;
 	display: block;
 }
 
@@ -247,7 +232,6 @@
 	margin-top: -60px;
 	border-radius: 20px;
 	overflow: hidden;
-	box-shadow: 0 15px 40px -10px var(--color-horizon);
 	z-index: 20;
 	border: 1px solid rgba(128, 128, 128, 0.2);
 }
@@ -284,100 +268,136 @@
    ========================================================================== */
 
 .cv-skills-grid {
-	display: grid;
-	grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-	gap: 2rem;
+  display: grid;
+  /* Desktop : Force 4 colonnes de largeur égale */
+  grid-template-columns: repeat(4, 1fr); 
+  gap: 2rem;
 }
 
 .cv-skill-card {
-	background-color: var(--color-nav);
-	padding: 2rem;
-	border-radius: 12px;
-	backdrop-filter: blur(8px);
-	border: 1px solid rgba(128, 128, 128, 0.1);
-	box-shadow: 0 8px 25px -10px var(--color-horizon);
-	transition: box-shadow 0.3s ease;
+  background-color: var(--color-nav);
+  padding: 2rem;
+  border-radius: 12px;
+  backdrop-filter: blur(8px);
+  border: 1px solid rgba(128, 128, 128, 0.1);
+  transition: all 0.3s ease;
 }
 
 .cv-skill-card:hover {
-	box-shadow: 0 15px 35px -5px var(--color-horizon);
+ 
+  box-shadow: 0 5px 20px -5px var(--color-horizon);
 }
 
 .cv-skill-card-title {
-	font-family: var(--font-title);
-	font-size: 1.2rem;
-	color: var(--text-main);
-	margin-bottom: 1.5rem;
-	border-bottom: 1px solid var(--color-accent);
-	display: inline-block;
-	padding-bottom: 5px;
+  font-family: var(--font-title);
+  font-size: 1.2rem;
+  color: var(--text-main);
+  margin-bottom: 1.5rem;
+  /* On utilise une bordure subtile qui ne bouge pas au hover */
+  border-bottom: 1px solid var(--color-accent);
+  display: inline-block;
+  padding-bottom: 5px;
 }
 
 .cv-skill-list {
-	display: flex;
-	flex-direction: column;
-	gap: 12px;
-}
-.cv-skill-item {
-	display: flex;
-	align-items: center;
-	gap: 15px;
-}
-.cv-skill-icon {
-	width: 22px;
-	height: 22px;
-	object-fit: contain;
-}
-.cv-skill-name {
-	color: var(--text-main);
-	font-weight: 500;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
 }
 
+.cv-skill-item {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+
+.cv-skill-icon {
+  width: 22px;
+  height: 22px;
+  object-fit: contain;
+  flex-shrink: 0;
+}
+
+.cv-skill-name {
+  color: var(--text-main);
+  font-weight: 500;
+  font-size: 0.95rem;
+}
+
+/* ==========================================================================
+   RESPONSIVE HARD SKILLS
+   ========================================================================== */
+
+/* Tablette : Passage à 2 colonnes */
+@media (max-width: 1100px) {
+  .cv-skills-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.5rem;
+  }
+}
+
+/* Mobile : Passage à 1 colonne */
+@media (max-width: 650px) {
+  .cv-skills-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .cv-skill-card {
+    padding: 1.5rem;
+  }
+}
 /* ==========================================================================
    5. FORMATION (Bloc Unique Condensé)
    ========================================================================== */
 
 .formation-unique-block {
-	background-color: var(--color-nav);
-	padding: 1.5rem 2.5rem;
-	border-radius: 12px;
-	backdrop-filter: blur(8px);
-	border: 1px solid rgba(128, 128, 128, 0.1);
-	box-shadow: 0 8px 25px -10px var(--color-horizon);
+  /* Même fond que les autres cartes pour la cohérence */
+  background-color: var(--color-nav);
+  padding: 1rem 2.5rem; 
+  border-radius: 12px;
+  backdrop-filter: blur(8px);
+  border: 1px solid rgba(128, 128, 128, 0.1);
+  box-shadow: none;
+  transition: all 0.3s ease;
+}
+
+.formation-unique-block:hover {
+  box-shadow: 0 5px 20px -5px var(--color-horizon);
 }
 
 .formation-dense-item {
-	display: flex;
-	align-items: baseline;
-	gap: 30px;
-	padding: 0.8rem 0;
-	border-bottom: 1px solid rgba(128, 128, 128, 0.05);
+  display: flex;
+  align-items: baseline;
+  gap: 30px;
+  padding: 0.6rem 0; 
+  border-bottom: 1px solid rgba(128, 128, 128, 0.05);
 }
 
 .formation-dense-item:last-child {
-	border-bottom: none;
+  border-bottom: none;
 }
 
 .formation-year {
-	font-family: var(--font-title);
-	font-weight: 700;
-	color: var(--color-accent);
-	min-width: 90px;
-	font-size: 0.85rem;
+  font-family: var(--font-title);
+  font-weight: 700;
+  color: var(--color-accent);
+  min-width: 90px;
+  font-size: 0.85rem;
 }
 
 .formation-title {
-	font-size: 1rem;
-	font-weight: 600;
-	color: var(--text-main);
-	display: inline-block;
-	margin-right: 8px;
+  font-size: 1rem;
+  font-weight: 600;
+  color: var(--text-main);
+  display: inline-block;
+  margin-right: 8px;
 }
+
 .formation-subtitle {
-	display: inline-block;
-	font-size: 0.85rem;
-	color: var(--text-main);
-	opacity: 0.6;
+  display: inline-block;
+  font-size: 0.85rem;
+  color: var(--text-main);
+  opacity: 0.6;
 }
 
 /* ==========================================================================
@@ -385,62 +405,95 @@
    ========================================================================== */
 
 .timeline-container {
-	position: relative;
-	padding-left: 35px;
-	border-left: 1px solid rgba(128, 128, 128, 0.2);
-	margin-left: 10px;
+  position: relative;
+  padding-left: 35px;
+  /* Ligne de la timeline discrète */
+  border-left: 1px solid rgba(128, 128, 128, 0.2);
+  margin-left: 10px;
 }
 
 .timeline-item {
-	position: relative;
-	margin-bottom: 50px;
+  position: relative;
+  margin-bottom: 50px;
 }
 
 .timeline-dot {
-	position: absolute;
-	left: -41.5px;
-	top: 8px;
-	width: 12px;
-	height: 12px;
-	background-color: var(--text-main);
-	border-radius: 50%;
-	border: 2px solid var(--color-space);
+  position: absolute;
+  /* Centrage parfait sur la ligne de 1px */
+  left: -41.5px;
+  top: 8px;
+  width: 12px;
+  height: 12px;
+  background-color: var(--text-main);
+  border-radius: 50%;
+  border: 2px solid var(--color-space);
+  z-index: 2;
 }
 
+/* Mise en avant de l'expérience actuelle (Bootcamp Dev) */
 .timeline-dev .timeline-dot {
-	background-color: var(--color-accent);
-	box-shadow: 0 0 10px var(--color-accent);
+  background-color: var(--color-accent);
+  box-shadow: 0 0 10px var(--color-accent);
+}
+
+.timeline-date {
+  font-family: var(--font-title);
+  font-weight: 700;
+  color: var(--color-accent);
+  font-size: 0.9rem;
+  margin-bottom: 8px;
+  display: block;
 }
 
 .timeline-content {
-	background-color: var(--color-nav);
-	padding: 1.8rem;
-	border-radius: 12px;
-	border: 1px solid rgba(128, 128, 128, 0.1);
-	box-shadow: 0 8px 25px -10px var(--color-horizon);
-	transition: box-shadow 0.3s ease;
+  background-color: var(--color-nav);
+  padding: 1.8rem;
+  border-radius: 12px;
+  border: 1px solid rgba(128, 128, 128, 0.1);
+  transition: all 0.3s ease; /* Transition sur bg-color et shadow */
 }
 
+/* Harmonisation du hover avec les Hard Skills */
 .timeline-content:hover {
-	box-shadow: 0 15px 35px -5px var(--color-horizon);
+   box-shadow: 0 5px 20px -5px var(--color-horizon);
 }
 
 .timeline-role {
-	font-size: 1.2rem;
-	font-weight: 700;
-	color: var(--text-main);
+  font-family: var(--font-title);
+  font-size: 1.2rem;
+  font-weight: 700;
+  color: var(--text-main);
+  margin-bottom: 4px;
 }
+
 .timeline-company {
-	font-size: 1rem;
-	font-weight: 500;
-	color: var(--color-accent);
-	margin-bottom: 12px;
+  font-size: 1rem;
+  font-weight: 500;
+  color: var(--color-accent);
+  margin-bottom: 12px;
 }
+
 .timeline-details {
-	font-size: 0.9rem;
-	line-height: 1.6;
-	color: var(--text-main);
-	opacity: 0.8;
+  font-size: 0.95rem;
+  line-height: 1.6;
+  color: var(--text-main);
+  opacity: 0.85;
+}
+
+/* --- Responsive Timeline --- */
+@media (max-width: 768px) {
+  .timeline-container {
+    padding-left: 25px;
+    margin-left: 5px;
+  }
+  
+  .timeline-dot {
+    left: -31.5px;
+  }
+  
+  .timeline-content {
+    padding: 1.2rem;
+  }
 }
 
 /* ==========================================================================

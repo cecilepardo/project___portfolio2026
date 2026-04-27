@@ -142,10 +142,10 @@ const CV = ({ theme }: CVProps) => {
   ];
 
   const formations = [
-    { year: "2025-2026", title: "Bootcamp Développeur Web", subtitle: "Wild Code School" },
-    { year: "2011-2015", title: "Techniques de Gravure", subtitle: "Beaux-Arts de Paris" },
+    { year: "2025-2026", title: "Wild Code School", subtitle: "Titre certifié de Développeur Web et Web Mobile" },
+    { year: "2011-2015", title: "Beaux-Arts de Paris", subtitle: "Techniques de Gravure (Eau-forte, Linogravure, Aquatinte, photogravure..." },
     { year: "2006", title: "Concours du CRPE (Bac +5)", subtitle: "Option Anglais et Mathématiques" },
-    { year: "2002-2005", title: "Licence Arts Plastiques", subtitle: "Université Paris VIII" },
+    { year: "2002-2005", title: "DEUG + Licence d'Arts Plastiques", subtitle: "Spécialités Photo, Analyse de l'Image et Sérigraphie" },
     { year: "2000", title: "Baccalauréat Scientifique", subtitle: "Option SVT & Grec ancien" }
   ];
 
