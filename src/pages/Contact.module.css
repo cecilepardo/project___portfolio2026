@@ -81,7 +81,6 @@
   align-items: flex-start;
   gap: 1rem;
   padding: 1rem;
-  border-left: 3px solid var(--color-accent);
   background-color: rgba(0, 0, 0, 0.1);
 }
 
