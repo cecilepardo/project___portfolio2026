@@ -1,5 +1,5 @@
 import { useState, useMemo } from "react";
-import "./Portfolio.css";
+import "./Design.css";
 
 /* --- Types --- */
 type Category = "All" | "Design" | "Graphisme" | "Illustration" | "Photo" | "UI" | "Vidéo";
@@ -65,7 +65,7 @@ const allProjects: Project[] = Object.keys(imageFiles).map((path, index) => {
   };
 });
 
-const Portfolio = () => {
+const Design = () => {
   const [filter, setFilter] = useState<Category>("All");
   
   // Liste ordonnée pour l'affichage des boutons
@@ -85,15 +85,15 @@ const Portfolio = () => {
   }, [filter]);
 
   return (
-    <div className="portfolio-page">
-      <div className="portfolio-container">
-        <header className="portfolio-header">
-          <h1 className="portfolio-title">Portfolio</h1>
-          <p className="portfolio-subtitle"><strong>Portfolio :</strong> de l'UI design à la vidéo, donner vie aux idées sur tous les supports. </p>
+    <div className="design-page">
+      <div className="design-container">
+        <header className="design-header">
+          <h1 className="design-title">Visual Lab</h1>
+          <p className="design-subtitle"><strong>Portfolio :</strong> de l'UI design à la vidéo, donner vie aux idées sur tous les supports. </p>
         </header>
 
         {/* Navigation des filtres */}
-        <nav className="portfolio-filters" aria-label="Catégories de projets">
+        <nav className="design-filters" aria-label="Catégories de projets">
           {categories.map((cat) => (
             <button
               type="button"
@@ -133,4 +133,4 @@ const Portfolio = () => {
   );
 };
 
-export default Portfolio;
+export default Design;
