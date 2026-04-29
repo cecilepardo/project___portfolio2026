@@ -101,6 +101,17 @@
    BENTO GRID
    ========================================================================== */
 
+@keyframes bentoFadeIn {
+	from {
+		opacity: 0;
+		transform: translateY(20px) scale(0.95);
+	}
+	to {
+		opacity: 1;
+		transform: translateY(0) scale(1);
+	}
+}
+
 .bento-grid {
 	display: grid;
 	grid-template-columns: repeat(4, 1fr);
@@ -119,6 +130,7 @@
 	transition:
 		transform 0.3s ease,
 		box-shadow 0.3s ease;
+	animation: bentoFadeIn 0.5s cubic-bezier(0.2, 0.8, 0.2, 1) both;
 }
 
 /* --- Suppression du hover coloré & ajout d'une interaction sobre --- */
@@ -212,6 +224,25 @@
 .bento-item.small {
 	grid-column: span 1;
 	grid-row: span 1;
+}
+
+.bento-item:nth-child(1) {
+	animation-delay: 0.05s;
+}
+.bento-item:nth-child(2) {
+	animation-delay: 0.1s;
+}
+.bento-item:nth-child(3) {
+	animation-delay: 0.15s;
+}
+.bento-item:nth-child(4) {
+	animation-delay: 0.2s;
+}
+.bento-item:nth-child(5) {
+	animation-delay: 0.25s;
+}
+.bento-item:nth-child(6) {
+	animation-delay: 0.3s;
 }
 
 /* ==========================================================================
