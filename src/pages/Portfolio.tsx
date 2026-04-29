@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useMemo } from "react";
 import "./Portfolio.css";
 
 /* --- Types --- */
@@ -20,47 +20,69 @@ const imageFiles = import.meta.glob(
 );
 
 /**
- * Fonction utilitaire pour transformer "mon-beau-projet" en "Mon Beau Projet"
+ * Transformation des fichiers selon ta nomenclature :
+ * catégorie_titre-de-l-image_alt-de-l-image_format.jpg
  */
-const capitalizeTitle = (str: string) => 
-  str.split("-").map(word => word.charAt(0).toUpperCase() + word.slice(1)).join(" ");
-
-// Transformation des assets en objets utilisables
 const allProjects: Project[] = Object.keys(imageFiles).map((path, index) => {
   const fileName = path.split("/").pop() || "";
-  const folder = path.split("/").slice(-2, -1)[0];
+  const parts = fileName.split(".")[0].split("_");
   
+  // 1. Extraction des segments
+  const rawCat = parts[0] || "Design";
+  const rawTitle = parts[1] || "Projet";
+  const rawAlt = parts[2] || rawTitle;
+  const sizeKey = parts[3] ? `_${parts[3]}` : "_sm";
+
+  // 2. Mapping des tailles
   const sizeMap: Record<string, string> = {
-    _lg: "large", // Carré 2x2
-    _wd: "wide",  // Horizontal 2x1
-    _tl: "tall",  // Vertical 1x2
-    _sm: "small", // Carré 1x1
+    _lg: "large",
+    _wd: "wide",
+    _tl: "tall",
+    _sm: "small",
   };
 
-  const sizeKey = Object.keys(sizeMap).find((key) => fileName.includes(key)) || "_sm";
-  const categoryFormatted = folder.charAt(0).toUpperCase() + folder.slice(1);
-  
-  // Nettoyage du titre (on retire le suffixe de taille et les tirets)
-  const rawName = fileName.split("_")[0];
-  const cleanTitle = capitalizeTitle(rawName);
+  // 3. Harmonisation de la catégorie (pour éviter les bugs "Graphisme" vs "graphisme")
+  const formatCategory = (cat: string) => {
+    const map: Record<string, string> = {
+      graphism: "Graphisme",
+      graphisme: "Graphisme",
+      ui: "UI",
+      video: "Vidéo",
+      design: "Design",
+      photo: "Photo",
+      illustration: "Illustration"
+    };
+    return map[cat.toLowerCase()] || cat.charAt(0).toUpperCase() + cat.slice(1).toLowerCase();
+  };
 
   return {
     id: index,
-    title: cleanTitle,
-    category: categoryFormatted,
+    title: rawTitle.replace(/-/g, " "),
+    category: formatCategory(rawCat),
     img: (imageFiles[path] as any).default,
-    size: sizeMap[sizeKey],
-    alt: `${categoryFormatted} - ${cleanTitle}` // Alt sémantique généré
+    size: sizeMap[sizeKey] || "small",
+    alt: rawAlt.replace(/-/g, " ")
   };
 });
 
 const Portfolio = () => {
   const [filter, setFilter] = useState<Category>("All");
+  
+  // Liste ordonnée pour l'affichage des boutons
   const categories: Category[] = ["All", "Design", "Graphisme", "Illustration", "Photo", "UI", "Vidéo"];
 
-  const filteredProjects = filter === "All" 
-    ? allProjects 
-    : allProjects.filter(p => p.category.toLowerCase() === filter.toLowerCase());
+  /**
+   * Filtrage et Randomisation
+   * useMemo garantit que l'ordre aléatoire reste stable tant qu'on ne change pas de filtre
+   */
+  const displayedProjects = useMemo(() => {
+    const filtered = filter === "All" 
+      ? allProjects 
+      : allProjects.filter(p => p.category.toLowerCase() === filter.toLowerCase());
+    
+    // Algorithme de mélange simple pour donner du dynamisme à la Bento Grid
+    return [...filtered].sort(() => Math.random() - 0.5);
+  }, [filter]);
 
   return (
     <div className="portfolio-page">
@@ -70,8 +92,8 @@ const Portfolio = () => {
           <p className="portfolio-subtitle">Sélection de travaux créatifs & design</p>
         </header>
 
-        {/* 1. Filtres style CV */}
-        <nav className="portfolio-filters" role="tablist">
+        {/* Navigation des filtres */}
+        <nav className="portfolio-filters" aria-label="Catégories de projets">
           {categories.map((cat) => (
             <button
               type="button"
@@ -79,17 +101,17 @@ const Portfolio = () => {
               className={`filter-btn ${filter === cat ? "active" : ""}`}
               onClick={() => setFilter(cat)}
               aria-pressed={filter === cat}
-              aria-label={`Filtrer par catégorie ${cat}`}
+              aria-label={`Afficher les projets de type ${cat}`}
             >
               <span className="filter-label">{cat}</span>
             </button>
           ))}
         </nav>
 
-        {/* 2. Grille Bento */}
+        {/* Grille Bento Dynamique */}
         <div className="bento-grid">
-          {filteredProjects.map((project) => (
-            <div key={project.id} className={`bento-item ${project.size}`}>
+          {displayedProjects.map((project) => (
+            <article key={project.id} className={`bento-item ${project.size}`}>
               <div className="bento-card">
                 <img 
                   src={project.img} 
@@ -103,7 +125,7 @@ const Portfolio = () => {
                   </div>
                 </div>
               </div>
-            </div>
+            </article>
           ))}
         </div>
       </div>
