@@ -2,21 +2,21 @@
    PORTFOLIO LAYOUT
    ========================================================================== */
 
-.portfolio-page {
+.design-page {
 	min-height: 100vh;
 	padding: 100px 40px; /* Espace pour le header/nav */
 }
 
-.portfolio-container {
+.design-container {
 	max-width: 1400px; /* Plus large pour la Bento Grid */
 	margin: 0 auto;
 }
 
-.portfolio-header {
+.design-header {
 	margin-bottom: 3rem;
 }
 
-.portfolio-title {
+.design-title {
 	font-family: var(--font-title);
 	font-size: 2.5rem;
 	font-weight: 800;
@@ -24,7 +24,7 @@
 	margin-bottom: 0.5rem;
 }
 
-.portfolio-subtitle {
+.design-subtitle {
 	color: var(--color-accent);
 	font-weight: 500;
 	font-size: 1.1rem;
@@ -34,7 +34,7 @@
    FILTRES (Style Boutons Sociaux CV)
    ========================================================================== */
 
-.portfolio-filters {
+.design-filters {
 	display: flex;
 	flex-wrap: wrap;
 	gap: 12px;

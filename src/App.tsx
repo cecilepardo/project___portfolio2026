@@ -8,8 +8,8 @@ import ErrorPage from "./pages/ErrorPage";
 import Home from "./pages/Home";
 import LegalMentions from "./pages/LegalMentions";
 import MainLayout from "./layouts/MainLayout";
-import Portfolio from "./pages/Portfolio";
-import Projects from "./pages/Projets";
+import Design from "./pages/Design";
+import Dev from "./pages/Dev";
 import CV from "./pages/CV";
 import Contact from "./pages/Contact";
 
@@ -32,8 +32,8 @@ function App() {
 			errorElement: <ErrorPage />, // Ajoute cette ligne ici !
 			children: [
 				{ index: true, element: <Home /> },
-  { path: "portfolio", element: <Portfolio /> },
-  { path: "projets", element: <Projects /> },
+  { path: "design", element: <Design /> },
+  { path: "dev", element: <Dev /> },
   { path: "cv", element: <CV theme={theme} /> },
   { path: "contact", element: <Contact theme={theme} /> },
   { path: "LegalMentions", element: <LegalMentions /> },
