@@ -1,0 +1,218 @@
+/* ==========================================================================
+   PORTFOLIO LAYOUT
+   ========================================================================== */
+
+.portfolio-page {
+  min-height: 100vh;
+  padding: 100px 40px; /* Espace pour le header/nav */
+}
+
+.portfolio-container {
+  max-width: 1400px; /* Plus large pour la Bento Grid */
+  margin: 0 auto;
+}
+
+.portfolio-header {
+  margin-bottom: 3rem;
+}
+
+.portfolio-title {
+  font-family: var(--font-title);
+  font-size: 2.5rem;
+  font-weight: 800;
+  color: var(--text-main);
+  margin-bottom: 0.5rem;
+}
+
+.portfolio-subtitle {
+  color: var(--color-accent);
+  font-weight: 500;
+  font-size: 1.1rem;
+}
+
+/* ==========================================================================
+   FILTRES (Style Boutons Sociaux CV)
+   ========================================================================== */
+
+.portfolio-filters {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-bottom: 4rem;
+}
+
+.filter-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 45px;
+  padding: 0 25px;
+  background-color: var(--color-nav);
+  border: 1px solid rgba(128, 128, 128, 0.1);
+  border-radius: 12px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  backdrop-filter: blur(8px);
+}
+
+.filter-label {
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: var(--text-main);
+}
+
+.filter-btn:hover, .filter-btn.active {
+  background-color: var(--color-soft-accent);
+  border-color: var(--color-accent);
+  box-shadow: 0 10px 25px -5px var(--color-horizon);
+  transform: translateY(-2px);
+}
+
+.filter-btn.active .filter-label {
+  color: var(--color-accent);
+}
+
+/* --- État de base (non cliqué) --- */
+.filter-btn .filter-label {
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: var(--text-main); /* Couleur par défaut */
+  transition: color 0.3s ease;
+}
+
+/* --- État Hover & Actif (cliqué) --- */
+.filter-btn:hover, 
+.filter-btn.active {
+  background-color: var(--color-soft-accent);
+  border-color: var(--color-accent);
+  box-shadow: 0 10px 25px -5px var(--color-horizon);
+  transform: translateY(-2px);
+}
+
+/* --- CORRECTION : On s'assure que le texte reste lisible --- */
+.filter-btn.active .filter-label,
+.filter-btn:hover .filter-label {
+  /* On force la même couleur que l'état normal pour éviter l'illisibilité */
+  color: var(--text-main);
+}
+
+/* ==========================================================================
+   BENTO GRID
+   ========================================================================== */
+
+.bento-grid {
+  display: grid;
+  /* On définit 4 colonnes de base */
+  grid-template-columns: repeat(4, 1fr);
+  /* On définit une hauteur de ligne fixe pour que le bento fonctionne */
+  grid-auto-rows: 220px; 
+  gap: 1.5rem;
+  /* Très important : remplit les trous automatiquement */
+  grid-auto-flow: dense; 
+  margin-top: 2rem;
+}
+
+.bento-item {
+  position: relative;
+  border-radius: 12px; /* Un peu plus fin pour plus d'élégance */
+  overflow: hidden;
+  background-color: var(--color-nav); /* Fond neutre si l'image ne remplit pas tout */
+  border: 1px solid rgba(128, 128, 128, 0.1);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* --- Suppression du hover coloré & ajout d'une interaction sobre --- */
+.bento-item:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 10px 30px -10px var(--color-horizon);
+  border-color: rgba(128, 128, 128, 0.3);
+}
+
+.bento-card {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center; 
+  transition: transform 0.5s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.bento-overlay {
+  background: linear-gradient(to top, rgba(0,0,0,0.7) 0%, transparent 50%);
+}
+
+.bento-card img {
+  max-width: 100%;
+  max-height: 100%;
+  transition: transform 0.5s ease;
+}
+
+.bento-item:hover img {
+  transform: scale(1.02);
+}
+
+.bento-overlay {
+  position: absolute;
+  inset: 0;
+  /* On enlève le gradient noir, on garde juste un léger voile au hover 
+     uniquement pour décoller le texte si nécessaire */
+  background: rgba(0, 0, 0, 0.2); 
+  display: flex;
+  align-items: flex-end;
+  padding: 1.2rem;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  pointer-events: none;
+}
+
+.bento-item:hover .bento-overlay {
+  opacity: 1;
+}
+
+.bento-info {
+  /* On s'assure que le texte est lisible sans gros bloc noir */
+  text-shadow: 0 2px 4px rgba(0,0,0,0.5);
+}
+
+.bento-cat {
+  font-size: 0.7rem;
+  text-transform: uppercase;
+  color: var(--color-accent);
+  font-weight: 700;
+}
+
+.bento-title {
+  color: #ffffff;
+  font-size: 1rem;
+  font-weight: 500;
+  margin-top: 2px;
+}
+
+/* --- Rappel des tailles Bento --- */
+.bento-item.large { grid-column: span 2; grid-row: span 2; }
+.bento-item.wide  { grid-column: span 2; grid-row: span 1; }
+.bento-item.tall  { grid-column: span 1; grid-row: span 2; }
+.bento-item.small { grid-column: span 1; grid-row: span 1; }
+
+/* ==========================================================================
+   RESPONSIVE
+   ========================================================================== */
+
+@media (max-width: 1100px) {
+  .bento-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 600px) {
+  .bento-grid {
+    grid-template-columns: 1fr;
+    grid-auto-rows: 250px;
+  }
+  .bento-item.large, .bento-item.wide, .bento-item.tall {
+    grid-column: span 1;
+    grid-row: span 1;
+  }
+}
