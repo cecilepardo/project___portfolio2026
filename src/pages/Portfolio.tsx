@@ -89,7 +89,7 @@ const Portfolio = () => {
       <div className="portfolio-container">
         <header className="portfolio-header">
           <h1 className="portfolio-title">Portfolio</h1>
-          <p className="portfolio-subtitle">Sélection de travaux créatifs & design</p>
+          <p className="portfolio-subtitle"><strong>Portfolio :</strong> de l'UI design à la vidéo, donner vie aux idées sur tous les supports. </p>
         </header>
 
         {/* Navigation des filtres */}
@@ -109,7 +109,7 @@ const Portfolio = () => {
         </nav>
 
         {/* Grille Bento Dynamique */}
-        <div className="bento-grid">
+        <div className="bento-grid" key={filter}>
           {displayedProjects.map((project) => (
             <article key={project.id} className={`bento-item ${project.size}`}>
               <div className="bento-card">
