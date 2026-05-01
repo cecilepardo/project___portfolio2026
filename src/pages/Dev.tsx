@@ -1,7 +1,7 @@
 // 1. Imports React
 import { useCallback, useEffect, useState } from "react";
 
-// 2. Imports de types (Note le "import type")
+// 2. Imports de types
 import type { Project } from "../data/projects";
 import { devProjects } from "../data/projects";
 
@@ -25,37 +25,31 @@ const Dev = () => {
 
   return (
     <main className="dev-page">
-      <header className="dev-header">
-        <h1 className="dev-title">Dev Lab</h1>
-        <p className="dev-subtitle">Solutions logicielles & Architecture web</p>
-      </header>
+      <div className="dev-container">
+        <header className="dev-header">
+          <h1 className="dev-title">Projets Dev</h1>
+          <p className="dev-subtitle">Solutions logicielles & Architecture web</p>
+        </header>
 
-      <div className="dev-grid">
-        {devProjects.map((project) => (
-          <DevCard 
-            key={project.id} 
-            project={project} 
-            onOpen={setSelectedProject} 
-          />
-        ))}
+        <div className="dev-grid">
+          {devProjects.map((project) => (
+            <DevCard 
+              key={project.id} 
+              project={project} 
+              onOpen={setSelectedProject} 
+            />
+          ))}
+        </div>
       </div>
 
+      {/* --- MODALE --- */}
       {selectedProject && (
-        /* 
-           Correction : On utilise un <button> invisible pour l'overlay 
-           pour satisfaire la règle "noStaticElementInteractions"
-        */
         <button
           type="button"
           className="modal-overlay"
           onClick={() => setSelectedProject(null)}
           aria-label="Fermer la modale"
         >
-          {/* 
-             Le contenu de la modale est une <section> avec role="dialog" 
-             On utilise un stopPropagation sur le click pour ne pas fermer
-             la modale quand on clique sur le texte.
-          */}
           <section
             className="modal-content"
             onClick={(e) => e.stopPropagation()}
@@ -79,19 +73,35 @@ const Dev = () => {
 
               <div className="modal-details">
                 <h2 className="modal-title">{selectedProject.title}</h2>
+                
                 <div className="modal-tags">
                   {selectedProject.stack.map((s) => (
                     <span key={s} className="dev-hashtag">#{s}</span>
                   ))}
                 </div>
-                <h3>Fonctionnalités</h3>
-                <p className="modal-description">{selectedProject.fullDesc}</p>
+
+                {/* Section détaillée pour profiter des espacements CSS */}
+                <div className="modal-description-section">
+                  <h3>Fonctionnalités</h3>
+                  <p className="modal-description">{selectedProject.fullDesc}</p>
+                </div>
+
                 <div className="modal-actions">
-                  <a href={selectedProject.githubUrl} target="_blank" rel="noreferrer" className="btn-secondary">
+                  <a 
+                    href={selectedProject.githubUrl} 
+                    target="_blank" 
+                    rel="noreferrer" 
+                    className="btn-secondary"
+                  >
                     GitHub
                   </a>
                   {selectedProject.liveUrl && (
-                    <a href={selectedProject.liveUrl} target="_blank" rel="noreferrer" className="btn-primary">
+                    <a 
+                      href={selectedProject.liveUrl} 
+                      target="_blank" 
+                      rel="noreferrer" 
+                      className="btn-primary"
+                    >
                       Voir le projet
                     </a>
                   )}
