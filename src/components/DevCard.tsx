@@ -1,4 +1,4 @@
-import { Project } from "../data/projects";
+import type { Project } from "../data/projects";
 
 interface DevCardProps {
   project: Project;
@@ -9,23 +9,40 @@ const DevCard = ({ project, onOpen }: DevCardProps) => {
   return (
     <article className="dev-card">
       <div className="dev-card-media">
-        <video 
-          src={project.previewVideo} 
-          muted 
-          loop 
-          autoPlay 
-          playsInline 
-        />
+        {/* Sécurité : Si la vidéo n'existe pas encore, on affiche un placeholder stylé */}
+        {project.previewVideo ? (
+          <video 
+            src={project.previewVideo} 
+            muted 
+            loop 
+            autoPlay 
+            playsInline 
+          />
+        ) : (
+          <div className="dev-video-placeholder">
+            <span>Aperçu en cours...</span>
+          </div>
+        )}
       </div>
+
       <div className="dev-card-info">
         <h3 className="dev-card-title">{project.title}</h3>
         <p className="dev-card-desc">{project.shortDesc}</p>
+        
         <div className="dev-card-tags">
-          {project.stack.map(tech => (
-            <span key={tech} className="dev-hashtag">#{tech}</span>
+          {project.stack.map((tech) => (
+            <span key={tech} className="dev-hashtag">
+              #{tech}
+            </span>
           ))}
         </div>
-        <button className="dev-btn-more" onClick={() => onOpen(project)}>
+
+        {/* Utilisation de type="button" pour la sémantique Biome */}
+        <button 
+          type="button" 
+          className="dev-btn-more" 
+          onClick={() => onOpen(project)}
+        >
           Voir plus
         </button>
       </div>
