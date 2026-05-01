@@ -26,8 +26,8 @@ export const devProjects: Project[] = [
 			"JavaScript",
 			"Stripe",
 		],
-		previewVideo: "/assets/dev/iloe-preview.mp4",
-		demoVideo: "/assets/dev/iloe-demo.mp4",
+		previewVideo: "", //assets/dev/iloe-preview.mp4,
+		demoVideo: "", //assets/dev/iloe-demo.mp4
 		githubUrl:
 			"https://github.com/cecilepardo/project___photographer-full-website_iloe",
 		liveUrl: "https://www.iloe.pro",
@@ -48,8 +48,8 @@ export const devProjects: Project[] = [
 			"JavaScript",
 			"Stripe",
 		],
-		previewVideo: "/assets/dev/pickit-preview.mp4",
-		demoVideo: "/assets/dev/pickit-demo.mp4",
+		previewVideo: "", //assets/dev/pickit-preview.mp4",
+		demoVideo: "", //assets/dev/pickit-demo.mp4",
 		githubUrl: "https://github.com/https://github.com/DevNexus59/Pickit", // CLONE + FORK GITHUB
 		liveUrl: "https://pickit.pierrefourdin.dev/",
 	},
@@ -61,10 +61,10 @@ export const devProjects: Project[] = [
 		fullDesc:
 			"Portfolio complet pour mes différents projets et mes books de graphiste, photographe, designeuse,...",
 		stack: ["React", "TypeScript", "JavaScript", "Stripe"],
-		previewVideo: "/assets/dev/portfolio-preview.mp4",
-		demoVideo: "/assets/dev/portfolio-demo.mp4",
+		previewVideo: "", //assets/dev/portfolio-preview.mp4",
+		demoVideo: "", //assets/dev/portfolio-demo.mp4",
 		githubUrl: "https://github.com/cecilepardo/project___portfolio2026",
-		liveUrl: "https://pickit.pierrefourdin.dev/", // ADRESSE DU SITE DÉPLOYÉ
+		liveUrl: "", // ADRESSE DU SITE DÉPLOYÉ
 	},
 
 	{
@@ -74,8 +74,8 @@ export const devProjects: Project[] = [
 		fullDesc:
 			"Site permettant aux utilisateurs de planifier leurs séances, voir des exercices et les sauvegarder. Fonctionnalités : inscription avec authentification sécurisée, tableau de bord personnalisé, planning des séances...",
 		stack: ["React", "TypeScript", "Node.js", "Express", "MySQL"],
-		previewVideo: "/assets/dev/moveup-preview.mp4",
-		demoVideo: "/assets/dev/moveup-demo.mp4",
+		previewVideo: "", //assets/dev/moveup-preview.mp4",
+		demoVideo: "", //assets/dev/moveup-demo.mp4",
 		githubUrl:
 			"https://github.com/Joachim-masson/Js-Crew809-TeamRocket-P2-G2-moveup", // CLONE + FORK GITHUB
 		liveUrl: "https://moveup.pierrefourdin.dev/",
@@ -95,8 +95,8 @@ export const devProjects: Project[] = [
 			"REST API",
 			"Express",
 		],
-		previewVideo: "/assets/dev/tatooine-preview.mp4",
-		demoVideo: "/assets/dev/tatooine-demo.mp4",
+		previewVideo: "", //assets/dev/tatooine-preview.mp4",
+		demoVideo: "", //assets/dev/tatooine-demo.mp4",
 		githubUrl:
 			"https://github.com/cecilepardo/challenge___react-api-project_tatooine-interim",
 		liveUrl: "https://pickit.pierrefourdin.dev/", // ADRESSE DU SITE DÉPLOYÉ
@@ -109,8 +109,8 @@ export const devProjects: Project[] = [
 		fullDesc:
 			"Site fictif permettant aux utilisateurs de visualiser, de poster des annonces et de s'envoyer des messages.",
 		stack: ["React", "TypeScript", "JavaScript", "Stripe"],
-		previewVideo: "/assets/dev/ged-preview.mp4",
-		demoVideo: "/assets/dev/ged-demo.mp4",
+		previewVideo: "", //assets/dev/ged-preview.mp4",
+		demoVideo: "", //assets/dev/ged-demo.mp4",
 		githubUrl:
 			"https://github.com/cecilepardo/challenge___fullstack-trade-website_guilde-des-echanges-douteux",
 		liveUrl: "https://pickit.pierrefourdin.dev/", // ADRESSE DU SITE DÉPLOYÉ
@@ -124,8 +124,8 @@ export const devProjects: Project[] = [
 		fullDesc:
 			"Site fictif d'un Éditeur Jeunesse, Les Poulettes, permettant aux utilisateurs de visualiser les différents albums parus, les auteurs... Projet front-end.",
 		stack: ["HTML", "CSS", "JavaScript"],
-		previewVideo: "/assets/dev/poulettes-preview.mp4",
-		demoVideo: "/assets/dev/poulettes-demo.mp4",
+		previewVideo: "", //assets/dev/poulettes-preview.mp4",
+		demoVideo: "", //assets/dev/poulettes-demo.mp4",
 		githubUrl:
 			"https://github.com/cecilepardo/challenge___front-website_publisher_cocottes",
 		liveUrl: "https://pickit.pierrefourdin.dev/", // ADRESSE DU SITE DÉPLOYÉ
@@ -139,8 +139,8 @@ export const devProjects: Project[] = [
 		fullDesc:
 			"Site fictif d'un Éditeur Jeunesse, Les Poulettes, permettant aux utilisateurs de visualiser les différents albums parus, les auteurs... Projet front-end.",
 		stack: ["HTML", "CSS", "JavaScript"],
-		previewVideo: "/assets/dev/poulettes-preview.mp4",
-		demoVideo: "/assets/dev/poulettes-demo.mp4",
+		previewVideo: "", //assets/dev/poulettes-preview.mp4",
+		demoVideo: "", //assets/dev/poulettes-demo.mp4",
 		githubUrl:
 			"https://github.com/cecilepardo/challenge___front-website_publisher_cocottes",
 		liveUrl: "https://pickit.pierrefourdin.dev/", // ADRESSE DU SITE DÉPLOYÉ
@@ -153,8 +153,8 @@ export const devProjects: Project[] = [
 		shortDesc: "Site d'un Label de musique, projet front-end avec différentes pages, artistes...",
 		fullDesc: "Site fictif d'un Label de musique, Neon 808, permettant aux utilisateurs de visualiser les différents artistes, leur production... Projet front-end.",
 		stack: ["HTML", "CSS", "JavaScript"],
-		previewVideo: "/assets/dev/neon808-preview.mp4",
-		demoVideo: "/assets/dev/neon808-demo.mp4",
+		previewVideo: "", //assets/dev/neon808-preview.mp4",
+		demoVideo: "", //assets/dev/neon808-demo.mp4",
 		githubUrl: "https://github.com/cecilepardo/project_music-label-website_neon808",
 		liveUrl: "https://pickit.pierrefourdin.dev/", // ADRESSE DU SITE DÉPLOYÉ
 	},
