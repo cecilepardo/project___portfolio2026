@@ -4,10 +4,13 @@ export interface Project {
 	shortDesc: string;
 	fullDesc: string;
 	stack: string[];
-	previewVideo: string; // La boucle de 10s
-	demoVideo: string; // La démo de 2min
+	previewVideo: string;
+	demoVideo: string;
+	videoAlt: string;
 	githubUrl: string;
-	liveUrl?: string; // Optionnel
+	githubAria: string;
+	liveUrl?: string;
+	liveAria?: string;
 }
 
 export const devProjects: Project[] = [
@@ -26,19 +29,21 @@ export const devProjects: Project[] = [
 			"JavaScript",
 			"Stripe",
 		],
-		previewVideo: "", //assets/dev/iloe-preview.mp4,
-		demoVideo: "", //assets/dev/iloe-demo.mp4
+		previewVideo: "",
+		demoVideo: "",
+		videoAlt: "Aperçu vidéo de l'interface du site de photographie Iloé",
 		githubUrl:
 			"https://github.com/cecilepardo/project___photographer-full-website_iloe",
+		githubAria: "Consulter le code source de Iloé sur GitHub",
 		liveUrl: "https://www.iloe.pro",
+		liveAria: "Visiter le site Iloé en direct",
 	},
-
 	{
 		id: 2,
 		title: "Pickit",
 		shortDesc: "Site de prêt de matériel sportif",
 		fullDesc:
-			"Plateforme collaborative de prêt d'équipements sportifs, conçue en mobile-first. Les utilisateurs peuvent publier des annonces, échanger via un chat en temps réel, gérer leurs favoris et effectuer des paiements sécurisés via Stripe. Authentification JWT, gestion des rôles et tableau de bord administrateur.",
+			"Plateforme collaborative de prêt d'équipements sportifs, conçue en mobile-first. Chat en temps réel, gestion des favoris et paiements sécurisés via Stripe. Authentification JWT et tableau de bord admin.",
 		stack: [
 			"MySQL",
 			"Express",
@@ -48,39 +53,45 @@ export const devProjects: Project[] = [
 			"JavaScript",
 			"Stripe",
 		],
-		previewVideo: "", //assets/dev/pickit-preview.mp4",
-		demoVideo: "", //assets/dev/pickit-demo.mp4",
-		githubUrl: "https://github.com/https://github.com/DevNexus59/Pickit", // CLONE + FORK GITHUB
+		previewVideo: "",
+		demoVideo: "",
+		videoAlt: "Démonstration de l'application mobile-first Pickit",
+		githubUrl: "https://github.com/DevNexus59/Pickit",
+		githubAria: "Consulter le code source de Pickit sur GitHub",
 		liveUrl: "https://pickit.pierrefourdin.dev/",
+		liveAria: "Voir la démonstration en ligne de Pickit",
 	},
-
 	{
 		id: 3,
 		title: "Portfolio",
 		shortDesc: "Portfolio de développeuse et designeuse",
 		fullDesc:
-			"Portfolio complet pour mes différents projets et mes books de graphiste, photographe, designeuse,...",
+			"Portfolio complet pour mes différents projets et mes books de graphiste, photographe, designeuse...",
 		stack: ["React", "TypeScript", "JavaScript", "Stripe"],
-		previewVideo: "", //assets/dev/portfolio-preview.mp4",
-		demoVideo: "", //assets/dev/portfolio-demo.mp4",
+		previewVideo: "",
+		demoVideo: "",
+		videoAlt: "Aperçu de la navigation du portfolio actuel",
 		githubUrl: "https://github.com/cecilepardo/project___portfolio2026",
-		liveUrl: "", // ADRESSE DU SITE DÉPLOYÉ
+		githubAria: "Consulter le code source du portfolio sur GitHub",
+		liveUrl: "",
+		liveAria: "Voir le portfolio en ligne",
 	},
-
 	{
 		id: 4,
 		title: "MoveUp",
 		shortDesc: "Site d'entraînement sportif pour les particuliers",
 		fullDesc:
-			"Site permettant aux utilisateurs de planifier leurs séances, voir des exercices et les sauvegarder. Fonctionnalités : inscription avec authentification sécurisée, tableau de bord personnalisé, planning des séances...",
+			"Site permettant aux utilisateurs de planifier leurs séances, voir des exercices et les sauvegarder. Authentification sécurisée et tableau de bord personnalisé.",
 		stack: ["React", "TypeScript", "Node.js", "Express", "MySQL"],
-		previewVideo: "", //assets/dev/moveup-preview.mp4",
-		demoVideo: "", //assets/dev/moveup-demo.mp4",
+		previewVideo: "",
+		demoVideo: "",
+		videoAlt: "Démonstration des fonctionnalités de planification de MoveUp",
 		githubUrl:
-			"https://github.com/Joachim-masson/Js-Crew809-TeamRocket-P2-G2-moveup", // CLONE + FORK GITHUB
+			"https://github.com/Joachim-masson/Js-Crew809-TeamRocket-P2-G2-moveup",
+		githubAria: "Consulter le code source de MoveUp sur GitHub",
 		liveUrl: "https://moveup.pierrefourdin.dev/",
+		liveAria: "Voir la démonstration en ligne de MoveUp",
 	},
-
 	{
 		id: 5,
 		title: "Tatooine Interim",
@@ -95,13 +106,15 @@ export const devProjects: Project[] = [
 			"REST API",
 			"Express",
 		],
-		previewVideo: "", //assets/dev/tatooine-preview.mp4",
-		demoVideo: "", //assets/dev/tatooine-demo.mp4",
+		previewVideo: "",
+		demoVideo: "",
+		videoAlt: "Aperçu de l'interface thématique Star Wars de Tatooine Interim",
 		githubUrl:
 			"https://github.com/cecilepardo/challenge___react-api-project_tatooine-interim",
-		liveUrl: "https://pickit.pierrefourdin.dev/", // ADRESSE DU SITE DÉPLOYÉ
+		githubAria: "Consulter le code source de Tatooine Interim sur GitHub",
+		liveUrl: "https://pickit.pierrefourdin.dev/",
+		liveAria: "Voir la démonstration de Tatooine Interim",
 	},
-
 	{
 		id: 6,
 		title: "Guilde des Échanges Douteux",
@@ -109,53 +122,45 @@ export const devProjects: Project[] = [
 		fullDesc:
 			"Site fictif permettant aux utilisateurs de visualiser, de poster des annonces et de s'envoyer des messages.",
 		stack: ["React", "TypeScript", "JavaScript", "Stripe"],
-		previewVideo: "", //assets/dev/ged-preview.mp4",
-		demoVideo: "", //assets/dev/ged-demo.mp4",
+		previewVideo: "",
+		demoVideo: "",
+		videoAlt: "Présentation de la plateforme de troc médiévale",
 		githubUrl:
 			"https://github.com/cecilepardo/challenge___fullstack-trade-website_guilde-des-echanges-douteux",
-		liveUrl: "https://pickit.pierrefourdin.dev/", // ADRESSE DU SITE DÉPLOYÉ
+		githubAria: "Consulter le code source de la Guilde sur GitHub",
+		liveUrl: "https://pickit.pierrefourdin.dev/",
+		liveAria: "Voir la démo de la Guilde des Échanges Douteux",
 	},
-
 	{
 		id: 7,
 		title: "Site des Poulettes",
-		shortDesc:
-			"Site d'un Éditeur Jeunesse, projet front-end avec différentes pages, albums...",
+		shortDesc: "Site d'un Éditeur Jeunesse",
 		fullDesc:
-			"Site fictif d'un Éditeur Jeunesse, Les Poulettes, permettant aux utilisateurs de visualiser les différents albums parus, les auteurs... Projet front-end.",
+			"Site fictif d'un Éditeur Jeunesse, Les Poulettes, permettant de visualiser les albums parus et les auteurs.",
 		stack: ["HTML", "CSS", "JavaScript"],
-		previewVideo: "", //assets/dev/poulettes-preview.mp4",
-		demoVideo: "", //assets/dev/poulettes-demo.mp4",
+		previewVideo: "",
+		demoVideo: "",
+		videoAlt: "Aperçu de la mise en page du catalogue Les Poulettes",
 		githubUrl:
 			"https://github.com/cecilepardo/challenge___front-website_publisher_cocottes",
-		liveUrl: "https://pickit.pierrefourdin.dev/", // ADRESSE DU SITE DÉPLOYÉ
+		githubAria: "Consulter le code source des Poulettes sur GitHub",
+		liveUrl: "https://pickit.pierrefourdin.dev/",
+		liveAria: "Voir la démo du site Les Poulettes",
 	},
-
-	{
-		id: 8,
-		title: "Site des Poulettes",
-		shortDesc:
-			"Site d'un Éditeur Jeunesse, projet front-end avec différentes pages, albums...",
-		fullDesc:
-			"Site fictif d'un Éditeur Jeunesse, Les Poulettes, permettant aux utilisateurs de visualiser les différents albums parus, les auteurs... Projet front-end.",
-		stack: ["HTML", "CSS", "JavaScript"],
-		previewVideo: "", //assets/dev/poulettes-preview.mp4",
-		demoVideo: "", //assets/dev/poulettes-demo.mp4",
-		githubUrl:
-			"https://github.com/cecilepardo/challenge___front-website_publisher_cocottes",
-		liveUrl: "https://pickit.pierrefourdin.dev/", // ADRESSE DU SITE DÉPLOYÉ
-	},
-
-
 	{
 		id: 9,
 		title: "Neon 808, label de musique",
-		shortDesc: "Site d'un Label de musique, projet front-end avec différentes pages, artistes...",
-		fullDesc: "Site fictif d'un Label de musique, Neon 808, permettant aux utilisateurs de visualiser les différents artistes, leur production... Projet front-end.",
+		shortDesc: "Site d'un Label de musique",
+		fullDesc:
+			"Site fictif d'un Label de musique, Neon 808, présentant les artistes et leurs productions.",
 		stack: ["HTML", "CSS", "JavaScript"],
-		previewVideo: "", //assets/dev/neon808-preview.mp4",
-		demoVideo: "", //assets/dev/neon808-demo.mp4",
-		githubUrl: "https://github.com/cecilepardo/project_music-label-website_neon808",
-		liveUrl: "https://pickit.pierrefourdin.dev/", // ADRESSE DU SITE DÉPLOYÉ
+		previewVideo: "",
+		demoVideo: "",
+		videoAlt: "Démonstration visuelle du label Neon 808",
+		githubUrl:
+			"https://github.com/cecilepardo/project_music-label-website_neon808",
+		githubAria: "Consulter le code source de Neon 808 sur GitHub",
+		liveUrl: "https://pickit.pierrefourdin.dev/",
+		liveAria: "Voir le site Neon 808 en ligne",
 	},
 ];
