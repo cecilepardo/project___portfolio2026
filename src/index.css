@@ -20,59 +20,25 @@
 	--color-sun: #e9d8c8;
 	--text-main: #ffffff;
 	--color-nav: #1e3442;
-	--color-accent: #ff5c80;
-	--color-soft-accent: #ff5c80;
+	--color-accent: #ff7a99;
+	--color-soft-accent: rgba(255, 122, 153, 0.15);
 	--hero-bg-image: url("/src/assets/hero-dark.jpg");
 	--icon-github: url("/src/assets/github-dark.png");
 	--icon-linkedin: url("/src/assets/linkedin-dark.png");
 }
 
-/* [data-theme="light"] {
-	--color-space: #e9d8c8;
-	--color-horizon: #c9dfe4;
-	--color-sun: #a2aacd;
-	--text-main: #142030;
-	--color-nav: #d0e4ff;
-	--color-accent: #ff5c80;
-	--color-soft-accent: #ffc5d3;
-	--hero-bg-image: url("/src/assets/hero-light.jpg");
-	--icon-github: url("/src/assets/github-light.png");
-	--icon-linkedin: url("/src/assets/linkedin-light.png");
-} */
-
-/* thème BLANC */
-/* [data-theme="light"] {
-  --color-space: #F8F9FA;
-  --color-horizon: #E9ECEF;
-  --color-sun: #CED4DA;
-  --text-main: #1A1D23;
-  --color-nav: #FFFFFF;
-  --color-accent: #FF5C80;
-  --color-soft-accent: #FFF0F3;
-} */
-
-/* [data-theme="light"] {
-  --color-space: #F2EFE9;
-  --color-horizon: #D9D2C5;
-  --color-sun: #BFAFA3;
-  --text-main: #2C2825;
-  --color-nav: rgba(255, 255, 255, 0.5); 
-  --color-accent: #E63946;
-  --color-soft-accent: #FADDE1;
-} */
-
 [data-theme="light"] {
-  --color-space: #E3E9F2;
-  --color-horizon: #C6D2E1;
-  --color-sun: #8E9AAF;
-  --text-main: #142030;
-  --color-nav: #F0F4F8;
-  --color-soft-accent: #FFDDE5;
+	--color-space: #e3e9f2;
+	--color-horizon: #c6d2e1;
+	--color-sun: #8e9aaf;
+	--text-main: #142030;
+	--color-nav: #f0f4f8;
+	--color-accent: #732553;
+	--color-soft-accent: #F5E6EE;
 	--hero-bg-image: url("/src/assets/hero-light.jpg");
 	--icon-github: url("/src/assets/github-light.png");
 	--icon-linkedin: url("/src/assets/linkedin-light.png");
 }
-
 
 /* --------------------
       BASE STYLES
