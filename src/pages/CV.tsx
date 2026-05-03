@@ -44,9 +44,6 @@ interface Experience {
 
 /* --- Sous-composants --- */
 
-/**
- * SkillCard : Affiche une catégorie de compétences avec ses icônes
- */
 const SkillCard = ({ title, skills }: { title: string; skills: Skill[] }) => (
   <div className="cv-skill-card">
     <h4 className="cv-skill-card-title">{title}</h4>
@@ -215,7 +212,7 @@ const CV = ({ theme }: CVProps) => {
               <h1 className="cv-hero-title">Cécile Lavrut - Pardo</h1>
               <h2 className="cv-hero-subtitle">Développeuse Fullstack & Directrice Artistique</h2>
             </div>
-            <a href="/CV_fullstack_pardo_2026.pdf" download className="cv-download-btn">
+            <a href="/CV_fullstack_pardo_2026.pdf" download className="cv-download-btn" aria-label="Télécharger le CV au format PDF">
               <div className="cv-download-text-container">
                 <span className="cv-download-title">Télécharger le CV</span>
                 <span className="cv-download-label">Document PDF</span>
