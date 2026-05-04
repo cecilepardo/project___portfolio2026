@@ -9,26 +9,26 @@
 .cv-body-content {
 	max-width: 1200px;
 	margin: 0 auto;
-	padding: 60px 40px;
+	padding: 30px 40px;
 }
 
 .cv-skills-margin {
-	margin-bottom: 100px;
+	margin-bottom: 50px;
 }
 
 .experience-top-margin {
-	margin-top: 100px;
+	margin-top: 50px;
 }
 
 .cv-section {
-	margin-bottom: 60px;
+	margin-bottom: 40px;
 }
 
 .cv-section-title {
 	font-family: var(--font-title);
 	font-size: 1.6rem;
 	color: var(--color-accent);
-	margin-bottom: 2rem;
+	margin-bottom: 1.2rem;
 	text-transform: uppercase;
 	letter-spacing: 1px;
 }
@@ -48,19 +48,18 @@
 	display: flex;
 	justify-content: flex-start;
 	align-items: center;
-	gap: 4rem;
-	padding: 60px 0;
+	gap: 6rem;
+	padding: 30px 0;
 }
 
 /* --- Typographie du Hero --- */
 .cv-hero-title {
 	font-family: var(--font-title);
-	font-size: 3.2rem;
+	font-size: 2.8rem;
 	font-weight: 800;
 	color: var(--text-main);
 	line-height: 1.1;
 	margin-bottom: 0.5rem;
-	letter-spacing: -1px;
 }
 
 .cv-hero-subtitle {
@@ -155,8 +154,8 @@
 	display: flex;
 	justify-content: space-between;
 	align-items: flex-start;
-	gap: 40px;
-	margin-bottom: 80px;
+	gap: 30px;
+	margin-bottom: 40px;
 }
 
 /* --- Liens Sociaux --- */
@@ -227,9 +226,9 @@
 
 /* --- Photo --- */
 .cv-photo-wrapper {
-	width: 220px;
-	height: 280px;
-	margin-top: -60px;
+	width: 180px;
+	height: 230px;
+	margin-top: -20px;
 	border-radius: 20px;
 	overflow: hidden;
 	z-index: 20;
@@ -246,6 +245,7 @@
 @media (max-width: 1150px) {
 	.cv-social-links {
 		grid-template-columns: repeat(2, 1fr);
+		gap: 10px;
 	}
 }
 
@@ -276,7 +276,7 @@
 
 .cv-skill-card {
 	background-color: var(--color-nav);
-	padding: 2rem;
+	padding: 1.5rem;
 	border-radius: 12px;
 	backdrop-filter: blur(8px);
 	border: 1px solid rgba(128, 128, 128, 0.1);
@@ -291,7 +291,7 @@
 	font-family: var(--font-title);
 	font-size: 1.2rem;
 	color: var(--text-main);
-	margin-bottom: 1.5rem;
+	margin-bottom: 1rem;
 	/* On utilise une bordure subtile qui ne bouge pas au hover */
 	border-bottom: 1px solid var(--color-accent);
 	display: inline-block;
@@ -350,9 +350,8 @@
    ========================================================================== */
 
 .formation-unique-block {
-	/* Même fond que les autres cartes pour la cohérence */
 	background-color: var(--color-nav);
-	padding: 1rem 2.5rem;
+	padding: 0.5rem 2rem;
 	border-radius: 12px;
 	backdrop-filter: blur(8px);
 	border: 1px solid rgba(128, 128, 128, 0.1);
