@@ -5,46 +5,50 @@ import "./Home.css";
 const Home = () => {
   return (
     <div className="home-page">
-      <Hero>
-        <div className="home-hero-content">
-          <h1 className="home-title">Cécile Lavrut - Pardo</h1>
-          <p className="home-tagline">Développeuse Fullstack & Directrice Artistique</p>
-          <p className="home-description">
-            15 ans d'expertise en design visuel au service du développement web. 
-            Je crée des interfaces performantes, accessibles et intuitives.
-          </p>
-        </div>
-      </Hero>
+      {/* Le Hero gère l'identité visuelle et le message d'accueil */}
+      <Hero /> 
 
       <main className="home-container">
         <section className="home-cards-grid">
-          {/* Carte Développement */}
-          <Link to="/dev" className="home-card dev-card-link" aria-label="Voir mes projets de développement">
+          
+          {/* Carte Parcours Développement */}
+          <Link to="/dev" className="home-card" aria-label="Explorer mes projets de développement Fullstack">
             <div className="home-card-video">
-              {/* Ta vidéo "showreel" dev quand elle sera prête */}
               <div className="video-overlay">
                 <h3>Développement Fullstack</h3>
               </div>
             </div>
+            
             <div className="home-card-content">
-              <p className="home-card-stack">MySQL • Express • Node.js • React • TypeScript</p>
-              <span className="home-card-cta">Explorer le lab →</span>
+              {/* Tags techniques identiques au style de la page Dev */}
+              <div className="dev-card-tags">
+                {["MySQL", "Express", "Node.js", "Python", "JavaScript", "React", "TypeScript", "HTML", "CSS"].map((tech) => (
+                  <span key={tech} className="dev-hashtag">#{tech}</span>
+                ))}
+              </div>
+              <span className="home-card-cta">Découvrir</span>
             </div>
           </Link>
 
-          {/* Carte Design */}
-          <Link to="/design" className="home-card design-card-link" aria-label="Voir mon portfolio de design">
+          {/* Carte Parcours Design */}
+          <Link to="/design" className="home-card" aria-label="Découvrir mon portfolio Design et Direction Artistique">
             <div className="home-card-video">
-              {/* Ta vidéo "showreel" design quand elle sera prête */}
               <div className="video-overlay">
                 <h3>Design & Direction Artistique</h3>
               </div>
             </div>
+            
             <div className="home-card-content">
-              <p className="home-card-stack">UI/UX • Branding • Photoshop • Figma • Premiere</p>
-              <span className="home-card-cta">Découvrir le book →</span>
+              {/* Tags design harmonisés sur le style technique */}
+              <div className="dev-card-tags">
+                {["Photoshop", "Illustrator", "Figma", "InDesign", "Premiere", "Lightroom", "Affinity", "ProCreate", "Adobe XD"].map((skill) => (
+                  <span key={skill} className="dev-hashtag">#{skill}</span>
+                ))}
+              </div>
+              <span className="home-card-cta">Découvrir</span>
             </div>
           </Link>
+
         </section>
       </main>
     </div>
