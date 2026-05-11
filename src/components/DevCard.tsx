@@ -9,7 +9,7 @@ const DevCard = ({ project, onOpen }: DevCardProps) => {
   return (
     <article className="dev-card">
       <div className="dev-card-media">
-        {/* Sécurité : Si la vidéo n'existe pas encore, on affiche un placeholder stylé */}
+        
         {project.previewVideo ? (
           <video 
             src={project.previewVideo} 
