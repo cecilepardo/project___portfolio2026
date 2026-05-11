@@ -3,124 +3,119 @@
    ========================================================================== */
 
 .home-page {
-	min-height: 100vh;
-	padding-bottom: 80px;
+  min-height: 100vh;
+  padding-bottom: 80px;
 }
 
 .home-container {
   position: relative;
-  z-index: 10;
+  z-index: 10; /* Assure que les bordures passent devant le Hero */
   max-width: 1400px;
   margin: 0 auto;
   padding: 0 40px;
 }
 
-.home-hero-content {
-	text-align: center;
-	max-width: 850px;
-	margin: 0 auto;
-}
-
 /* ==========================================================================
-   DUO CARDS GRID (DEV & DESIGN)
+   DUO CARDS GRID
    ========================================================================== */
 
 .home-cards-grid {
-	display: grid;
-	grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-	gap: 2rem;
-	margin-top: -40px;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+  gap: 2rem;
+  margin-top: -40px; /* Remontée sur le Hero */
 }
 
 .home-card {
-	background-color: var(--color-nav);
-	border-radius: 12px;
-	border: 1px solid rgba(128, 128, 128, 0.1);
-	overflow: hidden;
-	display: flex;
-	flex-direction: column;
-	text-decoration: none;
-	transition:
-		transform 0.3s ease,
-		box-shadow 0.3s ease,
-		border-color 0.3s ease;
-	height: 100%;
+  background-color: var(--color-nav);
+  border-radius: 12px;
+  border: 1px solid rgba(128, 128, 128, 0.1);
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  text-decoration: none;
+  transition: box-shadow 0.3s ease, border-color 0.3s ease;
+  height: 100%;
 }
 
 .home-card:hover {
-	box-shadow: 0 10px 30px -10px var(--color-horizon);
+  border-color: var(--color-accent);
+  box-shadow: 0 10px 30px -10px var(--color-horizon);
 }
 
-/* Zone Média (Showreel) */
+/* --- Zone Média (Image fixe) --- */
 .home-card-video {
-	position: relative;
-	width: 100%;
-	aspect-ratio: 16 / 9;
-	background: #000;
-	overflow: hidden;
-	border-bottom: 1px solid rgba(128, 128, 128, 0.1);
+  position: relative;
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  background: #000;
+  overflow: hidden;
+  border-bottom: 1px solid rgba(128, 128, 128, 0.1);
 }
 
-/* Overlay titre sur vidéo */
+.home-card-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.5s ease;
+}
+
+.home-card:hover .home-card-img {
+  transform: scale(1.05);
+}
+
 .video-overlay {
-	position: absolute;
-	inset: 0;
-	background: linear-gradient(to top, rgba(0, 0, 0, 0.8) 0%, transparent 60%);
-	display: flex;
-	align-items: flex-end;
-	padding: 1.5rem;
-	z-index: 2;
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to top, rgba(0, 0, 0, 0.8) 0%, transparent 60%);
+  display: flex;
+  align-items: flex-end;
+  padding: 1.5rem;
+  z-index: 2;
 }
 
 .video-overlay h3 {
-	color: #ffffff;
-	font-family: var(--font-title);
-	font-size: 1.5rem;
-	font-weight: 700;
-	margin: 0;
-	text-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
+  color: #ffffff;
+  font-family: var(--font-title);
+  font-size: 1.5rem;
+  font-weight: 700;
+  margin: 0;
+  text-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
 }
 
-/* Zone Info */
+/* --- Zone Info --- */
 .home-card-content {
-	padding: 1.5rem;
-	display: flex;
-	flex-direction: column;
-	flex-grow: 1;
+  padding: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
 }
 
-.home-card-stack {
-	font-size: 0.75rem;
-	color: var(--color-accent);
-  background: var(--color-soft-accent);
-  padding: 4px 10px;
-  border-radius: 8px;
-  font-weight: 600;
-}
+/* Les styles .dev-card-tags et .dev-hashtag sont hérités ou définis globalement */
 
-/* Bouton CTA "Explorer" (Simule le style de dev-btn-more) */
+/* --- Bouton CTA --- */
 .home-card-cta {
-	margin-top: auto;
-	height: 45px;
-	display: flex;
-	align-items: center;
-	justify-content: center;
-	padding: 0 25px;
-	background-color: var(--color-nav);
-	border: 1.5px solid var(--color-accent);
-	border-radius: 12px;
-	color: var(--color-accent);
-	font-weight: 700;
-	text-transform: uppercase;
-	font-size: 0.85rem;
-	letter-spacing: 1px;
-	transition: all 0.3s ease;
+  margin-top: auto;
+  height: 45px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0 25px;
+  background-color: var(--color-nav);
+  border: 1.5px solid var(--color-accent);
+  border-radius: 12px;
+  color: var(--color-accent);
+  font-weight: 700;
+  text-transform: uppercase;
+  font-size: 0.85rem;
+  letter-spacing: 1px;
+  transition: all 0.3s ease;
 }
 
 .home-card:hover .home-card-cta {
-	background-color: var(--color-accent);
-	color: var(--color-space);
-	box-shadow: 0 5px 15px -5px var(--color-horizon);
+  background-color: var(--color-accent);
+  color: var(--color-space);
+  box-shadow: 0 5px 15px -5px var(--color-horizon);
 }
 
 /* ==========================================================================
@@ -128,12 +123,12 @@
    ========================================================================== */
 
 @media (max-width: 850px) {
-	.home-cards-grid {
-		grid-template-columns: 1fr;
-		margin-top: 0; /* On remet à plat sur mobile */
-	}
+  .home-cards-grid {
+    grid-template-columns: 1fr;
+    margin-top: 0;
+  }
 
-	.home-container {
-		padding: 0 20px;
-	}
+  .home-container {
+    padding: 0 20px;
+  }
 }
