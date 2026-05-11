@@ -39,7 +39,6 @@
 }
 
 .home-card:hover {
-  border-color: var(--color-accent);
   box-shadow: 0 10px 30px -10px var(--color-horizon);
 }
 
