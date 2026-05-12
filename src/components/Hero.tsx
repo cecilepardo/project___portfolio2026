@@ -13,19 +13,21 @@ const Hero: React.FC<HeroProps> = ({ showText = true, children }) => {
       aria-label="Introduction"
     >
       <div className="hero-overlay">
-        <div className="hero-content">
-          {showText && (
-            <header>
-              <h1 className="hero-title">Cécile Lavrut - Pardo</h1>
-              <h2 className="hero-subtitle">Développeuse Fullstack & Directrice Artistique</h2>
-              <p className="hero-description">
-                15 ans d'expertise en design visuel au service du développement web. 
-                <p>Je crée des interfaces performantes, accessibles et intuitives.</p>
-              </p>
-            </header>
-          )}
-          {/* C'est ici que s'injectera le bouton Download du CV s'il existe */}
-          {children && <div className="hero-extra-content">{children}</div>}
+        {/* Le conteneur qui assure l'alignement sur la grille de 1400px */}
+        <div className="hero-inner">
+          <div className="hero-content">
+            {showText && (
+              <header>
+                <h1 className="hero-title">Cécile Lavrut - Pardo</h1>
+                <h2 className="hero-subtitle">Développeuse Fullstack & Directrice Artistique</h2>
+                <div className="hero-description">
+                  <p>15 ans d'expertise en design visuel au service du développement web.</p>
+                  <p>Je crée des interfaces performantes, accessibles et intuitives.</p>
+                </div>
+              </header>
+            )}
+            {children && <div className="hero-extra-content">{children}</div>}
+          </div>
         </div>
       </div>
     </section>
