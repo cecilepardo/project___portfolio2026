@@ -9,7 +9,7 @@
   display: flex;
   align-items: center;
   top: 0;
-  margin-top: 0 !important;
+  margin-top: 0;
 
   /* Gestion du background (Image via style inline dans le composant) */
   background-size: cover;
@@ -62,12 +62,39 @@
   text-shadow: 1px 1px 8px rgba(0, 0, 0, 0.5);
 }
 
+.hero-inner {
+  width: 100%;
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 0 40px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.hero-overlay {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+}
+
+.hero-content {
+  width: 100%;
+  padding: 0;
+  margin: 0;
+  color: #ffffff;
+  max-width: 800px;
+  text-align: left;
+}
+
 /* ==========================================================================
    3. ADAPTATIONS DESKTOP (Écrans > 768px)
    ========================================================================== */
 @media (min-width: 769px) {
   .hero-content {
-    padding: 0 40px;
+    padding: 0;
   }
 
   .hero-title {
@@ -83,5 +110,11 @@
   .hero-description {
     font-size: 1.1rem;
     line-height: 1.6;
+  }
+}
+
+@media (max-width: 768px) {
+  .hero-inner {
+    padding: 0 20px;
   }
 }
