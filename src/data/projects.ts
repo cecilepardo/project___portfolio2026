@@ -115,38 +115,38 @@ export const devProjects: Project[] = [
 		liveUrl: "https://pickit.pierrefourdin.dev/",
 		liveAria: "Voir la démonstration de Tatooine Interim",
 	},
-	{
-		id: 6,
-		title: "Guilde des Échanges Douteux",
-		shortDesc: "Plateforme fictive de troc au Moyen-Âge",
-		fullDesc:
-			"Site fictif permettant aux utilisateurs de visualiser, de poster des annonces et de s'envoyer des messages.",
-		stack: ["React", "TypeScript", "JavaScript", "Stripe"],
-		previewVideo: "",
-		demoVideo: "",
-		videoAlt: "Présentation de la plateforme de troc médiévale",
-		githubUrl:
-			"https://github.com/cecilepardo/challenge___fullstack-trade-website_guilde-des-echanges-douteux",
-		githubAria: "Consulter le code source de la Guilde sur GitHub",
-		liveUrl: "https://pickit.pierrefourdin.dev/",
-		liveAria: "Voir la démo de la Guilde des Échanges Douteux",
-	},
-	{
-		id: 7,
-		title: "Site des Poulettes",
-		shortDesc: "Site d'un Éditeur Jeunesse",
-		fullDesc:
-			"Site fictif d'un Éditeur Jeunesse, Les Poulettes, permettant de visualiser les albums parus et les auteurs.",
-		stack: ["HTML", "CSS", "JavaScript"],
-		previewVideo: "",
-		demoVideo: "",
-		videoAlt: "Aperçu de la mise en page du catalogue Les Poulettes",
-		githubUrl:
-			"https://github.com/cecilepardo/challenge___front-website_publisher_cocottes",
-		githubAria: "Consulter le code source des Poulettes sur GitHub",
-		liveUrl: "https://pickit.pierrefourdin.dev/",
-		liveAria: "Voir la démo du site Les Poulettes",
-	},
+	// {
+	// 	id: 6,
+	// 	title: "Guilde des Échanges Douteux",
+	// 	shortDesc: "Plateforme fictive de troc au Moyen-Âge",
+	// 	fullDesc:
+	// 		"Site fictif permettant aux utilisateurs de visualiser, de poster des annonces et de s'envoyer des messages.",
+	// 	stack: ["React", "TypeScript", "JavaScript", "Stripe"],
+	// 	previewVideo: "",
+	// 	demoVideo: "",
+	// 	videoAlt: "Présentation de la plateforme de troc médiévale",
+	// 	githubUrl:
+	// 		"https://github.com/cecilepardo/challenge___fullstack-trade-website_guilde-des-echanges-douteux",
+	// 	githubAria: "Consulter le code source de la Guilde sur GitHub",
+	// 	liveUrl: "https://pickit.pierrefourdin.dev/",
+	// 	liveAria: "Voir la démo de la Guilde des Échanges Douteux",
+	// },
+	// {
+	// 	id: 7,
+	// 	title: "Site des Poulettes",
+	// 	shortDesc: "Site d'un Éditeur Jeunesse",
+	// 	fullDesc:
+	// 		"Site fictif d'un Éditeur Jeunesse, Les Poulettes, permettant de visualiser les albums parus et les auteurs.",
+	// 	stack: ["HTML", "CSS", "JavaScript"],
+	// 	previewVideo: "",
+	// 	demoVideo: "",
+	// 	videoAlt: "Aperçu de la mise en page du catalogue Les Poulettes",
+	// 	githubUrl:
+	// 		"https://github.com/cecilepardo/challenge___front-website_publisher_cocottes",
+	// 	githubAria: "Consulter le code source des Poulettes sur GitHub",
+	// 	liveUrl: "https://pickit.pierrefourdin.dev/",
+	// 	liveAria: "Voir la démo du site Les Poulettes",
+	// },
 	{
 		id: 9,
 		title: "Neon 808, label de musique",
