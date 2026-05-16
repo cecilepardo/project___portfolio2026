@@ -26,6 +26,10 @@ const Dev = () => {
     return () => window.removeEventListener("keydown", handleEsc);
   }, [handleEsc]);
 
+// TEST DEBUG //
+console.log("Nom du fichier attendu :", devProjects[0].previewVideo);
+
+
   return (
     <main className="dev-page">
       <div className="dev-container">
