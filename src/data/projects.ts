@@ -29,8 +29,8 @@ export const devProjects: Project[] = [
 			"JavaScript",
 			"Stripe",
 		],
-		previewVideo: "",
-		demoVideo: "",
+		previewVideo: "IloeShort.mp4",
+		demoVideo: "Iloe.mp4",
 		videoAlt: "Aperçu vidéo de l'interface du site de photographie Iloé",
 		githubUrl:
 			"https://github.com/cecilepardo/project___photographer-full-website_iloe",
@@ -83,8 +83,8 @@ export const devProjects: Project[] = [
 		fullDesc:
 			"Site permettant aux utilisateurs de planifier leurs séances, voir des exercices et les sauvegarder. Authentification sécurisée et tableau de bord personnalisé.",
 		stack: ["React", "TypeScript", "Node.js", "Express", "MySQL"],
-		previewVideo: "",
-		demoVideo: "",
+		previewVideo: "MoveUpShort.mp4",
+		demoVideo: "MoveUp.mp4",
 		videoAlt: "Démonstration des fonctionnalités de planification de MoveUp",
 		githubUrl:
 			"https://github.com/Joachim-masson/Js-Crew809-TeamRocket-P2-G2-moveup",
@@ -106,8 +106,8 @@ export const devProjects: Project[] = [
 			"REST API",
 			"Express",
 		],
-		previewVideo: "",
-		demoVideo: "",
+		previewVideo: "TatooineShort.mp4",
+		demoVideo: "Tatooine.mp4",
 		videoAlt: "Aperçu de l'interface thématique Star Wars de Tatooine Interim",
 		githubUrl:
 			"https://github.com/cecilepardo/challenge___react-api-project_tatooine-interim",
@@ -154,8 +154,8 @@ export const devProjects: Project[] = [
 		fullDesc:
 			"Site fictif d'un Label de musique, Neon 808, présentant les artistes et leurs productions.",
 		stack: ["HTML", "CSS", "JavaScript"],
-		previewVideo: "",
-		demoVideo: "",
+		previewVideo: "Neon808Short.mp4",
+		demoVideo: "Neon808.mp4",
 		videoAlt: "Démonstration visuelle du label Neon 808",
 		githubUrl:
 			"https://github.com/cecilepardo/project_music-label-website_neon808",
