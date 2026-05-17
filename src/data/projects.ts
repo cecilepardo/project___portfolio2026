@@ -68,8 +68,8 @@ export const devProjects: Project[] = [
 		fullDesc:
 			"Portfolio complet pour mes différents projets et mes books de graphiste, photographe, designeuse...",
 		stack: ["React", "TypeScript", "JavaScript", "Stripe"],
-		previewVideo: "",
-		demoVideo: "",
+		previewVideo: "PortfolioShort.mp4",
+		demoVideo: "Portfolio.mp4",
 		videoAlt: "Aperçu de la navigation du portfolio actuel",
 		githubUrl: "https://github.com/cecilepardo/project___portfolio2026",
 		githubAria: "Consulter le code source du portfolio sur GitHub",

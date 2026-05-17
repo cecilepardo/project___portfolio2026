@@ -115,7 +115,7 @@ const Design = () => {
 		<div className="design-page">
 			<div className="design-container">
 				<header className="design-header">
-					<h1 className="design-title">Visual Lab</h1>
+					<h1 className="design-title">Design</h1>
 					<p className="design-subtitle">
 						<strong>Portfolio :</strong> de l'UI design à la vidéo, donner vie
 						aux idées sur tous les supports.
