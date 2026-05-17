@@ -36,7 +36,7 @@ export const devProjects: Project[] = [
 			"https://github.com/cecilepardo/project___photographer-full-website_iloe",
 		githubAria: "Consulter le code source de Iloé sur GitHub",
 		liveUrl: "https://www.iloe.pro",
-		liveAria: "Visiter le site Iloé en direct",
+		liveAria: "Visiter le site Iloé",
 	},
 	{
 		id: 2,
@@ -73,7 +73,7 @@ export const devProjects: Project[] = [
 		videoAlt: "Aperçu de la navigation du portfolio actuel",
 		githubUrl: "https://github.com/cecilepardo/project___portfolio2026",
 		githubAria: "Consulter le code source du portfolio sur GitHub",
-		liveUrl: "",
+		liveUrl: "https://cecilepardoportfolio-git-dev-cecile-pardo-s-projects.vercel.app/dev",
 		liveAria: "Voir le portfolio en ligne",
 	},
 	{
@@ -112,7 +112,7 @@ export const devProjects: Project[] = [
 		githubUrl:
 			"https://github.com/cecilepardo/challenge___react-api-project_tatooine-interim",
 		githubAria: "Consulter le code source de Tatooine Interim sur GitHub",
-		liveUrl: "https://pickit.pierrefourdin.dev/",
+		
 		liveAria: "Voir la démonstration de Tatooine Interim",
 	},
 	// {
@@ -160,7 +160,6 @@ export const devProjects: Project[] = [
 		githubUrl:
 			"https://github.com/cecilepardo/project_music-label-website_neon808",
 		githubAria: "Consulter le code source de Neon 808 sur GitHub",
-		liveUrl: "https://pickit.pierrefourdin.dev/",
 		liveAria: "Voir le site Neon 808 en ligne",
 	},
 ];
