@@ -10,7 +10,7 @@ interface ContactProps {
 
 const Contact: React.FC<ContactProps> = ({ theme }) => {
   const formRef = useRef<HTMLFormElement>(null);
-  const recaptchaRef = useRef<ReCAPTCHA>(null); // Réinitialiser le captcha visuellement
+  const recaptchaRef = useRef<ReCAPTCHA>(null);
   
   const [isSending, setIsSending] = useState(false);
   const [statusMessage, setStatusMessage] = useState("");
@@ -21,6 +21,7 @@ const Contact: React.FC<ContactProps> = ({ theme }) => {
     email: "",
     message: "",
     rgpdConsent: false,
+    honeypot: "", // Champ piège bien déclaré
   });
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
@@ -35,6 +36,14 @@ const Contact: React.FC<ContactProps> = ({ theme }) => {
 
   const sendEmail = (e: React.FormEvent) => {
     e.preventDefault();
+
+    // Sécurité Honeypot : si rempli, on simule un succès sans rien envoyer
+    if (formData.honeypot !== "") {
+      console.warn("Bot detecté.");
+      setStatusMessage("Message envoyé avec succès !");
+      setFormData({ name: "", email: "", message: "", rgpdConsent: false, honeypot: "" });
+      return;
+    }
 
     if (!captchaToken) {
       setStatusMessage("Veuillez valider le captcha.");
@@ -55,14 +64,15 @@ const Contact: React.FC<ContactProps> = ({ theme }) => {
           () => {
             setStatusMessage("Message envoyé avec succès !");
             setIsSending(false);
-            setFormData({ name: "", email: "", message: "", rgpdConsent: false });
+            // Correction TypeScript : on remet toutes les propriétés de l'état initial
+            setFormData({ name: "", email: "", message: "", rgpdConsent: false, honeypot: "" });
             setCaptchaToken(null);
-            recaptchaRef.current?.reset(); // Réinitialise le widget Google
+            recaptchaRef.current?.reset();
             formRef.current?.reset();
           },
           (error) => {
             console.error("Erreur EmailJS:", error);
-            setStatusMessage("Une erreur est survenue (vérifiez le captcha ou vos clés).");
+            setStatusMessage("Une erreur est survenue.");
             setIsSending(false);
           }
         );
@@ -80,6 +90,18 @@ const Contact: React.FC<ContactProps> = ({ theme }) => {
           <h2>Contactez-moi</h2>
           
           <form ref={formRef} onSubmit={sendEmail} className={styles.form}>
+            {/* Champ Honeypot invisible pour les humains */}
+            <div className={styles.hpField} aria-hidden="true">
+              <input 
+                type="text" 
+                name="honeypot" 
+                value={formData.honeypot} 
+                onChange={handleChange} 
+                tabIndex={-1} 
+                autoComplete="off" 
+              />
+            </div>
+
             <div className={styles.field}>
               <label htmlFor="name">Nom</label>
               <input type="text" id="name" name="name" value={formData.name} onChange={handleChange} required />
@@ -95,9 +117,6 @@ const Contact: React.FC<ContactProps> = ({ theme }) => {
               <textarea id="message" name="message" rows={4} value={formData.message} onChange={handleChange} required />
             </div>
 
-            {/* Note pédagogique : Le ReCAPTCHA v2. 
-                Pense à ajouter VITE_RECAPTCHA_SITE_KEY dans ton .env et sur Vercel ! 
-            */}
             <div className={styles.captchaGroup}>
               <ReCAPTCHA
                 ref={recaptchaRef}
@@ -109,10 +128,9 @@ const Contact: React.FC<ContactProps> = ({ theme }) => {
 
             <div className={styles.checkboxGroup}>
               <input type="checkbox" id="rgpdConsent" name="rgpdConsent" checked={formData.rgpdConsent} onChange={handleChange} required />
-              <label htmlFor="rgpdConsent">J'accepte que mes données soient traitées dans le cadre de l'envoi de ce message</label>
+              <label htmlFor="rgpdConsent">J'accepte que mes données soient traitées...</label>
             </div>
 
-            {/* Le bouton est désactivé si RGPD non coché OU si Captcha non validé OU en cours d'envoi */}
             <button 
               type="submit" 
               className={styles.submitBtn} 
