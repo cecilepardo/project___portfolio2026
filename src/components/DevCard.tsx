@@ -1,3 +1,4 @@
+import { useRef } from "react";
 import type { Project } from "../data/projects";
 
 interface DevCardProps {
@@ -5,38 +6,51 @@ interface DevCardProps {
 	onOpen: (p: Project) => void;
 }
 
-const DevCard = ({ project, onOpen }: DevCardProps) => {
+// Note pédagogique : On ajoute "export" devant pour que le composant
+// soit utilisable ailleurs et que l'erreur "unused variable" disparaisse.
+export const DevCard = ({ project, onOpen }: DevCardProps) => {
+	const videoRef = useRef<HTMLVideoElement>(null);
+
+	const handleMouseEnter = () => {
+		// Note pédagogique : .play() renvoie une promesse, il est propre de catcher
+		// d'éventuelles erreurs de lecture (ex: mode économie d'énergie).
+		videoRef.current?.play().catch(() => {});
+	};
+
+	const handleMouseLeave = () => {
+		if (videoRef.current) {
+			videoRef.current.pause();
+			videoRef.current.currentTime = 0; // On remet au début pour un effet "neuf" à chaque hover
+		}
+	};
+
 	return (
 		<button
-      type="button" // Indispensable pour éviter qu'il ne se comporte comme un "submit"
-      className="dev-card"
-      onClick={() => onOpen(project)}
-      aria-label={`Voir les détails du projet ${project.title}`}
-    >
+			type="button"
+			className="dev-card"
+			onClick={() => onOpen(project)}
+			onMouseEnter={handleMouseEnter}
+			onMouseLeave={handleMouseLeave}
+			aria-label={`Voir les détails du projet ${project.title}`}
+		>
 			<div className="dev-card-media" aria-hidden="true">
 				{project.previewVideo ? (
 					<video
+						ref={videoRef}
 						src={`/assets/videos/${project.previewVideo}`}
-						autoPlay
 						loop
 						muted
 						playsInline
 						preload="auto"
 						className="card-video-preview"
-						tabIndex={-1}
 					>
 						<source
 							src={`/assets/videos/${project.previewVideo}`}
 							type="video/mp4"
 						/>
-						<track kind="captions" label={project.videoAlt} />
 					</video>
 				) : (
-					<div
-						className="dev-video-placeholder"
-						role="img"
-						aria-label="Aperçu vidéo en cours de rendu"
-					>
+					<div className="dev-video-placeholder">
 						<span>Aperçu en cours...</span>
 					</div>
 				)}
@@ -54,7 +68,7 @@ const DevCard = ({ project, onOpen }: DevCardProps) => {
 					))}
 				</div>
 
-				<div className="dev-btn-more">Découvrir</div>
+				<div className="dev-btn-more">Voir plus</div>
 			</div>
 		</button>
 	);

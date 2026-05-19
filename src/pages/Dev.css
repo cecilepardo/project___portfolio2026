@@ -120,8 +120,8 @@
 .dev-hashtag {
 	font-size: 0.75rem;
 	color: var(--color-accent);
-	background: var(--color-soft-accent);
-	padding: 4px 10px;
+	/* background: var(--color-soft-accent); */
+	padding: 4px 8px;
 	border-radius: 8px;
 	font-weight: 600;
 }

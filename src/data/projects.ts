@@ -20,15 +20,7 @@ export const devProjects: Project[] = [
 		shortDesc: "Site de photographe complet",
 		fullDesc:
 			"Un site de photographe complet avec admin, plateforme de vente, gestion des galeries client, calendrier... Projet en cours de développement.",
-		stack: [
-			"MySQL",
-			"Express",
-			"Node.js",
-			"React",
-			"TypeScript",
-			"JavaScript",
-			"Stripe",
-		],
+		stack: ["MySQL", "Express", "Node.js", "React", "TypeScript", "JavaScript"],
 		previewVideo: "IloeShort.mp4",
 		demoVideo: "Iloe.mp4",
 		videoAlt: "Aperçu vidéo de l'interface du site de photographie Iloé",
@@ -67,13 +59,14 @@ export const devProjects: Project[] = [
 		shortDesc: "Portfolio de développeuse et designeuse",
 		fullDesc:
 			"Portfolio complet pour mes différents projets et mes books de graphiste, photographe, designeuse...",
-		stack: ["React", "TypeScript", "JavaScript", "Stripe"],
+		stack: ["React", "TypeScript", "JavaScript"],
 		previewVideo: "PortfolioShort.mp4",
 		demoVideo: "Portfolio.mp4",
 		videoAlt: "Aperçu de la navigation du portfolio actuel",
 		githubUrl: "https://github.com/cecilepardo/project___portfolio2026",
 		githubAria: "Consulter le code source du portfolio sur GitHub",
-		liveUrl: "https://cecilepardoportfolio-git-dev-cecile-pardo-s-projects.vercel.app/dev",
+		liveUrl:
+			"https://cecilepardoportfolio-git-dev-cecile-pardo-s-projects.vercel.app/dev",
 		liveAria: "Voir le portfolio en ligne",
 	},
 	{
@@ -82,7 +75,7 @@ export const devProjects: Project[] = [
 		shortDesc: "Site d'entraînement sportif pour les particuliers",
 		fullDesc:
 			"Site permettant aux utilisateurs de planifier leurs séances, voir des exercices et les sauvegarder. Authentification sécurisée et tableau de bord personnalisé.",
-		stack: ["React", "TypeScript", "Node.js", "Express", "MySQL"],
+		stack: ["React", "TypeScript", "JavaScript", "Node.js", "Express", "MySQL"],
 		previewVideo: "MoveUpShort.mp4",
 		demoVideo: "MoveUp.mp4",
 		videoAlt: "Démonstration des fonctionnalités de planification de MoveUp",
@@ -112,7 +105,7 @@ export const devProjects: Project[] = [
 		githubUrl:
 			"https://github.com/cecilepardo/challenge___react-api-project_tatooine-interim",
 		githubAria: "Consulter le code source de Tatooine Interim sur GitHub",
-		
+
 		liveAria: "Voir la démonstration de Tatooine Interim",
 	},
 	// {
