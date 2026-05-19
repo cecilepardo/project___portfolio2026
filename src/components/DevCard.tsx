@@ -7,11 +7,13 @@ interface DevCardProps {
 
 const DevCard = ({ project, onOpen }: DevCardProps) => {
 	return (
-		<article className="dev-card">
-			<div
-				className="dev-card-media"
-				aria-hidden="true" /* La vidéo automatique est purement visuelle, on la masque pour les lecteurs d'écran */
-			>
+		<button
+      type="button" // Indispensable pour éviter qu'il ne se comporte comme un "submit"
+      className="dev-card"
+      onClick={() => onOpen(project)}
+      aria-label={`Voir les détails du projet ${project.title}`}
+    >
+			<div className="dev-card-media" aria-hidden="true">
 				{project.previewVideo ? (
 					<video
 						src={`/assets/videos/${project.previewVideo}`}
@@ -21,9 +23,7 @@ const DevCard = ({ project, onOpen }: DevCardProps) => {
 						playsInline
 						preload="auto"
 						className="card-video-preview"
-						tabIndex={
-							-1
-						} /* Évite que le lecteur d'écran ne focus sur une vidéo décorative */
+						tabIndex={-1}
 					>
 						<source
 							src={`/assets/videos/${project.previewVideo}`}
@@ -34,7 +34,7 @@ const DevCard = ({ project, onOpen }: DevCardProps) => {
 				) : (
 					<div
 						className="dev-video-placeholder"
-						role="img" /* On indique s'émantiquement qu'il s'agit d'une image/placeholder visuel */
+						role="img"
 						aria-label="Aperçu vidéo en cours de rendu"
 					>
 						<span>Aperçu en cours...</span>
@@ -54,16 +54,9 @@ const DevCard = ({ project, onOpen }: DevCardProps) => {
 					))}
 				</div>
 
-				{/* Utilisation de type="button" pour la sémantique Biome */}
-				<button
-					type="button"
-					className="dev-btn-more"
-					onClick={() => onOpen(project)}
-				>
-					Voir plus
-				</button>
+				<div className="dev-btn-more">Découvrir</div>
 			</div>
-		</article>
+		</button>
 	);
 };
 
