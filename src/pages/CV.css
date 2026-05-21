@@ -403,101 +403,101 @@
    ========================================================================== */
 
 .timeline-container {
-  position: relative;
-  padding-left: 35px;
-  border-left: 1px solid rgba(128, 128, 128, 0.2);
-  margin-left: 10px;
+	position: relative;
+	padding-left: 35px;
+	border-left: 1px solid rgba(128, 128, 128, 0.2);
+	margin-left: 10px;
 }
 
 .timeline-item {
-  position: relative;
-  margin-bottom: 50px;
+	position: relative;
+	margin-bottom: 50px;
 }
 
 .timeline-dot {
-  position: absolute;
-  left: -41.5px;
-  top: 8px;
-  width: 12px;
-  height: 12px;
-  background-color: var(--text-main);
-  border-radius: 50%;
-  border: 2px solid var(--color-space);
-  z-index: 2;
+	position: absolute;
+	left: -41.5px;
+	top: 8px;
+	width: 12px;
+	height: 12px;
+	background-color: var(--text-main);
+	border-radius: 50%;
+	border: 2px solid var(--color-space);
+	z-index: 2;
 }
 
 .timeline-dev .timeline-dot {
-  background-color: var(--color-accent);
-  box-shadow: 0 0 10px var(--color-accent);
+	background-color: var(--color-accent);
+	box-shadow: 0 0 10px var(--color-accent);
 }
 
 .timeline-date {
-  font-family: var(--font-title);
-  font-weight: 700;
-  color: var(--color-accent);
-  font-size: 0.9rem;
-  margin-bottom: 8px;
-  display: block;
+	font-family: var(--font-title);
+	font-weight: 700;
+	color: var(--color-accent);
+	font-size: 0.9rem;
+	margin-bottom: 8px;
+	display: block;
 }
 
 .timeline-content {
-  background-color: var(--color-nav);
-  padding: 1.8rem;
-  border-radius: 12px;
-  border: 1px solid rgba(128, 128, 128, 0.1);
-  transition: all 0.3s ease;
+	background-color: var(--color-nav);
+	padding: 1.8rem;
+	border-radius: 12px;
+	border: 1px solid rgba(128, 128, 128, 0.1);
+	transition: all 0.3s ease;
 }
 
 .timeline-content:hover {
-  box-shadow: 0 5px 20px -5px var(--color-horizon);
+	box-shadow: 0 5px 20px -5px var(--color-horizon);
 }
 
 .timeline-role {
-  font-family: var(--font-title);
-  font-size: 1.2rem;
-  font-weight: 700;
-  color: var(--text-main);
-  margin-bottom: 4px;
+	font-family: var(--font-title);
+	font-size: 1.2rem;
+	font-weight: 700;
+	color: var(--text-main);
+	margin-bottom: 4px;
 }
 
 .timeline-company {
-  font-size: 1rem;
-  font-weight: 500;
-  color: var(--color-accent);
-  margin-bottom: 12px;
+	font-size: 1rem;
+	font-weight: 500;
+	color: var(--color-accent);
+	margin-bottom: 12px;
 }
 
 /* --- 6.1 DÉTAILS DES EXPÉRIENCES (Listes) --- */
 .timeline-details {
-  font-size: 0.95rem;
-  line-height: 1.6;
-  color: var(--text-main);
-  opacity: 1;
+	font-size: 0.95rem;
+	line-height: 1.6;
+	color: var(--text-main);
+	opacity: 1;
 }
 
 .timeline-detail-list {
-  margin: 12px 0 0 0;
-  padding-left: 1.2rem;
-  list-style: none;
+	margin: 12px 0 0 0;
+	padding-left: 1.2rem;
+	list-style: none;
 }
 
 .timeline-detail-list li {
-  position: relative;
-  margin-bottom: 6px;
-  padding-left: 5px;
+	position: relative;
+	margin-bottom: 6px;
+	padding-left: 5px;
 }
 
 .timeline-detail-list li::before {
-  content: "→"; /* Flèche discrète orientée "progrès/tech" */
-  position: absolute;
-  left: -1.2rem;
-  color: var(--color-accent);
-  font-weight: bold;
-  font-size: 0.9rem;
+	content: "→"; /* Flèche discrète orientée "progrès/tech" */
+	position: absolute;
+	left: -1.2rem;
+	color: var(--color-accent);
+	font-weight: bold;
+	font-size: 0.9rem;
 }
 
 .timeline-detail-list li:last-child {
-  margin-bottom: 0;
+	margin-bottom: 0;
 }
 
 /* ==========================================================================
@@ -505,22 +505,22 @@
    ========================================================================== */
 
 @media (max-width: 768px) {
-  .timeline-container {
-    padding-left: 25px;
-    margin-left: 5px;
-  }
+	.timeline-container {
+		padding-left: 25px;
+		margin-left: 5px;
+	}
 
-  .timeline-dot {
-    left: -31.5px;
-  }
+	.timeline-dot {
+		left: -31.5px;
+	}
 
-  .timeline-content {
-    padding: 1.2rem;
-  }
+	.timeline-content {
+		padding: 1.2rem;
+	}
 
-  .timeline-role {
-    font-size: 1.1rem;
-  }
+	.timeline-role {
+		font-size: 1.1rem;
+	}
 }
 
 /* ==========================================================================
@@ -557,46 +557,46 @@
    ========================================================================== */
 
 .expo-content {
-  flex: 1;
+	flex: 1;
 }
 
 .expo-list {
-  list-style: none; /* On retire les puces par défaut pour les personnaliser */
-  padding: 0;
-  margin: 0;
+	list-style: none; /* On retire les puces par défaut pour les personnaliser */
+	padding: 0;
+	margin: 0;
 }
 
 .expo-list li {
-  position: relative;
-  padding-left: 15px;
-  font-size: 0.85rem;
-  color: var(--text-main);
-  opacity: 0.8;
-  line-height: 1.5;
-  margin-bottom: 4px;
+	position: relative;
+	padding-left: 15px;
+	font-size: 0.85rem;
+	color: var(--text-main);
+	opacity: 0.8;
+	line-height: 1.5;
+	margin-bottom: 4px;
 }
 
 .expo-list li::before {
-  content: "•";
-  position: absolute;
-  left: 0;
-  color: var(--text-main);
-  font-weight: bold;
+	content: "•";
+	position: absolute;
+	left: 0;
+	color: var(--text-main);
+	font-weight: bold;
 }
 
 .expo-list li:last-child {
-  margin-bottom: 0;
+	margin-bottom: 0;
 }
 
 /* On s'assure que l'alignement reste propre sur mobile */
 @media (max-width: 768px) {
-  .expo-item {
-    gap: 10px;
-  }
-  
-  .expo-list {
-    margin-top: 5px;
-  }
+	.expo-item {
+		gap: 10px;
+	}
+
+	.expo-list {
+		margin-top: 5px;
+	}
 }
 
 /* ==========================================================================
@@ -647,9 +647,10 @@
 	transition: box-shadow 0.3s ease;
 }
 
-interests-block p, .expo-list li {
-  color: var(--text-main);
-  opacity: 1;
+interests-block p,
+.expo-list li {
+	color: var(--text-main);
+	opacity: 1;
 }
 
 .interests-block:hover {
@@ -686,5 +687,54 @@ interests-block p, .expo-list li {
 		flex-direction: column;
 		gap: 5px;
 		padding: 1rem 0;
+	}
+}
+
+/* ==========================================================================
+   BOUTON SCROLL TO TOP (Spécifique CV)
+   ========================================================================== */
+.cv-scroll-top-btn {
+	position: fixed;
+	bottom: 6rem;
+	right: 2rem;
+	width: 3rem;
+	height: 3rem;
+	border-radius: 50%;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	cursor: pointer;
+	z-index: 1500;
+	border: none;
+	transition:
+		transform 0.3s ease,
+		background-color 0.3s ease,
+		color 0.3s ease,
+		box-shadow 0.3s ease;
+
+	background-color: var(--color-nav);
+	color: var(--color-accent);
+	box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+}
+
+.cv-scroll-top-btn:hover {
+	transform: scale(1.1);
+	background-color: var(--color-soft-accent);
+}
+
+[data-theme="light"] .cv-scroll-top-btn {
+	background-color: #ffffff;
+	color: var(--color-accent);
+	border: 1px solid rgba(20, 32, 48, 0.1);
+	box-shadow: 0 4px 12px rgba(20, 32, 48, 0.08);
+}
+
+[data-theme="light"] .cv-scroll-top-btn:hover {
+	background-color: var(--color-soft-accent);
+}
+
+@media (max-width: 768px) {
+	.cv-scroll-top-btn {
+		bottom: 2rem;
 	}
 }

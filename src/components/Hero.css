@@ -2,119 +2,120 @@
    1. CONTENEUR PRINCIPAL (Structure & Background)
    ========================================================================== */
 .hero-container {
-  position: relative;
-  width: 100%;
-  height: 60vh; 
-  min-height: 350px;
-  display: flex;
-  align-items: center;
-  top: 0;
-  margin-top: 0;
-
-  /* Gestion du background (Image via style inline dans le composant) */
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
+	position: relative;
+	width: 100%;
+	height: 60vh;
+	min-height: 350px;
+	display: flex;
+	align-items: center;
+	top: 0;
+	margin-top: -5rem;
+	padding-top: 5rem;
+	background-size: cover;
+	background-position: center;
+	background-repeat: no-repeat;
 }
 
 .hero-overlay {
-  width: 100%;
-  height: 100%;
-  padding: 2rem;
-  display: flex;
-  align-items: center;
+	width: 100%;
+	height: 100%;
+	padding: 2rem;
+	display: flex;
+	align-items: center;
 }
 
 /* ==========================================================================
    2. CONTENU TEXTUEL (Styles par défaut - MOBILE)
    ========================================================================== */
 .hero-content {
-  width: 100%;
-  margin: 0 auto;
-  padding: 0 20px;
-  color: #ffffff;
+	width: 100%;
+	margin: 0 auto;
+	padding: 0 20px;
+	color: #ffffff;
 }
 
 .hero-title {
-  /* MASQUÉ SUR MOBILE selon ta demande */
-  display: none; 
-  
-  font-family: var(--font-title);
-  font-size: clamp(2.5rem, 8vw, 4rem);
-  font-weight: 700;
-  margin-bottom: 0.5rem;
-  text-shadow: 1px 1px 2px rgba(115, 37, 83, 0.1), 0px 0px 15px rgba(115, 37, 83, 0.3);
+	display: none;
+
+	font-family: var(--font-title);
+	font-size: clamp(2.5rem, 8vw, 4rem);
+	font-weight: 700;
+	margin-bottom: 0.5rem;
+	text-shadow:
+		1px 1px 2px rgba(115, 37, 83, 0.1),
+		0px 0px 15px rgba(115, 37, 83, 0.3);
 }
 
 .hero-subtitle {
-  font-family: var(--font-title);
-  font-size: 1.5rem; /* Un peu plus petit sur mobile */
-  color: var(--color-accent); /* Changé pour ton --color-accent rose */
-  margin-bottom: 1rem;
-  text-shadow: 1px 1px 2px rgba(115, 37, 83, 0.1), 0px 0px 15px rgba(115, 37, 83, 0.3);
+	font-family: var(--font-title);
+	font-size: 1.5rem;
+	color: var(--color-accent);
+	margin-bottom: 1rem;
+	text-shadow:
+		1px 1px 2px rgba(115, 37, 83, 0.1),
+		0px 0px 15px rgba(115, 37, 83, 0.3);
 }
 
 .hero-description {
-  font-family: var(--font-body);
-  font-size: 1rem;
-  line-height: 1.5;
-  max-width: 650px;
-  text-shadow: 1px 1px 8px rgba(0, 0, 0, 0.5);
+	font-family: var(--font-body);
+	font-size: 1rem;
+	line-height: 1.5;
+	max-width: 650px;
+	text-shadow: 1px 1px 8px rgba(0, 0, 0, 0.5);
 }
 
 .hero-inner {
-  width: 100%;
-  max-width: 1400px;
-  margin: 0 auto;
-  padding: 0 40px;
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
+	width: 100%;
+	max-width: 1400px;
+	margin: 0 auto;
+	padding: 0 40px;
+	display: flex;
+	flex-direction: column;
+	align-items: flex-start;
 }
 
 .hero-overlay {
-  width: 100%;
-  height: 100%;
-  display: flex;
-  align-items: center;
-  justify-content: flex-start;
+	width: 100%;
+	height: 100%;
+	display: flex;
+	align-items: center;
+	justify-content: flex-start;
 }
 
 .hero-content {
-  width: 100%;
-  padding: 0;
-  margin: 0;
-  color: #ffffff;
-  max-width: 800px;
-  text-align: left;
+	width: 100%;
+	padding: 0;
+	margin: 0;
+	color: #ffffff;
+	max-width: 800px;
+	text-align: left;
 }
 
 /* ==========================================================================
    3. ADAPTATIONS DESKTOP (Écrans > 768px)
    ========================================================================== */
 @media (min-width: 769px) {
-  .hero-content {
-    padding: 0;
-  }
+	.hero-content {
+		padding: 0;
+	}
 
-  .hero-title {
-    /* RÉAPPARAÎT SUR DESKTOP */
-    display: block; 
-  }
+	.hero-title {
+		display: block;
+	}
 
-  .hero-subtitle {
-    font-size: 1.8rem;
-    margin-bottom: 1.5rem;
-  }
+	.hero-subtitle {
+		font-size: 1.8rem;
+		margin-bottom: 1.5rem;
+	}
 
-  .hero-description {
-    font-size: 1.1rem;
-    line-height: 1.6;
-  }
+	.hero-description {
+		font-size: 1.1rem;
+		line-height: 1.6;
+	}
 }
 
 @media (max-width: 768px) {
-  .hero-inner {
-    padding: 0 20px;
-  }
+	.hero-inner {
+		padding: 0 20px;
+	}
 }
