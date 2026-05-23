@@ -21,10 +21,12 @@ const MentionsLegales = () => {
 
 			<section className={styles.section}>
 				<h2>2. Hébergement du site</h2>
+				<p>Ce site est hébergé par : Vercel Inc.</p>
 				<p>
-					Ce site sera prochainement hébergé par : [Nom de l'hébergeur à venir]
+					Adresse de l'hébergeur : 440 N Barranca Ave #4133, Covina, CA 91723,
+					États-Unis
 				</p>
-				<p>Adresse de l'hébergeur : [Adresse à compléter]</p>
+				<p>Adresse de contact : https://vercel.com/contact</p>
 			</section>
 
 			<section className={styles.section}>
@@ -40,17 +42,17 @@ const MentionsLegales = () => {
 					l'autorisation écrite préalable de l'éditeur.
 				</p>
 				<p>
-  Les images de background ont été réalisées par{" "}
-    <a
-      href="https://2d.fr"
-      target="_blank"
-      rel="noopener noreferrer"
-			style={{ color: "#ff5c80" }}
-    >
-      Made Art
-    </a>
-  .
-</p>
+					Les images de background ont été réalisées par{" "}
+					<a
+						href="https://2d.fr"
+						target="_blank"
+						rel="noopener noreferrer"
+						style={{ color: "#ff5c80" }}
+					>
+						Made Art
+					</a>
+					.
+				</p>
 			</section>
 
 			<section className={styles.section}>
