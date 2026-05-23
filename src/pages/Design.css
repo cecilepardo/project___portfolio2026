@@ -267,3 +267,114 @@
 		grid-row: span 1;
 	}
 }
+
+/* ==========================================================================
+   GALERIE MODALE (Spécifique page Design)
+   ========================================================================== */
+
+/* Structure du conteneur de média */
+.gallery-modal-content {
+	position: relative;
+	max-width: 75vw;
+	max-height: 80vh;
+	background-color: var(--color-space);
+	border-radius: 8px;
+	overflow: hidden;
+	display: flex;
+	flex-direction: column;
+	box-shadow: 0 20px 50px rgba(0, 0, 0, 0.6);
+	border: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+/* Ajustement du média plein écran */
+.gallery-media-fullscreen {
+	max-width: 100%;
+	max-height: 70vh;
+	object-fit: contain;
+	background-color: #000000;
+}
+
+/* Légende sous le média */
+.gallery-caption {
+	padding: 1.5rem 2rem;
+	background-color: var(--color-nav);
+	color: #ffffff;
+	text-align: left;
+}
+
+.gallery-cat {
+	font-size: 0.85rem;
+	color: var(--color-accent);
+	text-transform: uppercase;
+	letter-spacing: 1px;
+	display: block;
+	margin-bottom: 0.25rem;
+}
+
+.gallery-title {
+	font-family: var(--font-title);
+	font-size: 1.3rem;
+	margin: 0;
+	font-weight: 600;
+}
+
+/* Boutons Flèches de Navigation */
+.gallery-nav-btn {
+	background: none;
+	border: none;
+	color: #ffffff;
+	font-size: 4.5rem;
+	cursor: pointer;
+	padding: 1rem;
+	transition:
+		color 0.2s ease,
+		transform 0.2s ease;
+	user-select: none;
+	z-index: 3100;
+}
+
+.gallery-nav-btn:hover {
+	color: var(--color-accent);
+	transform: scale(1.2);
+}
+
+.bento-card-button {
+	background: none;
+	border: none;
+	padding: 0;
+	margin: 0;
+	width: 100%;
+	height: 100%;
+	cursor: pointer;
+	text-align: left;
+	font: inherit;
+	color: inherit;
+	display: block;
+}
+
+/* Positionnement responsive des boutons de navigation */
+@media (max-width: 768px) {
+	.gallery-modal-content {
+		max-width: 90vw;
+		max-height: 75vh;
+	}
+
+	.gallery-nav-btn {
+		font-size: 3rem;
+		position: fixed;
+		bottom: 2rem; /* Positionne les flèches en bas sur mobile pour l'accessibilité des pouces */
+	}
+
+	.gallery-prev {
+		left: 25%;
+		transform: translateX(-50%);
+	}
+	.gallery-next {
+		right: 25%;
+		transform: translateX(50%);
+	}
+
+	.gallery-nav-btn:hover {
+		transform: scale(1); /* Désactive le scale hover sur tactile */
+	}
+}
