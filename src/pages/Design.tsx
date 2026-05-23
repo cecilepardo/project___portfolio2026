@@ -1,4 +1,4 @@
-import { useState, useMemo } from "react";
+import { useState, useMemo, useEffect, useCallback } from "react";
 import "./Design.css";
 
 /* --- Types --- */
@@ -15,38 +15,30 @@ interface Project {
 	id: number;
 	title: string;
 	category: string;
-	img: string; // URL du média (image ou vidéo)
+	img: string;
 	size: string;
 	alt: string;
-	type: "image" | "video"; // Distingue le tag HTML à utiliser
+	type: "image" | "video";
 }
 
 /* --- Logique de récupération dynamique --- */
-// On inclut les extensions vidéo dans le glob
 const mediaFiles = import.meta.glob(
 	"/src/assets/portfolio/**/*.{jpg,jpeg,png,webp,svg,mp4,webm}",
 	{ eager: true },
 );
 
-/**
- * Transformation des assets selon la nomenclature :
- * catégorie_titre_alt_format.extension
- */
 const allProjects: Project[] = Object.keys(mediaFiles).map((path, index) => {
 	const fileName = path.split("/").pop() || "";
 	const parts = fileName.split(".")[0].split("_");
 	const extension = fileName.split(".").pop()?.toLowerCase();
 
-	// 1. Extraction des segments du nom de fichier
 	const rawCat = parts[0] || "Design";
 	const rawTitle = parts[1] || "Projet";
 	const rawAlt = parts[2] || rawTitle;
 	const sizeKey = parts[3] ? `_${parts[3]}` : "_sm";
 
-	// 2. Détection du type de média
 	const isVideo = ["mp4", "webm"].includes(extension || "");
 
-	// 3. Mapping des classes de taille Bento
 	const sizeMap: Record<string, string> = {
 		_lg: "large",
 		_wd: "wide",
@@ -54,7 +46,6 @@ const allProjects: Project[] = Object.keys(mediaFiles).map((path, index) => {
 		_sm: "small",
 	};
 
-	// 4. Normalisation des catégories (Mapping flexible)
 	const formatCategory = (cat: string) => {
 		const map: Record<string, string> = {
 			graphism: "Graphisme",
@@ -84,6 +75,8 @@ const allProjects: Project[] = Object.keys(mediaFiles).map((path, index) => {
 
 const Design = () => {
 	const [filter, setFilter] = useState<Category>("All");
+	const [selectedIndex, setSelectedIndex] = useState<number | null>(null);
+
 	const categories: Category[] = [
 		"All",
 		"Design",
@@ -94,11 +87,6 @@ const Design = () => {
 		"Vidéo",
 	];
 
-	/**
-	 * Filtrage et Randomisation
-	 * Le 'useMemo' empêche la grille de se mélanger à nouveau si le composant re-render
-	 * pour une raison autre que le changement de filtre.
-	 */
 	const displayedProjects = useMemo(() => {
 		const filtered =
 			filter === "All"
@@ -107,9 +95,42 @@ const Design = () => {
 						(p) => p.category.toLowerCase() === filter.toLowerCase(),
 					);
 
-		// Algorithme de mélange (Fisher-Yates simple) pour le dynamisme visuel
 		return [...filtered].sort(() => Math.random() - 0.5);
 	}, [filter]);
+
+	const handleClose = useCallback(() => setSelectedIndex(null), []);
+
+	const handleNext = useCallback(() => {
+		if (selectedIndex !== null) {
+			setSelectedIndex((prev) =>
+				prev === displayedProjects.length - 1 ? 0 : prev! + 1,
+			);
+		}
+	}, [selectedIndex, displayedProjects.length]);
+
+	const handlePrev = useCallback(() => {
+		if (selectedIndex !== null) {
+			setSelectedIndex((prev) =>
+				prev === 0 ? displayedProjects.length - 1 : prev! - 1,
+			);
+		}
+	}, [selectedIndex, displayedProjects.length]);
+
+	useEffect(() => {
+		if (selectedIndex === null) return;
+
+		const handleKeyDown = (e: KeyboardEvent) => {
+			if (e.key === "Escape") handleClose();
+			if (e.key === "ArrowRight") handleNext();
+			if (e.key === "ArrowLeft") handlePrev();
+		};
+
+		window.addEventListener("keydown", handleKeyDown);
+		return () => window.removeEventListener("keydown", handleKeyDown);
+	}, [selectedIndex, handleClose, handleNext, handlePrev]);
+
+	const currentProject =
+		selectedIndex !== null ? displayedProjects[selectedIndex] : null;
 
 	return (
 		<div className="design-page">
@@ -122,14 +143,16 @@ const Design = () => {
 					</p>
 				</header>
 
-				{/* Filtres de navigation */}
 				<nav className="design-filters" aria-label="Catégories de projets">
 					{categories.map((cat) => (
 						<button
 							type="button"
 							key={cat}
 							className={`filter-btn ${filter === cat ? "active" : ""}`}
-							onClick={() => setFilter(cat)}
+							onClick={() => {
+								setFilter(cat);
+								handleClose();
+							}}
 							aria-pressed={filter === cat}
 						>
 							<span className="filter-label">{cat}</span>
@@ -137,43 +160,119 @@ const Design = () => {
 					))}
 				</nav>
 
-				{/* Grille Bento : la 'key' force le re-montage et déclenche les animations CSS */}
 				<div className="bento-grid" key={filter}>
-					{displayedProjects.map((project) => (
+					{displayedProjects.map((project, index) => (
 						<article key={project.id} className={`bento-item ${project.size}`}>
-							<div className="bento-card">
-								{/* Rendu conditionnel selon le type de média */}
-								{project.type === "video" ? (
-									<video
-										src={project.img}
-										className="bento-media"
-										muted
-										loop
-										autoPlay
-										playsInline
-										/* playsInline est vital pour l'auto-play sur mobile sans plein écran */
-									/>
-								) : (
-									<img
-										src={project.img}
-										alt={project.alt}
-										className="bento-media"
-										loading="lazy"
-									/>
-								)}
+							<button
+								type="button"
+								className="bento-card-button"
+								onClick={() => setSelectedIndex(index)}
+								aria-label={`Ouvrir le projet ${project.title}`}
+							>
+								<div className="bento-card">
+									{project.type === "video" ? (
+										<video
+											src={project.img}
+											className="bento-media"
+											muted
+											loop
+											autoPlay
+											playsInline
+										/>
+									) : (
+										<img
+											src={project.img}
+											alt={project.alt}
+											className="bento-media"
+											loading="lazy"
+										/>
+									)}
 
-								{/* Overlay textuel avec protection de lisibilité (gradient + shadow) */}
-								<div className="bento-overlay">
-									<div className="bento-info">
-										<span className="bento-cat">{project.category}</span>
-										<h3 className="bento-title">{project.title}</h3>
+									<div className="bento-overlay">
+										<div className="bento-info">
+											<span className="bento-cat">{project.category}</span>
+											<h3 className="bento-title">{project.title}</h3>
+										</div>
 									</div>
 								</div>
-							</div>
+							</button>
 						</article>
 					))}
 				</div>
 			</div>
+
+			{/* --- STRUCTURE DE LA MODALE COMPLÈTE --- */}
+			{currentProject && (
+				<button
+					type="button"
+					className="modal-overlay"
+					onClick={handleClose}
+					aria-label="Fermer la galerie"
+				>
+					<button
+						type="button"
+						className="gallery-nav-btn gallery-prev"
+						onClick={(e) => {
+							e.stopPropagation();
+							handlePrev();
+						}}
+						aria-label="Projet précédent"
+					>
+						&#8249;
+					</button>
+
+					<div
+						className="gallery-modal-content"
+						onClick={(e) => e.stopPropagation()}
+						onKeyDown={(e) => e.stopPropagation()}
+						role="dialog"
+						aria-modal="true"
+					>
+						<button
+							type="button"
+							className="modal-close"
+							onClick={handleClose}
+							aria-label="Fermer"
+						>
+							&times;
+						</button>
+
+						{currentProject.type === "video" ? (
+							<video
+								src={currentProject.img}
+								controls
+								autoPlay
+								loop
+								muted
+								className="gallery-media-fullscreen"
+							/>
+						) : (
+							<img
+								src={currentProject.img}
+								alt={currentProject.alt}
+								className="gallery-media-fullscreen"
+							/>
+						)}
+
+						<div className="gallery-caption">
+							<span className="gallery-cat">{currentProject.category}</span>
+							<h2 className="gallery-title">{currentProject.title}</h2>
+						</div>
+					</div>
+
+					<button
+						type="button"
+						className="gallery-nav-btn gallery-next"
+						onClick={(e) => {
+							e.stopPropagation();
+							handleNext();
+						}}
+						aria-label="Projet suivant"
+					>
+						&#8250;
+					</button>
+				</button>
+			)}
 		</div>
 	);
 };
