@@ -13,8 +13,10 @@ import photoProfile from "../assets/pardo_fullstack_photo.jpg";
 import iconCss from "../assets/icons/css.png";
 import iconDocker from "../assets/icons/docker.png";
 import iconExpress from "../assets/icons/express.png";
+import iconExpressLight from "../assets/icons/express-light.png";
 import iconFigma from "../assets/icons/figma.png";
 import iconGitHub from "../assets/icons/github.png";
+import iconGitHubLight from "../assets/icons/github-light.png";
 import iconHtml5 from "../assets/icons/html5.png";
 import iconIllustrator from "../assets/icons/illustrator.png";
 import iconIndesign from "../assets/icons/indesign.png";
@@ -23,6 +25,7 @@ import iconJira from "../assets/icons/jira.png";
 import iconLightroom from "../assets/icons/lightroom.png";
 import iconMysql from "../assets/icons/mysql.png";
 import iconNodejs from "../assets/icons/nodejs.png";
+import iconNodejsLight from "../assets/icons/nodejs-light.png";
 import iconPhotoshop from "../assets/icons/photoshop.png";
 import iconPremiere from "../assets/icons/premiere.png";
 import iconPython from "../assets/icons/python.png";
@@ -134,8 +137,14 @@ const CV = ({ theme }: CVProps) => {
 			title: "Back-end",
 			skills: [
 				{ name: "MySQL", icon: iconMysql },
-				{ name: "Express", icon: iconExpress },
-				{ name: "Node.js", icon: iconNodejs },
+				{
+					name: "Express",
+					icon: theme === "light" ? iconExpressLight : iconExpress,
+				},
+				{
+					name: "Node.js",
+					icon: theme === "light" ? iconNodejsLight : iconNodejs,
+				},
 				{ name: "Python", icon: iconPython },
 			],
 		},
@@ -164,7 +173,10 @@ const CV = ({ theme }: CVProps) => {
 			title: "Outils",
 			skills: [
 				{ name: "Docker", icon: iconDocker },
-				{ name: "GitHub", icon: iconGitHub },
+				{
+					name: "GitHub",
+					icon: theme === "light" ? iconGitHubLight : iconGitHub,
+				},
 				{ name: "Jira", icon: iconJira },
 				{ name: "Trello", icon: iconTrello },
 			],
@@ -178,7 +190,7 @@ const CV = ({ theme }: CVProps) => {
 			role: "UX/UI & Développement Fullstack",
 			isDev: true,
 			details:
-				"Développement de 3 applications web (MoveUp, Pickit, Pixowl) : architecture scalable, API REST, optimisation des performances et conformité RGAA (accessibilité). Stack : SQL, Express, React, TypeScript.",
+				"Développement de 3 applications web (MoveUp, Pickit, Pixowl) : architecture scalable, API REST, optimisation des performances et conformité RGAA (accessibilité).",
 		},
 		{
 			year: "2020 - 2024",
